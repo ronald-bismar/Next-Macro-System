@@ -1,0 +1,59 @@
+:root {
+  --color-font-header: white;
+  --bgcolor: #f4f4f4;
+  --colores-card: white;
+  --gradient-color-light: #4295d4;
+  --gradient-color-dark: #006283;
+  --color-sombra-card: 0px 0px 10px rgb(199, 198, 198);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: OpenSans-Medium;
+  src: url("../fonts/OpenSans-Medium.ttf");
+}
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: OpenSans-SemiBold;
+  src: url("../fonts/OpenSans-SemiBold.ttf");
+}
+/* Boton para volver arriba */
+#btn-arriba {
+  position: fixed;
+  width: 2.5rem;
+  height: 2.5rem;
+  bottom: 30px;
+  right: 30px;
+  border-style: none;
+  background-color: tomato;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icono_arriba {
+  width: 50px;
+  height: 50px;
+  color: aliceblue;
+  margin-top: 10px;
+  transform: rotate(-45deg) translate(1px, -2px);
+}
+
+@media (max-width: 768px) {
+  .row .col .item-1 {
+    height: 500px;
+  }
+  .row .col .item-2 {
+    height: 500px;
+  }
+}
+body {
+  background-color: var(--bgcolor);
+}

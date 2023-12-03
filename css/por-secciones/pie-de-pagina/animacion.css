@@ -1,0 +1,54 @@
+.pie-de-pagina .redes a .icon-redes {
+  transition: 0.7s;
+}
+.pie-de-pagina .redes a span {
+  transition: all ease-out 0.5s;
+}
+
+/* Animacion logo facebook */
+.pie-de-pagina .redes #link-facebook:hover .icon-redes {
+  transform: translateY(15px);
+  background-color: #f2ecff;
+  color: rgb(0, 98, 255);
+}
+.pie-de-pagina .redes #link-facebook:hover #icon-facebook {
+  transform: translateY(-40px);
+  opacity: 1;
+}
+/* Animacion logo Youtube */
+.pie-de-pagina .redes #link-youtube:hover .icon-redes {
+  transform: translateY(15px);
+  background-color: #f2ecff;
+  color: red;
+}
+.pie-de-pagina .redes #link-youtube:hover #icon-youtube {
+  transform: translateY(-40px);
+  opacity: 1;
+}
+/* Animacion logo Instagram */
+.pie-de-pagina .redes #link-instagram:hover .icon-redes {
+  transform: translateY(15px);
+  color: #cc39a4;
+}
+.pie-de-pagina .redes #link-instagram:hover #icon-instagram {
+  transform: translateY(-40px);
+  opacity: 1;
+}
+/* Animacion logo whatsapp */
+.pie-de-pagina .redes #link-whatsapp:hover .icon-redes {
+  transform: translateY(15px);
+  color: #25d366;
+}
+.pie-de-pagina .redes #link-whatsapp:hover #icon-whatsapp {
+  transform: translateY(-40px);
+  opacity: 1;
+}
+/* Animacion logo gmail */
+.pie-de-pagina .redes #link-gmail:hover .icon-redes {
+  transform: translateY(15px);
+  color: #3b60c4;
+}
+.pie-de-pagina .redes #link-gmail:hover #icon-gmail {
+  transform: translateY(-40px);
+  opacity: 1;
+}

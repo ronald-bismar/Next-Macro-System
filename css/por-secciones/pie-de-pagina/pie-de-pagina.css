@@ -1,0 +1,45 @@
+:root {
+  --color-gradient-oscuro: rgb(26, 26, 26);
+  --color-gradient-claro: rgb(70, 70, 70);
+  --color-iconos-redes: #030303;
+}
+.pie-de-pagina {
+  background: linear-gradient(
+    -45deg,
+    var(--color-gradient-oscuro),
+    var(--color-gradient-claro)
+  );
+  color: white;
+  height: 400px;
+}
+
+.list-group-item {
+  background-color: rgba(0, 0, 0, 0);
+}
+.pie-de-pagina .redes {
+  margin-block: 20px;
+  gap: 30px;
+}
+.pie-de-pagina .redes a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+}
+.pie-de-pagina .redes a .icon-redes {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 15px;
+  border-radius: 150%;
+  background-color: aliceblue;
+  color: var(--color-iconos-redes);
+  box-shadow: 10px 10px 10px rgb(34, 34, 34);
+}
+
+.pie-de-pagina .redes a span {
+  position: absolute;
+  opacity: 0;
+  color: aliceblue;
+}

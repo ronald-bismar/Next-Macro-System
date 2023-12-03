@@ -1,0 +1,107 @@
+.web-movil div div div figure .contenedor-imagen {
+  height: 300px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.web-movil div div div figure img {
+  height: 300px;
+  background-color: white;
+  border-radius: 10px;
+}
+.web-movil div div div figure .contenedor-imagen img {
+  padding: 10px;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 10px;
+}
+.web-movil div div div figure .contenedor-imagen .pag-web {
+  padding: 30px;
+}
+
+.cajaP figure img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.cajaP figure:hover {
+  cursor: pointer;
+}
+.cajaP figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e9edf1;
+  padding: 8px;
+  border-radius: 10px;
+  height: 500px;
+  width: 350px;
+}
+figure p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+figure button {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding: 5px 50px;
+  border-style: none;
+  background-color: var(--gradient-color-light);
+  border-radius: 5px;
+  color: white;
+  transition: 0.3s;
+}
+figure button:hover {
+  transform: translateY(-15px);
+}
+/* Contactos o cotizaciones 2 */
+.cotizaciones2 {
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
+  background: linear-gradient(
+    180deg,
+    var(--gradient-color-light),
+    var(--gradient-color-dark)
+  );
+  height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cotizaciones2 img {
+  height: 85%;
+  width: auto;
+  transform: translateY(-30px);
+}
+.cotizaciones2 div div button {
+  padding: 5px 50px;
+  border-style: none;
+  border-radius: 6px;
+  background-color: rgb(255, 186, 74);
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+.cotizaciones2 div div button:hover {
+  background-color: rgb(255, 134, 82);
+  color: white;
+  box-shadow: 5px 5px 10px rgb(0, 65, 130);
+}
+@media (max-width: 768px) {
+  .cotizaciones2 {
+    height: 120vh;
+  }
+  .cotizaciones2 img {
+    height: 80vh;
+  }
+}
+@media (max-width: 1200px) {
+  .cotizaciones2 img {
+    height: 90vh;
+  }
+}

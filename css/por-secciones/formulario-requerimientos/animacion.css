@@ -1,0 +1,51 @@
+:root {
+  --color-hover-boton: #006979;
+}
+.cotizaciones1 .formulario_imagen form:hover {
+  transform: scale(1.01);
+}
+
+/* Para dar efecto efecto tipo input de Google */
+/* .formulario_imagen form .input-field :is(input:focus, input:valid) ~ label {
+  top: 10px;
+  left: 15px;
+  font-size: 14px;
+  padding: 0 2px;
+  background: linear-gradient(to bottom, white 50%, #ededed 50%);
+}
+.formulario_imagen
+  form
+  .input-field
+  :is(input:focus, input:valid)
+  ~ #pal-mensaje {
+  top: 10px;
+  left: 15px;
+  font-size: 14px;
+  padding: 0 2px;
+  background: linear-gradient(to bottom, white 50%, #ededed 50%);
+} */
+.cotizaciones1 .formulario_imagen form .enviar {
+  z-index: 1;
+  position: relative;
+  transition: all 250ms;
+  overflow: hidden;
+}
+.cotizaciones1 .formulario_imagen form .enviar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 5px;
+  background-color: var(--color-hover-boton);
+  z-index: -1;
+  transition: all 250ms;
+}
+
+.cotizaciones1 .formulario_imagen form .enviar:hover {
+  color: aliceblue;
+}
+.cotizaciones1 .formulario_imagen form .enviar:hover::before {
+  width: 100%;
+}

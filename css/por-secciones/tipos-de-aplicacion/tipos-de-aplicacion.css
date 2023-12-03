@@ -1,0 +1,53 @@
+.tipos_de_programas {
+  font-family: OpenSans-Medium;
+  color: #3a83bb;
+  text-align: center;
+}
+.tipos_de_aplicacion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.tipos_de_aplicacion h3 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.tipos_de_aplicacion p {
+  height: 100px;
+}
+.tipos_de_aplicacion img {
+  margin-top: 40px;
+  height: 100px;
+}
+.app {
+  width: 40%;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icon_type {
+  position: relative;
+}
+
+.icon_t {
+  position: absolute;
+  transform: translate(-69px, 70px);
+  color: #3a83bb;
+  font-size: 35px;
+}
+
+@media (max-width: 768px) {
+  .tipos_de_aplicacion {
+    flex-direction: column;
+  }
+  .tipos_de_aplicacion h3 {
+    width: 90vw;
+  }
+  .tipos_de_aplicacion p {
+    width: 80vw;
+  }
+}

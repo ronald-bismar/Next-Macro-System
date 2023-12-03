@@ -1,0 +1,24 @@
+/* Efecto de imagen que aparece suavemente */
+.carousel-item img {
+  object-fit: cover;
+  height: 100vh;
+  width: 100%;
+}
+.overlay-image {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 70%;
+  height: auto;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.overlay-image.fade-in {
+  opacity: 1;
+}
+.carousel-item .img-2 {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  filter: brightness(30%);
+}

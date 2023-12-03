@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/por-secciones/navbar/navbar.css">
+    <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css">
+    <link rel="stylesheet" href="css/por-secciones/carrusel-presentacion/carrusel-presentacion.css">
+    <link rel="stylesheet" href="css/por-secciones/titulo-descripciones/titulo-descripciones.css">
+    <link rel="stylesheet" href="css/por-secciones/describir-beneficios/describir-beneficios.css">
+    <link rel="stylesheet" href="css/por-secciones/formulario-requerimientos/formulario-requerimientos.css">
+    <link rel="stylesheet" href="css/por-secciones/formulario-requerimientos/animacion.css">
+    <link rel="stylesheet" href="css/por-secciones/seleccion-web-movil-contactos/seleccion-web-movil-contactos.css">
+    <link rel="stylesheet" href="css/por-secciones/seleccion-web-movil-contactos/animacion.css">
+    <link rel="stylesheet" href="css/por-secciones/pie-de-pagina/pie-de-pagina.css">
+    <link rel="stylesheet" href="css/por-secciones/pie-de-pagina/animacion.css">
+    <link rel="stylesheet" href="css/por-secciones/tipos-de-aplicacion/tipos-de-aplicacion.css">
+    <link rel="stylesheet" href="css/por-secciones/tipos-de-aplicacion/animacion.css">
+    <link rel="stylesheet" href="CSS/font-awesome.min.css" />
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <script src="js/fontawesome.min.js"></script>
+    <title>Next Macro System</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-xl fixed-top navbar-dark mb-5">
+                <!-- Logotipo -->
+                <a href="index.html" class="navbar-brand ms-5">
+                    <img src="img/logo_cabecera.png" alt="logotipo" class="img-fluid">
+                    <img class="img-fluid" src="img/letras-logo.png" alt="next macro system">
+                </a>
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menu-principal">
+                    <span class="navbar-toggler-icon"></span><!-- boton hamburguesa -->
+                </button>
+                <!-- Menu de navegacion -->
+                <div class="enlaces collapse navbar-collapse" id="menu-principal">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item ms-4"><a href="#" class="nav-link px-0">Inicio</a></li>
+                        <li class="nav-item ms-4"><a href="sobrenosotros.html" class="nav-link px-0">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item ms-4"><a href="#galeria" class="nav-link px-0">Contactos</a></li>
+                        <li class="nav-item ms-4 dropdown">
+                            <a href="#productos" class="nav-link dropdown-toggle px-0"
+                                data-bs-toggle="dropdown">Soluciones</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="dropdown-item">Pagina Web de Servicios</a></li>
+                                <li><a href="#" class="dropdown-item">Pagina Web de Administracion</a></li>
+                                <li><a href="#" class="dropdown-item">Aplicaciones Moviles Nativas</a></li>
+                                <li><a href="#" class="dropdown-item">Aplicaciones Moviles Hibridas</a></li>
+                                <li><a href="#" class="dropdown-item">Programas de Escritorio</a></li>
+                                <li><a href="#" class="dropdown-item">Panel de Administracion</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ms-4 dropdown">
+                            <a href="#productos" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">Nuestro
+                                equipo</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="dropdown-item">Desarrollador 1</a></li>
+                                <li><a href="#" class="dropdown-item">Desarrollador 2</a></li>
+                                <li><a href="#" class="dropdown-item">Desarrollador 3</a></li>
+                                <li><a href="#" class="dropdown-item">Desarrollador 4</a></li>
+                                <li><a href="#" class="dropdown-item">Desarrollador 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ms-4 dropdown btnbuscar">
+                            <a href="#productos" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                            <ul class="dropdown-menu search">
+                                <form action="get" class="d-flex">
+                                    <input type="search" class="form-control ms-3" placeholder="Buscar">
+                                    <button class="btn btn-light ms-1 me-3">Buscar</button>
+                                </form>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <section class="row">
+            <!-- Carrusel de portada -->
+            <article class="col-12 mx-0 px-0">
+                <div class="carousel carousel-dark slide" id="portada-carrusel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="5000">
+                            <img class="img-fluid" src="img/fondo-gradiente3.png" alt="fondo abstracto">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img class="img-fluid img-2" src="img/fondo-2.png" alt="imagen 2">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img class="img-fluid img-2" src="img/fondo-3.png" alt="imagen 3">
+                        </div>
+                    </div>
+                    <!-- Indicadores del carousel -->
+                    <div class="carousel-indicators">
+                        <button class="active" data-bs-target="#portada-carrusel" data-bs-slide-to="0"></button>
+                        <button class="active" data-bs-target="#portada-carrusel" data-bs-slide-to="1"></button>
+                        <button class="active" data-bs-target="#portada-carrusel" data-bs-slide-to="2"></button>
+                    </div>
+                </div>
+                <img class="img-fluid overlay-image mt-sm-5 pt-sm-4 mt-md-3" id="fade-image"
+                    src="img/svg-formatter-beautifier (2).png" alt="Imagen superpuesta">
+            </article>
+        </section>
+
+        <!-- Titulo y Descripciones -->
+
+        <section class="row titulo-descripcion desc">
+            <div class="flex-column flex-md-row ps-lg-5">
+                <h1 class="col-12 col-md-6 titulo text-center ps-lg-5 text-lg-start w-auto">DESARROLLO DE <br> PAGINAS
+                    WEB Y <br> APLICACIONES MOVILES</h1>
+                <img class="img-fluid col-12 col-md-6 d-none d-md-block wow slideInRight"
+                    src="img/imagen/imagen2parte.png" alt="imagen-pagina-de-muestra">
+                <img class="img-fluid d-md-none w-100" src="img/imagen/imagen2.png" alt="imagen-pagina-de-muestra">
+            </div>
+        </section>
+        <section class="row d-flex justify-content-evenly desc mb-5 mb-lg-0">
+            <div class="col-sm-10 mt-5 mt-lg-0 col-md-4 descripcion d-flex flex-column
+                    align-items-center justify-content-center">
+                <h4 class="mt-5 mt-lg-0" >DIGITALIZA TU NEGOCIO</h4>
+                <p class="d-flex flex-column justify-content-center mt-3">
+                    Te ayudamos a tener presencia en linea, logra un mayor alcance digital plasmando tus ideas en una
+                    realidad
+                </p>
+            </div>
+            <div class="col-sm-10 col-md-5 imagen d-flex align-items-center justify-content-center wow fadeInRight" data-wow-delay="0.3s">
+                <img id="imagen-1" class="img-fluid" src="img/vectores/Design team-amico.png" alt="">
+            </div>
+        </section>
+        <section class="row d-flex flex-sm-column-reverse flex-md-row justify-content-evenly align-items-center desc mb-5 mb-lg-0">
+            <div class="col-sm-10 col-md-5 imagen d-flex align-items-center justify-content-center wow fadeInLeft" data-wow-delay="0.3s">
+                <img id="imagen-1" class="img-fluid" src="img/vectores/App installation-amico.png" alt="">
+            </div>
+            <div class="col-sm-10 col-md-4 descripcion d-flex flex-column
+                    align-items-center justify-content-center mt-5 mt-lg-0">
+                <h4>DESARROLLO MOVIL</h4>
+                <p class="d-flex flex-column justify-content-center mt-3 text-sm-center">
+                    Diseño de aplicaciones moviles para una facil interacción
+                </p>
+            </div>
+        </section>
+        <section class="row d-flex justify-content-evenly desc mb-5 mb-lg-0">
+            <div class="col-sm-10 col-md-4 descripcion d-flex flex-column
+            align-items-center justify-content-center">
+                <h4 class="text-sm-center">PAGINAS WEB CON DIFERENTES TECNOLOGIAS</h4>
+                <p class="d-flex flex-column justify-content-center mt-3">
+                    Diseño de paginas web con teconologias como HTML, CSS, Javascript. <br>
+                    React.js, Bootstrap 5
+                </p>
+            </div>
+            <div class="col-sm-10 col-md-5 imagen d-flex align-items-center justify-content-center wow fadeInUp" data-wow-delay="0.3s">
+                <img id="imagen-1" class="img-fluid" src="img/vectores/Static assets-amico.png" alt="">
+            </div>
+        </section>
+
+        <!-- Seccion describir beneficios -->
+        <section class="row">
+            <section class="row d-flex justify-content-evenly describir-beneficios mt-5 mt-lg-0">
+                <h4 class="my-5">TE BRINDAMOS</h4>
+            </section>
+            <section class="row d-flex justify-content-evenly">
+                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                    <i class="fa-solid fa-user-tie icon"></i>
+                    <h5>Experiencia y Profesionalismo</h5>
+                    <p>Confianza en la calidad y profesionalismo de nuestros servicios ofrecidos.</p>
+                </div>
+                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                    <i class="fa-solid fa-palette icon"></i>
+                    <h5>Diseño Personalizado y Atractivo UI</h5>
+                    <p>Ofrecemos diseños personalizados que se adaptan a las necesidades específicas de cada cliente.
+                    </p>
+                </div>
+            </section>
+            <section class="row d-flex justify-content-evenly">
+                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                    <i class="fa-solid fa-microchip icon"></i>
+                    <h5>Tecnologías de Última Generación:</h5>
+                    <p> Mantenemos nuestro enfoque en la adopción de tecnologías de desarrollo web y móvil más
+                        recientes.
+                    </p>
+                </div>
+                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                    <i class="fa-solid fa-shield-halved icon"></i>
+                    <h5>Seguridad y Protección de Datos</h5>
+                    <p>Implementamos medidas de seguridad robustas para proteger la integridad de datos.</p>
+                </div>
+            </section>
+        </section>
+
+        <!-- Formulario de requerimientos -->
+        <section class="cotizaciones1 row pb-0 mb-0 mt-4">
+            <h3 class="text-white">EMPIEZA TU PROYECTO HOY</h3>
+            <div class="formulario_imagen col-12 m-0 p-0">
+                <form action="" class="col col-auto">
+                    <h5 class="ps-3">CUENTANOS SOBRE TU PROYECTO</h5>
+                    <div class="input-field">
+                        <label>Nombre:</label>
+                        <input type="text" required="">
+                    </div>
+                    <div class="input-field">
+                        <label>Telefono:</label>
+                        <input type="tel" required="">
+                    </div>
+                    <div class="input-field">
+                        <label>Correo electronico</label>
+                        <input type="email" required="">
+                    </div>
+                    <div class="input-field">
+                        <label id="pal-mensaje">Mensaje</label>
+                        <textarea name="mensaje" id="mensaje-usuario" rows="10"></textarea>
+                    </div>
+                    <button type="submit" class="enviar">Enviar</button>
+                </form>
+                <img class="d-none d-lg-block" src="img/img vectoriales/IMG 5.png" alt="">
+            </div>
+
+        </section>
+
+        <!-- Seleccion web o movil y contactos 2 -->
+        <section class="row web-movil">
+            <div
+                class="row justify-content-evenly mt-5 mb-5 d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <div class="col-12 col-lg-5">
+                    <div class="d-flex justify-content-center cajaP my-3">
+                        <figure>
+                            <div class="contenedor-imagen">
+                                <img class="pag-web" src="img/imagen/laptop-9.3.png" alt="imagen 1">
+                                <img class="segunda-imagen" src="img/img-hover/digital-device-laptop-mockup-concept.jpg"
+                                    alt="imagen 2">
+                            </div>
+                            <figcaption class="my-1 fs-5 fw-semibold">
+                                Pagina web
+                            </figcaption>
+                            <p>Elige las caracteristicas que necesitas en tu pagina web</p>
+                            <button class="btnConsultaWeb">Consultar</button>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <div class="cajaP my-3 d-flex justify-content-center ">
+                        <figure>
+                            <div class="contenedor-imagen">
+                                <img src="img/imagen/imagen4.png" alt="imagen 1">
+                                <img class="segunda-imagen" src="img/img-hover/digital-device-laptop-mockup-concept.jpg"
+                                    alt="imagen 2">
+                            </div>
+                            <figcaption class=" fs-5 fw-semibold">
+                                Aplicacion Movil
+                            </figcaption>
+                            <p>Elige las implementaciones que requiere tu aplicacion movil</p>
+                            <button class="btnConsultaApp">Consultar</button>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contactos 2 -->
+        <section class="cotizaciones2 row my-0 py-0">
+            <div class="d-flex align-items-center flex-column flex-lg-row justify-content-center col-12 m-0 p-0">
+                <div class="contenedor-texto d-flex justify-content-center flex-column align-items-center">
+                    <h1 class="text-white w-200 text-center">LLEVA TU PRESENCIA DIGITAL</h1>
+                    <h1 class="text-white text-center">AL SIGUIENTE NIVEL</h1>
+                    <button>CONTACTAR</button>
+                </div>
+                <img class="img-fluid" src="img/imagen/imagen1.png" alt="">
+            </div>
+        </section>
+
+        <!-- Tipos de aplicaciones -->
+        <section class="tipos_de_aplicaciones_web row my-5 py-5">
+            <div class="col-12">
+                <h1 class="tipos_de_programas">Paginas Web</h1>
+                <div class="tipos_de_aplicacion">
+                    <div class="aplicacion_android app web1">
+                        <img src="iconos tipos de programas/redes.png" alt="">
+                        <h3>Pagina web de Servicios</h3>
+                        <p>Tu página web de servicios es la puerta digital de tu empresa, donde presentamos de manera
+                            impactante tus productos o servicios. A través de un diseño atractivo y llamativas llamadas
+                            a la acción, creamos una experiencia única que no solo informa, sino que cautiva,
+                            convirtiendo a los visitantes en clientes potenciales desde el primer clic.</p>
+                    </div>
+                    <div class="aplicacion_multiplatform app web2">
+                        <img src="iconos tipos de programas/vigilancia.png" alt="">
+                        <h3>Pagina web de administración</h3>
+                        <p>La página de administración es el cerebro estratégico de tu presencia en línea, ofreciendo
+                            acceso restringido para una gestión eficiente de contenido, usuarios y datos cruciales.
+                            Garantizamos un control total, brindándote las herramientas necesarias para operar tu sitio
+                            web de manera segura y efectiva.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tipos_de_aplicaciones_movil row my-5 py-5">
+            <div class="col-12">
+                <h1 class="tipos_de_programas">Aplicaciones Moviles</h1>
+                <div class="tipos_de_aplicacion">
+                    <div class="aplicacion_android app app1">
+                        <div class="android">
+                            <img src="iconos tipos de programas/movil.png" alt="">
+                            <i class="fa-brands fa-android icon_t"></i>
+                        </div>
+
+                        <h3>Aplicaciones nativas Android</h3>
+                        <p>Desarrolla tu proyecto con una aplicación nativa y conecta con millones de usuarios de
+                            dispositivos Android. Te ayudamos en crear aplicaciones personalizadas que destacan en la
+                            tienda de Google Play. Con una interfaz intuitiva y características distintivas, tu proyecto
+                            puede ganar presencia y atraer a una audiencia más amplia</p>
+                    </div>
+                    <div class="aplicacion_multiplatform app app2">
+                        <img src="iconos tipos de programas/dos-telefonos-inteligentes.png" alt="">
+                        <h3>Aplicaciones Multiplataforma</h3>
+                        <p>Amplía el alcance de tu proyecto con una aplicación multiplataforma. Nuestro equipo puede
+                            crear una aplicación que funcione en celulares Android e iOS, brindando una experiencia
+                            coherente. Con este enfoque, tu proyecto puede llegar a diversas audiencias,
+                            independientemente del dispositivo que utilicen los usuarios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tipos_de_aplicaciones_movil row my-5 py-5">
+            <div class="col-12">
+                <h1 class="tipos_de_programas">Aplicaciones De Escritorio</h1>
+                <div class="tipos_de_aplicacion">
+                    <div class="aplicacion_android app prog1">
+                        <img src="iconos tipos de programas/computadora-de-escritorio.png" alt="">
+                        <h3>Programa de Escritorio</h3>
+                        <p>Ofrecemos soluciones de software robustas y altamente funcionales, diseñadas para integrarse
+                            perfectamente y mejorar la productividad en tareas críticas. Garantizamos una experiencia
+                            del usuario intuitiva y personalizada</p>
+                    </div>
+                    <div class="aplicacion_multiplatform app prog2">
+                        <img src="iconos tipos de programas/panel-de-control.png" alt="">
+                        <h3>Panel de Administración</h3>
+                        <p>Control digital total sobre su negocio. Con una interfaz segura y eficiente, le
+                            proporcionamos la capacidad de gestionar configuraciones, usuarios y datos críticos de
+                            manera efectiva. Esta solución de administración asegura estabilidad y adaptabilidad
+                            continua a sus necesidades empresariales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PIE DE PAGINA -->
+        <div class="row pie-de-pagina d-flex justify-content-center">
+            <article class="col-12 col-md-4">
+                <h4 class="mt-3 text-center">Más de nuestros servicios</h4>
+                <ul class="list-group list-group-flush">
+                    <a href="#" class="list-group-item text-light">Despliegue</a>
+                    <a href="#" class="list-group-item text-light">Mantenimiento</a>
+                    <a href="#" class="list-group-item text-light">Consultas y
+                        cotizaciones</a>
+                </ul>
+            </article>
+
+            <div class="row justify-content-center mt-3">
+                <h5 class="text-center">Buscanos en</h5>
+                <article class="redes col-12 col-md-4 px-5 d-flex justify-content-center align-items-center">
+
+                    <a href="#" id="link-facebook">
+                        <span id="icon-facebook">Facebook</span>
+                        <i class="icon-redes fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" id="link-youtube">
+                        <span id="icon-youtube">Youtube</span>
+                        <i class="icon-redes fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#" id="link-instagram">
+                        <span id="icon-instagram">Instagram</span>
+                        <i class="icon-redes fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" id="link-whatsapp">
+                        <span id="icon-whatsapp">Whatsapp</span>
+                        <i class="icon-redes fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#"id="link-gmail">
+                        <span id="icon-gmail">Gmail</span>
+                        <i class="icon-redes fa-regular fa-envelope"></i>
+                    </a>
+                </article>
+                <article class="col-12 text-center text-white mt-3">
+                    <p>Copyright - &copy; 2023 - Desarrollado por Next Macro System</p>
+                </article>
+            </div>
+            <!-- Boton volver arriba -->
+        <button id="btn-arriba">
+            <svg class="icono_arriba"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+      >
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path
+          fill="currentColor"
+          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+        ></path>
+      </svg>
+        </button>
+            <script src="js/bootstrap.bundle.js"></script>
+            <script src="js/index.js"></script>
+            <script src="js/wow.min.js"></script>
+            <script type="text/javascript">
+                new WOW().init();
+            </script>
+</body>
+
+</html>

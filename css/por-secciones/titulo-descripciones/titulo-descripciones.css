@@ -1,0 +1,43 @@
+.titulo-descripcion div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titulo-descripcion div img {
+  width: 48.5%;
+  margin-left: 20px;
+}
+
+.titulo-descripcion div h1 {
+  font-size: 3rem;
+}
+.titulo {
+  font-family: sans-serif;
+  font-weight: 700;
+  background: #6d6d6d;
+  background-image: linear-gradient(
+    -45deg,
+    var(--gradient-color-light),
+    var(--gradient-color-dark)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+section .descripcion h4 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--gradient-color-dark);
+}
+section .descripcion p {
+  font-size: 1.5rem;
+}
+.imagen {
+  box-shadow: var(--color-sombra-card);
+  border-radius: 10px;
+  background-color: var(--colores-card);
+  height: 300px;
+}
+.imagen #imagen-1 {
+  width: 250px;
+  height: auto;
+}
