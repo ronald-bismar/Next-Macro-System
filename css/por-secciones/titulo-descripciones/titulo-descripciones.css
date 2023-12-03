@@ -1,11 +1,10 @@
 .titulo-descripcion div {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 }
 .titulo-descripcion div img {
   width: 48.5%;
-  margin-left: 20px;
 }
 
 .titulo-descripcion div h1 {
