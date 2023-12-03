@@ -1,3 +1,6 @@
+.titulo-descripcion {
+  height: 100vh;
+}
 .titulo-descripcion div {
   display: flex;
   justify-content: end;
@@ -39,4 +42,10 @@ section .descripcion p {
 .imagen #imagen-1 {
   width: 250px;
   height: auto;
+}
+
+@media (max-width: 1200px) {
+  .titulo-descripcion div h1 {
+    font-size: 2.5rem;
+  }
 }
