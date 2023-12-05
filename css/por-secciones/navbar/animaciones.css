@@ -6,3 +6,19 @@
   transition: all 0.3s;
   transform: translateY(3px);
 }
+/* Estilos de aparecer la lista de los dropdown (solo para el navbar en pantalla completa)*/
+@media (min-width: 768px) {
+  .navbar-nav li:hover > .menu-desplegado {
+    transition:all ease .5s;
+    display: block;
+  }
+
+  .menu-desplegado{
+    display: none;
+    position: absolute;
+  }
+
+  .menu-desplegado a {
+    color: #000;
+  }
+}

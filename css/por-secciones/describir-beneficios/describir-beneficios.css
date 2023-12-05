@@ -1,27 +1,29 @@
-.describir-beneficios h4 {
-  font-size: 2.5rem;
-  text-align: center;
+:root {
+  --color-sombra-card-beneficios: 0px 0px 10px rgb(199, 198, 198);
+}
+.describir-beneficios {
+  height: auto;
+  display: flex;
+  justify-content: center;
 }
 .item {
   background-color: var(--colores-card);
-  height: 200px;
-  width: 500px;
-  box-shadow: var(--color-sombra-card);
-  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+  box-shadow: var(--color-sombra-card-beneficios);
+  border-radius: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   padding: 30px;
+  text-align: center;
 }
 
 .item h5 {
   color: #12528d;
 }
 
-.item p {
-  text-align: center;
-}
 .icon {
   color: rgb(216, 46, 46);
   width: 50px;

@@ -49,7 +49,7 @@
                         <li class="nav-item ms-4 dropdown">
                             <a href="#productos" class="nav-link dropdown-toggle px-0"
                                 data-bs-toggle="dropdown">Soluciones</a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu menu-desplegado">
                                 <li><a href="#" class="dropdown-item">Pagina Web de Servicios</a></li>
                                 <li><a href="#" class="dropdown-item">Pagina Web de Administracion</a></li>
                                 <li><a href="#" class="dropdown-item">Aplicaciones Moviles Nativas</a></li>
@@ -61,7 +61,7 @@
                         <li class="nav-item ms-4 dropdown">
                             <a href="#productos" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">Nuestro
                                 equipo</a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu menu-desplegado">
                                 <li><a href="#" class="dropdown-item">Desarrollador 1</a></li>
                                 <li><a href="#" class="dropdown-item">Desarrollador 2</a></li>
                                 <li><a href="#" class="dropdown-item">Desarrollador 3</a></li>
@@ -151,8 +151,8 @@
             <div class="col-sm-10 col-md-4 descripcion d-flex flex-column
             align-items-center justify-content-center">
                 <h4 class="text-sm-center">PAGINAS WEB CON DIFERENTES TECNOLOGIAS</h4>
-                <p class="d-flex flex-column justify-content-center mt-3">
-                    Diseño de paginas web con teconologias como HTML, CSS, Javascript. <br>
+                <p class="d-flex flex-column justify-content-center text-center mt-3">
+                    Diseño de paginas web con tecnologias como HTML, CSS, Javascript. <br>
                     React.js, Bootstrap 5
                 </p>
             </div>
@@ -162,41 +162,36 @@
         </section>
 
         <!-- Seccion describir beneficios -->
-        <section class="row">
-            <section class="row d-flex justify-content-evenly describir-beneficios mt-5 mt-lg-0">
-                <h4 class="my-5">TE BRINDAMOS</h4>
-            </section>
+        <section class="row describir-beneficios">
             <section class="row d-flex justify-content-evenly">
-                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                <div class="col-sm-6 item col col-md-5 my-4">
                     <i class="fa-solid fa-user-tie icon"></i>
-                    <h5>Experiencia y Profesionalismo</h5>
+                    <h6>EXPERIENCIA Y PROFESIONALISMO</h6>
                     <p>Confianza en la calidad y profesionalismo de nuestros servicios ofrecidos.</p>
                 </div>
-                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                <div class="col-sm-6 item col col-md-5 my-4">
                     <i class="fa-solid fa-palette icon"></i>
-                    <h5>Diseño Personalizado y Atractivo UI</h5>
+                    <h6>DISEÑO PERSONALIZADO Y ATRACTIVO UI</h6>
                     <p>Ofrecemos diseños personalizados que se adaptan a las necesidades específicas de cada cliente.
                     </p>
                 </div>
-            </section>
-            <section class="row d-flex justify-content-evenly">
-                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                <div class="col-sm-6 item col col-md-5 my-4">
                     <i class="fa-solid fa-microchip icon"></i>
-                    <h5>Tecnologías de Última Generación:</h5>
+                    <h6>TECNOLOGIAS DE ULTIMA GENERACIÓN</h6>
                     <p> Mantenemos nuestro enfoque en la adopción de tecnologías de desarrollo web y móvil más
                         recientes.
                     </p>
                 </div>
-                <div class="col-sm-12 m-3 item col col-md-5 my-4">
+                <div class="col-sm-6 item col col-md-5 my-4">
                     <i class="fa-solid fa-shield-halved icon"></i>
-                    <h5>Seguridad y Protección de Datos</h5>
+                    <h6>SEGURIDAD Y PROTECCION DE DATOS</h6>
                     <p>Implementamos medidas de seguridad robustas para proteger la integridad de datos.</p>
                 </div>
             </section>
         </section>
 
         <!-- Formulario de requerimientos -->
-        <section class="cotizaciones1 row pb-0 mb-0 mt-4">
+        <section class="cotizaciones1 row pb-0 mb-0">
             <h3 class="text-white">EMPIEZA TU PROYECTO HOY</h3>
             <div class="formulario_imagen col-12 m-0 p-0">
                 <form action="" class="col col-auto">
@@ -352,7 +347,14 @@
                 </div>
             </div>
         </section>
-
+        <!-- Seccion contacto -->
+        <section class="seccion_contacto row my-5">
+            <article class="contenedor-texto d-flex justify-content-center flex-column align-items-center">
+                <h6 class="text-white w-200 text-center">Digitaliza tu presencia hoy</h6>
+                <h3 class="text-white w-200 text-center">Contactanos</h3>
+                <button>CONTACTAR</button>
+            </article>
+        </section>
         <!-- PIE DE PAGINA -->
         <div class="row pie-de-pagina d-flex justify-content-center">
             <article class="col-12 col-md-4">
@@ -395,19 +397,27 @@
                 </article>
             </div>
             <!-- Boton volver arriba -->
-        <button id="btn-arriba">
-            <svg class="icono_arriba"
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-      >
-        <path fill="none" d="M0 0h24v24H0z"></path>
-        <path
-          fill="currentColor"
-          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-        ></path>
-      </svg>
-        </button>
+            <section class="contenedor-botones_flotantes">
+                <button id="btn-cotizacion">
+                    <i class="fa-solid fa-calculator"></i>
+                </button>
+                <button id="btn-whatsapp">
+                    <i class="icon-redes fa-brands fa-whatsapp"></i>
+                </button>
+                <button id="btn-arriba">
+                    <svg class="icono_arriba"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  fill="currentColor"
+                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                ></path>
+              </svg>
+                </button>
+            </section>
             <script src="js/bootstrap.bundle.js"></script>
             <script src="js/index.js"></script>
             <script src="js/wow.min.js"></script>

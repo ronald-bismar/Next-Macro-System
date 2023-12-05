@@ -4,15 +4,12 @@
   --color-focus-input: #1893ff;
 }
 .cotizaciones1 {
-  -webkit-clip-path: polygon(0 14%, 100% 0%, 100% 100%, 0 100%);
-  clip-path: polygon(0 14%, 100% 0%, 100% 100%, 0 100%);
   background: linear-gradient(
     90deg,
     var(--gradient-color-light),
     var(--gradient-color-dark)
   );
-  height: 120vh;
-  transform: translateY(1px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +30,6 @@
   padding: 40px 0px 20px 0px;
   border-radius: 8px;
   background-color: var(--bg-form);
-  margin-bottom: 60px;
   transition: all ease 0.5s;
 }
 .cotizaciones1 .formulario_imagen form .input-field {
@@ -81,9 +77,8 @@
   width: 30%;
 }
 .cotizaciones1 h3 {
+  transform: translateY(30px);
   color: rgb(230, 230, 230);
-  margin-top: 140px;
-  margin-bottom: 10px;
   font-size: 2rem;
   text-align: center;
 }

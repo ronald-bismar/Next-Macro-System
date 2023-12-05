@@ -4,7 +4,7 @@
   --colores-card: white;
   --gradient-color-light: #4295d4;
   --gradient-color-dark: #006283;
-  --color-sombra-card: 0px 0px 10px rgb(199, 198, 198);
+  --color-sombra-card: 5px 10px 10px rgb(199, 198, 198);
 }
 * {
   padding: 0;
@@ -26,17 +26,47 @@
 }
 /* Boton para volver arriba */
 #btn-arriba {
-  position: fixed;
   width: 2.5rem;
   height: 2.5rem;
-  bottom: 30px;
-  right: 30px;
+  padding: 5px;
   border-style: none;
   background-color: tomato;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#btn-whatsapp {
+  width: 2.5rem;
+  height: 2.5rem;
+  bottom: 130px;
+  right: 30px;
+  border-style: none;
+  background-color: rgb(0, 194, 65);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#btn-whatsapp .icon-redes {
+  color: white;
+  font-size: 2rem;
+}
+#btn-cotizacion {
+  width: 2.5rem;
+  height: 2.5rem;
+  bottom: 80px;
+  right: 30px;
+  border-style: none;
+  background-color: rgb(0, 82, 149);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#btn-cotizacion .fa-calculator {
+  color: white;
+  font-size: 1.8rem;
 }
 .icono_arriba {
   width: 50px;
@@ -45,7 +75,18 @@
   margin-top: 10px;
   transform: rotate(-45deg) translate(1px, -2px);
 }
-
+.contenedor-botones_flotantes {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  width: auto;
+}
 @media (max-width: 768px) {
   .row .col .item-1 {
     height: 500px;
