@@ -84,6 +84,13 @@ figure button {
 }
 
 /* Contactos o cotizaciones 2 */
+.contenedor-texto div {
+  margin: 0 auto;
+}
+.contenedor-texto div img {
+  width: 80px;
+  height: auto;
+}
 .cotizaciones2 {
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
@@ -97,11 +104,33 @@ figure button {
   align-items: center;
   justify-content: center;
 }
-.cotizaciones2 img {
-  height: 85%;
-  width: auto;
-  transform: translateY(-30px);
+.cotizaciones2 div {
+  column-gap: 50px;
 }
+.cotizaciones2 img {
+  height: 40rem;
+  width: auto;
+}
+.cotizaciones2 div p {
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+}
+.cotizaciones2 div .contenedor-texto {
+  background-color: aliceblue;
+  width: 25rem;
+  transform: translateY(-40px);
+  border-radius: 5px;
+  padding: 30px;
+}
+.cotizaciones2 div .contenedor-texto p {
+  margin-left: 1.4rem;
+}
+.fa-circle-check {
+  color: rgb(0, 197, 0);
+  font-size: 1.2rem;
+  margin-right: 4px;
+}
+
 .cotizaciones2 div div button {
   padding: 5px 50px;
   border-style: none;
@@ -127,6 +156,9 @@ figure button {
   }
 }
 @media (max-width: 1200px) {
+  .cotizaciones2 {
+    height: 20vh;
+  }
   .cotizaciones2 img {
     height: 90vh;
   }

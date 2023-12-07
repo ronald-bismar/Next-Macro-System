@@ -1,0 +1,53 @@
+.contenedor-boton-flotante button {
+  transition: all ease 0.5s;
+}
+.contenedor-boton-flotante button .texto {
+  width: 0%;
+  color: white;
+  opacity: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all ease 0.4ms;
+}
+#btn-cotizacion button:hover {
+  width: 130px;
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+#btn-cotizacion button:hover .fa-calculator {
+  width: 30%;
+  transition-duration: 0.3s;
+}
+#btn-cotizacion button:hover .texto {
+  opacity: 1;
+  width: 70%;
+  padding-right: 10px;
+  right: 0;
+  transition-duration: 0.3s;
+  animation: scale-up-center 0.3s;
+}
+#btn-whatsapp button:hover {
+  width: 130px;
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+#btn-whatsapp button:hover .fa-calculator {
+  width: 30%;
+  transition-duration: 0.3s;
+}
+#btn-whatsapp button:hover .texto {
+  opacity: 1;
+  width: 70%;
+  right: 0;
+  transition-duration: 0.3s;
+  animation: scale-up-center 0.3s;
+}
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

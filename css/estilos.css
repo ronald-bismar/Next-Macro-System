@@ -1,9 +1,10 @@
 :root {
+  --color-base: #4ea4e5;
   --color-font-header: white;
   --bgcolor: #f4f4f4;
   --colores-card: white;
-  --gradient-color-light: #4295d4;
-  --gradient-color-dark: #006283;
+  --gradient-color-light: #4ea4e5;
+  --gradient-color-dark: #0071ad;
   --color-sombra-card: 5px 10px 10px rgb(199, 198, 198);
 }
 * {
@@ -25,7 +26,7 @@
   src: url("../fonts/OpenSans-SemiBold.ttf");
 }
 /* Boton para volver arriba */
-#btn-arriba {
+#btn-arriba button {
   width: 2.5rem;
   height: 2.5rem;
   padding: 5px;
@@ -36,7 +37,15 @@
   justify-content: center;
   align-items: center;
 }
-#btn-whatsapp {
+
+.icono_arriba {
+  width: 50px;
+  height: 50px;
+  color: aliceblue;
+  margin-top: 10px;
+  transform: rotate(-45deg) translate(1px, -2px);
+}
+#btn-whatsapp button {
   width: 2.5rem;
   height: 2.5rem;
   bottom: 130px;
@@ -52,7 +61,7 @@
   color: white;
   font-size: 2rem;
 }
-#btn-cotizacion {
+#btn-cotizacion button {
   width: 2.5rem;
   height: 2.5rem;
   bottom: 80px;
@@ -61,32 +70,35 @@
   background-color: rgb(0, 82, 149);
   border-radius: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 #btn-cotizacion .fa-calculator {
   color: white;
   font-size: 1.8rem;
 }
-.icono_arriba {
-  width: 50px;
-  height: 50px;
-  color: aliceblue;
-  margin-top: 10px;
-  transform: rotate(-45deg) translate(1px, -2px);
-}
-.contenedor-botones_flotantes {
+.contenedor-botones-flotantes {
   position: fixed;
   bottom: 30px;
   right: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   gap: 20px;
   padding: 10px;
   width: auto;
+  animation: scale-up-center 0.8s;
 }
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @media (max-width: 768px) {
   .row .col .item-1 {
     height: 500px;

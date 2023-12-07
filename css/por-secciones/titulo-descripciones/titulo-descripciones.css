@@ -48,4 +48,13 @@ section .descripcion p {
   .titulo-descripcion div h1 {
     font-size: 2.5rem;
   }
+  section .descripcion h4 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--gradient-color-dark);
+  }
+  section .descripcion p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
 }

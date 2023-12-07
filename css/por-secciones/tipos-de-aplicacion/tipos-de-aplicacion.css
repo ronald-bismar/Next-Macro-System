@@ -1,5 +1,5 @@
 :root {
-  --gradient-color-contact-light: rgba(255, 179, 0, 0.322);
+  --gradient-color-contact-light: #f9f97152;
   --gradient-color-contact-dark: #3a83bb5b;
 }
 .tipos_de_programas {
@@ -61,7 +61,7 @@
   background: url(../../../img/attachment-1.jpg);
   background-position: center;
   background-attachment: fixed;
-  height: 240px;
+  height: 280px;
 }
 .seccion_contacto .contenedor-texto {
   height: 100%;
