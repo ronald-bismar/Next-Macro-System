@@ -1,5 +1,8 @@
 :root {
   --bg-color-estimar: #00b5bc;
+  --color-1: #4ea4e5;
+  --color-2: #3cb5a9;
+  --color-3: #0643a0;
 }
 * {
   margin: 0;
@@ -11,8 +14,9 @@ body {
 }
 
 .container-fluid {
-  height: 100vh;
-  background-color: var(--bg-color-estimar);
+  min-height: 100vh;
+  height: auto;
+  background-color: var(--color-2);
   z-index: -1;
 }
 .container {
@@ -92,6 +96,9 @@ body {
 }
 
 /* ------------------------- */
+#tituloPrincipal {
+  transition: all ease 0.5s;
+}
 .slider {
   overflow: hidden;
 }
@@ -107,12 +114,14 @@ body {
   align-items: center;
   width: 100%;
 }
+
 .slider-divs div div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  border-radius: 5px;
 }
 .slider-divs div div img {
   height: 200px;
@@ -122,7 +131,11 @@ body {
 }
 /* ------------------- */
 .imagenes-referencia div {
+  display: flex;
   position: relative;
+  background: lightgrey;
+  background: linear-gradient(145deg, #ffffff, #e3e3e3);
+  box-shadow: 2px 3px 10px #858585;
 }
 .imagenes-referencia div input[type="checkbox"] {
   position: absolute;
@@ -131,10 +144,23 @@ body {
   width: 30px;
   height: 30px;
 }
+
+.icon {
+  width: 60%;
+  height: auto;
+}
+
 /* --Boton de pasar siguiente */
 .controles {
   position: relative;
 }
+
+.check:hover {
+  transition: all ease 0.2s;
+  cursor: pointer;
+  transform: scale(0.99);
+}
+
 .btn-cambiar {
   position: absolute;
   height: 40px;
@@ -149,11 +175,75 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
   transition: all 200ms linear;
 }
+
 #enviar-detalles {
   right: 30px;
   bottom: 0px;
+  display: none;
 }
+
 #volver-atras {
   top: 30px;
   left: 30px;
+}
+
+@media (max-width: 1220px) {
+  #volver-atras {
+    top: 5px;
+    left: 5px;
+    padding-inline: 10px;
+    width: auto;
+  }
+
+  .slider-divs .imagenes-referencia {
+    height: 250px;
+    width: 30rem;
+  }
+
+  .imagenes-referencia div input[type="checkbox"] {
+    top: 25%;
+    right: 4%;
+  }
+
+  .imagenes-referencia div {
+    width: 100%;
+  }
+
+  .slider {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slider-divs div {
+    flex-direction: column;
+  }
+
+  .slider-divs div div {
+    height: 70px;
+  }
+
+  .slider-divs div div img {
+    display: none;
+  }
+
+  .slider-divs div div svg {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .slider-divs .imagenes-referencia {
+    width: 25rem;
+  }
+
+  .controles a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #enviar-detalles {
+    margin: 20px 0px 0px 60px;
+    position: relative;
+    width: 260px;
+    display: none;
+  }
 }

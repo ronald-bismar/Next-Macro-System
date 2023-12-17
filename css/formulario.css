@@ -72,6 +72,10 @@ input[type="submit"] {
 label {
   color: #ebf6ff;
 }
+input[type="submit"] {
+  background-color: #009bf9;
+  color: white;
+}
 form h4,
 form p {
   text-align: start;

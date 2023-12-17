@@ -1,40 +1,22 @@
-/* Seleccion pagina web o aplicacion movil */
+.img-celulares {
+  transition: all ease 2s;
+}
+.cajaP:hover + .img-celulares .imagen-principal {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+.cajaP:hover + .img-celulares .contenedor-imagenes {
+  transform: translate(0px, -10px);
+  opacity: 1;
+}
 .cajaP figure {
-  z-index: 1;
-  position: relative;
   transition: all 250ms;
-  overflow: hidden;
 }
 
 figure button:hover {
-  transform: translateY(-15px);
+  transform: translateY(5px);
 }
 .cajaP figure:hover {
-  color: aliceblue;
-  box-shadow: 0px 0px 20px black;
-  transform: translateY(-20px);
+  cursor: pointer;
 }
-.cajaP figure:hover .img_capa {
-  opacity: 1;
-  transform: scale(3);
-}
-
-.cajaP figure:hover .capa_fondo {
-  opacity: 0.7;
-}
-/* Mostrar la otra imagen al hacer hover */
-/* .contenedor-imagen .segunda-imagen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: all 0.3s;
-}
-.cajaP figure:hover .contenedor-imagen img:nth-child(1) {
-  transition: none;
-  display: none;
-}
-.cajaP figure:hover .contenedor-imagen .segunda-imagen {
-  padding: 0;
-  opacity: 1;
-} */

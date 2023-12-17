@@ -1,52 +1,54 @@
-.web-movil div div div figure .contenedor-imagen {
-  height: 300px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.web-movil div div div figure img {
-  height: 300px;
-  background-color: white;
-  border-radius: 5px;
-}
-.web-movil div div div figure .contenedor-imagen img {
-  padding: 10px;
-  object-fit: cover;
-  background-color: white;
-  border-radius: 5px;
-}
-.web-movil div div div figure .contenedor-imagen .pag-web {
-  padding: 30px;
-}
-
-.cajaP figure img {
-  width: 100%;
+#img-celulares {
   height: 100%;
-  border-radius: 5px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: relative;
+}
+#img-celulares img {
+  width: 80%;
+  transition: all ease 0.5s;
+}
+
+/* Configuracion de imagen cuando se hará hover */
+.contenedor-imagenes {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  position: absolute;
+  inset: 0 0 0 0;
+  gap: 20px;
+  transform: translateX(-20px);
+  transition: all ease 0.5s;
+  opacity: 0;
+}
+#img-celulares .contenedor-imagenes img:nth-child(1) {
+  height: 68%;
+}
+#img-celulares .contenedor-imagenes img {
+  border-radius: 10px;
+  height: 70%;
+  width: auto;
+  transform: rotateX(15deg) rotateY(30deg) rotateZ(-15deg) translateX(50px);
+  box-shadow: -10px 5px 10px #d7d7d7;
+}
+.cajaP {
+  cursor: pointer;
 }
 .cajaP figure {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: #ffaa506d;
-  padding: 8px;
-  border-radius: 5px;
-  height: 500px;
-  width: 350px;
-  cursor: pointer;
-  position: relative;
-  box-shadow: 0px 0px 20px rgb(198, 198, 198);
+  justify-content: start;
+  width: 100%;
 }
-figure figcaption {
-  z-index: 2;
-}
+
 figure p {
   font-size: 1rem;
   font-weight: 400;
-  z-index: 2;
 }
 figure button {
   font-size: 1rem;
@@ -58,29 +60,6 @@ figure button {
   border-radius: 5px;
   color: white;
   transition: 0.3s;
-  z-index: 2;
-}
-
-.capa_fondo {
-  width: 100%;
-  height: 100%;
-  background: #006b96;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 0;
-}
-.img_capa {
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  transform: scale(2.4) translateY(40px);
-  width: 100%;
-  height: 100%;
-  transition: all 400ms ease-out;
-  opacity: 0;
 }
 
 /* Contactos o cotizaciones 2 */
@@ -104,25 +83,25 @@ figure button {
   align-items: center;
   justify-content: center;
 }
-.cotizaciones2 div {
+.cotizaciones2 {
   column-gap: 50px;
 }
 .cotizaciones2 img {
   height: 40rem;
   width: auto;
 }
-.cotizaciones2 div p {
+.cotizaciones2 p {
   letter-spacing: 0.5px;
   font-size: 0.95rem;
 }
-.cotizaciones2 div .contenedor-texto {
+.cotizaciones2 .contenedor-texto {
   background-color: aliceblue;
   width: 25rem;
   transform: translateY(-40px);
   border-radius: 5px;
   padding: 30px;
 }
-.cotizaciones2 div .contenedor-texto p {
+.cotizaciones2 .contenedor-texto p {
   margin-left: 1.4rem;
 }
 .fa-circle-check {
@@ -131,7 +110,7 @@ figure button {
   margin-right: 4px;
 }
 
-.cotizaciones2 div div button {
+.cotizaciones2 div button {
   padding: 5px 50px;
   border-style: none;
   border-radius: 6px;
@@ -142,7 +121,7 @@ figure button {
   transition: all 0.3s;
   font-weight: 600;
 }
-.cotizaciones2 div div button:hover {
+.cotizaciones2 div button:hover {
   background-color: rgb(255, 134, 82);
   color: white;
   box-shadow: 5px 5px 10px rgb(0, 65, 130);
@@ -156,6 +135,9 @@ figure button {
   }
 }
 @media (max-width: 1200px) {
+  #img-celulares {
+    justify-content: center;
+  }
   .cotizaciones2 {
     height: 210vh;
   }

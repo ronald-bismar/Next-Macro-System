@@ -19,6 +19,7 @@ article.persona {
   box-shadow: 0.3em 0.3em 0.7em #00000015;
   height: 400px;
   width: 300px;
+  min-width: 300px;
   position: relative;
   display: flex;
   align-items: center;

@@ -43,36 +43,41 @@
                 <!-- Menu de navegacion -->
                 <div class="enlaces collapse navbar-collapse" id="menu-principal">
                     <ul class="navbar-nav m-auto">
-                        <li class="nav-item ms-4"><a href="#" class="nav-link px-0">Inicio</a></li>
-                        <li class="nav-item ms-4"><a href="sobrenosotros.html" class="nav-link px-0">Sobre nosotros</a>
+                        <li class="nav-item ms-4">
+                            <a href="index.html" class="nav-link px-0">Inicio</a>
                         </li>
-                        <li class="nav-item ms-4"><a href="#galeria" class="nav-link px-0">Contactos</a></li>
+                        <li class="nav-item ms-4">
+                            <a href="sobrenosotros.html" class="nav-link px-0">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item ms-4">
+                            <a href="formulario.html" class="nav-link px-0">Contactos</a>
+                        </li>
                         <li class="nav-item ms-4 dropdown">
                             <a href="#productos" class="nav-link dropdown-toggle px-0"
                                 data-bs-toggle="dropdown">Soluciones</a>
                             <ul class="dropdown-menu menu-desplegado">
-                                <li><a href="#" class="dropdown-item">Pagina Web de Servicios</a></li>
-                                <li><a href="#" class="dropdown-item">Pagina Web de Administracion</a></li>
-                                <li><a href="#" class="dropdown-item">Aplicaciones Moviles Nativas</a></li>
-                                <li><a href="#" class="dropdown-item">Aplicaciones Moviles Hibridas</a></li>
-                                <li><a href="#" class="dropdown-item">Programas de Escritorio</a></li>
-                                <li><a href="#" class="dropdown-item">Panel de Administracion</a></li>
+                                <li><a href="estimar-proyecto.html" class="dropdown-item">Pagina Web de Servicios</a></li>
+                                <li><a href="estimar-proyecto.html" class="dropdown-item">Pagina Web de Administracion</a></li>
+                                <li><a href="estimar-proyecto.html" class="dropdown-item">Aplicaciones Moviles Nativas</a></li>
+                                <li><a href="estimar-proyecto.html" class="dropdown-item">Aplicaciones Moviles Hibridas</a></li>
+                                <li><a href="estimar-proyecto.html" class="dropdown-item">Programas de Escritorio</a></li>
+                                <li><a href="estimar-proyecto.html" class="dropdown-item">Panel de Administracion</a></li>
                             </ul>
                         </li>
                         <li class="nav-item ms-4">
-                            <a href="#productos" class="nav-link px-0" data-bs-toggle="dropdown">Nuestro
+                            <a href="nuestro-equipo.html" class="nav-link px-0">Nuestro
                                 equipo</a>
                         </li>
                         <li class="nav-item ms-4 dropdown btnbuscar">
-                            <a href="#productos" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </a>
-                            <ul class="dropdown-menu search">
+                            <div class="dropdown-menu search">
                                 <form action="get" class="d-flex">
                                     <input type="search" class="form-control ms-3" placeholder="Buscar">
                                     <button class="btn btn-light ms-1 me-3">Buscar</button>
                                 </form>
-                            </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -160,8 +165,7 @@
         </section>
 
         <!-- Seccion describir beneficios -->
-        <section class="row describir-beneficios">
-            <section class="row d-flex justify-content-evenly">
+        <section class="row describir-beneficios d-flex justify-content-evenly">
                 <div class="col-sm-6 item col col-md-5 my-4">
                     <i class="fa-solid fa-user-tie icon"></i>
                     <h6>EXPERIENCIA Y PROFESIONALISMO</h6>
@@ -185,14 +189,13 @@
                     <h6>SEGURIDAD Y PROTECCION DE DATOS</h6>
                     <p>Implementamos medidas de seguridad robustas para proteger la integridad de datos.</p>
                 </div>
-            </section>
         </section>
 
         <!-- Formulario de requerimientos -->
         <section class="cotizaciones1 row pb-0 mb-0" id="contactos">
             <h3 class="text-white">EMPIEZA TU PROYECTO HOY</h3>
             <div class="formulario_imagen col-12 m-0 p-0">
-                <form action="" class="col col-auto">
+                <form action="https://formsubmit.co/ronaldlimachimamani72@gmail.com" method="POST" class="col col-auto">
                     <h5 class="ps-3">CUENTANOS SOBRE TU PROYECTO</h5>
                     <div class="input-field">
                         <label>Nombre:</label>
@@ -214,55 +217,30 @@
                 </form>
                 <img class="d-none d-lg-block" src="img/img vectoriales/IMG 5.png" alt="">
             </div>
-
         </section>
 
         <!-- Seleccion web o movil y contactos 2 -->
-        <section class="row web-movil">
-            <div
-                class="row justify-content-evenly mt-5 mb-5 d-flex flex-column flex-lg-row justify-content-center align-items-center">
-                <div class="col-12 col-lg-5">
-                    <div class="d-flex justify-content-center cajaP my-3">
+        <section class="row movil justify-content-evenly d-flex flex-column-reverse flex-lg-row-reverse justify-content-center align-items-center">  
+                <div class="col col-12 col-lg-6 cajaP d-flex justify-content-center">
                         <figure>
-                            <div class="capa_fondo"></div>
-                            <img class="img_capa" src="img/img-hover/hover-computadora2.jpg" alt="">
-                            <div class="contenedor-imagen">
-                                <img class="pag-web" src="img/imagen/laptop-9.3.png" alt="imagen 1">
-                                <img class="segunda-imagen" src="img/img-hover/digital-device-laptop-mockup-concept.jpg"
-                                    alt="imagen 2">
-                            </div>
-                            <figcaption class="my-1 fs-5 fw-semibold">
-                                PAGINA WEB
-                            </figcaption>
-                            <p>Elige las caracteristicas que necesitas en tu pagina web</p>
-                            <button class="btnConsultaWeb">Consultar</button>
-                        </figure>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-5">
-                    <div class="cajaP my-3 d-flex justify-content-center ">
-                        <figure>
-                            <div class="capa_fondo"></div>
-                            <img class="img_capa" src="img/img-hover/cellphone2.jpg" alt="">
-                            <div class="contenedor-imagen">
-                                <img src="img/imagen/imagen4.png" alt="imagen 1">
-                                <img class="segunda-imagen" src="img/img-hover/digital-device-laptop-mockup-concept.jpg"
-                                    alt="imagen 2">
-                            </div>
-                            <figcaption class=" fs-5 fw-semibold">
+                            <h6 class=" fs-5 fw-semibold">
                                 APLICACION MOVIL
-                            </figcaption>
-                            <p>Elige las implementaciones que requiere tu aplicacion movil</p>
-                            <button class="btnConsultaApp">Consultar</button>
+                            </h6>
+                            <p>Elige las implementaciones que requiere tu aplicación movil</p>
+                            <a href="estimar-proyecto.html"><button class="btnConsultaApp">Consultar</button></a>
                         </figure>
+                </div>
+                <div class="col col-12 col-lg-6 img-celulares" id="img-celulares">
+                    <img class="imagen-principal img-fluid" src="img/dos-celulares.png" alt="">
+                    <div class="col-12 col-lg-6 contenedor-imagenes">
+                        <img class="img-fluid" src="img/img-persp-cel-1.png" alt="">
+                        <img class="img-fluid" src="img/img-persp-cel-2.png" alt="">
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Contactos 2 -->
-        <section class="cotizaciones2 row my-0 py-0">
-            <div class="d-flex align-items-center flex-column flex-lg-row justify-content-center col-12 m-0 p-0">
+        <section class="cotizaciones2 row my-0 py-0 d-flex align-items-center flex-column flex-lg-row justify-content-center col-12 m-0 p-0">
                 <div
                     class="contenedor-texto d-flex justify-content-start flex-column align-items-start text-dark text-start gap-3">
                     <div><img src="img/imagen/codigo.png" alt=""></div>
@@ -283,17 +261,15 @@
                     </div>
                 </div>
                 <img class="img-fluid" src="img/imagen/imagen1.png" alt="">
-            </div>
         </section>
 
         <!-- Tipos de aplicaciones -->
         <section class="tipos_de_aplicaciones_web row my-5 py-5">
-            <div class="col-12">
-                <h1 class="tipos_de_programas">Paginas Web</h1>
+                <h1 class="tipos_de_programas">PAGINAS WEB</h1>
                 <div class="tipos_de_aplicacion">
                     <div class="aplicacion_android app web1">
                         <img src="iconos tipos de programas/redes.png" alt="">
-                        <h3>Pagina web de Informacion</h3>
+                        <h3>PAGINA WEB DE INFORMACIÓN</h3>
                         <p>Tu página web de Informacion es la puerta digital de tu empresa, donde presentamos de manera
                             impactante tus productos o servicios. A través de un diseño atractivo y llamativas llamadas
                             a la acción, creamos una experiencia única que no solo informa, sino que cautiva,
@@ -301,18 +277,16 @@
                     </div>
                     <div class="aplicacion_multiplatform app web2">
                         <img src="iconos tipos de programas/vigilancia.png" alt="">
-                        <h3>Pagina web de comercio digital</h3>
+                        <h3>PAGINA WEB DE COMERCIO DIGITAL</h3>
                         <p>La página de administración es el cerebro estratégico de tu presencia en línea, ofreciendo
                             acceso restringido para una gestión eficiente de contenido, usuarios y datos cruciales.
                             Garantizamos un control total, brindándote las herramientas necesarias para operar tu sitio
                             web de manera segura y efectiva.</p>
                     </div>
                 </div>
-            </div>
         </section>
         <section class="tipos_de_aplicaciones_movil row my-5 py-5">
-            <div class="col-12">
-                <h1 class="tipos_de_programas">Aplicaciones Moviles</h1>
+                <h1 class="tipos_de_programas">APLICACIONES MOVILES</h1>
                 <div class="tipos_de_aplicacion">
                     <div class="aplicacion_android app app1">
                         <div class="android">
@@ -320,7 +294,7 @@
                             <i class="fa-brands fa-android icon_t"></i>
                         </div>
 
-                        <h3>Aplicaciones nativas Android</h3>
+                        <h3>APLICACIONES NATIVAS ANDROID</h3>
                         <p>Desarrolla tu proyecto con una aplicación nativa y conecta con millones de usuarios de
                             dispositivos Android. Te ayudamos en crear aplicaciones personalizadas que destacan en la
                             tienda de Google Play. Con una interfaz intuitiva y características distintivas, tu proyecto
@@ -328,43 +302,40 @@
                     </div>
                     <div class="aplicacion_multiplatform app app2">
                         <img src="iconos tipos de programas/dos-telefonos-inteligentes.png" alt="">
-                        <h3>Aplicaciones Multiplataforma</h3>
+                        <h3>APLICACIONES MULTIPLATAFORMA</h3>
                         <p>Amplía el alcance de tu proyecto con una aplicación multiplataforma. Nuestro equipo puede
                             crear una aplicación que funcione en celulares Android e iOS, brindando una experiencia
                             coherente. Con este enfoque, tu proyecto puede llegar a diversas audiencias,
                             independientemente del dispositivo que utilicen los usuarios.</p>
                     </div>
                 </div>
-            </div>
         </section>
         <section class="tipos_de_aplicaciones_movil row my-5 py-5">
-            <div class="col-12">
-                <h1 class="tipos_de_programas">Aplicaciones De Escritorio</h1>
+                <h1 class="tipos_de_programas">APLICACIONES DE ESCRITORIO</h1>
                 <div class="tipos_de_aplicacion">
                     <div class="aplicacion_android app prog1">
                         <img src="iconos tipos de programas/computadora-de-escritorio.png" alt="">
-                        <h3>Programa de Escritorio</h3>
+                        <h3>PROGRAMA DE ESCRITORIO</h3>
                         <p>Ofrecemos soluciones de software robustas y altamente funcionales, diseñadas para integrarse
                             perfectamente y mejorar la productividad en tareas críticas. Garantizamos una experiencia
                             del usuario intuitiva y personalizada</p>
                     </div>
                     <div class="aplicacion_multiplatform app prog2">
                         <img src="iconos tipos de programas/panel-de-control.png" alt="">
-                        <h3>Panel de Administración</h3>
+                        <h3>PANEL DE ADMINISTRACION</h3>
                         <p>Control digital total sobre su negocio. Con una interfaz segura y eficiente, le
                             proporcionamos la capacidad de gestionar configuraciones, usuarios y datos críticos de
                             manera efectiva. Esta solución de administración asegura estabilidad y adaptabilidad
                             continua a sus necesidades empresariales.</p>
                     </div>
                 </div>
-            </div>
         </section>
         <!-- Seccion contacto -->
         <section class="seccion_contacto row my-5">
             <article class="contenedor-texto d-flex justify-content-center flex-column align-items-center">
                 <h6 class="text-white w-200 text-center">Digitaliza tu presencia hoy</h6>
                 <h3 class="text-white w-200 text-center">Contactanos</h3>
-                <button>CONTACTAR</button>
+                <a href="formulario.html"><button>CONTACTAR</button></a>
             </article>
         </section>
         <!-- PIE DE PAGINA -->
@@ -395,11 +366,11 @@
                         <span id="icon-instagram">Instagram</span>
                         <i class="icon-redes fa-brands fa-instagram"></i>
                     </a>
-                    <a href="#" id="link-whatsapp">
+                    <a href="https://wa.me/59168107914?text=Quiero saber más sobre el desarrollo de aplicaciones" id="link-whatsapp">
                         <span id="icon-whatsapp">Whatsapp</span>
                         <i class="icon-redes fa-brands fa-whatsapp"></i>
                     </a>
-                    <a href="#" id="link-gmail">
+                    <a href="formulario.html" id="link-gmail">
                         <span id="icon-gmail">Gmail</span>
                         <i class="icon-redes fa-regular fa-envelope"></i>
                     </a>
@@ -408,7 +379,7 @@
                     <p>Copyright - &copy; 2023 - Desarrollado por Next Macro System</p>
                 </article>
             </div>
-            <!-- Boton volver arriba -->
+            <!-- Botones flotantes fijos -->
             <section id="contenedor-botones">
                 <a href="estimar-proyecto.html">
                     <div id="btn-cotizacion" class="contenedor-boton-flotante">
@@ -418,11 +389,13 @@
                         </button>
                     </div>
                 </a>
-                <div id="btn-whatsapp" class="contenedor-boton-flotante"><button>
+                <a href="https://wa.me/59168107914?text=Quiero saber más sobre el desarrollo de aplicaciones">
+                   <div id="btn-whatsapp" class="contenedor-boton-flotante"><button>
                         <i class="icon-redes fa-brands fa-whatsapp icono-flotante"></i>
                         <div class="texto">Whatsapp</div>
                     </button>
-                </div>
+                </div> 
+                </a>
                 <a href="#carrusel-presentacion">
                     <div id="btn-arriba">
                         <button>
@@ -434,9 +407,7 @@
                             </svg>
                         </button>
                     </div>
-                </a>
-
-
+                </a>       
             </section>
             <script src="js/bootstrap.bundle.js"></script>
             <script src="js/por-secciones/botones-flotates.js"></script>
@@ -446,5 +417,4 @@
                 new WOW().init();
             </script>
 </body>
-
 </html>

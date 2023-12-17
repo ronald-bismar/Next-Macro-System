@@ -1,5 +1,5 @@
 :root {
-  --gradient-color-contact-light: #f9f97152;
+  --gradient-color-contact-light: #ffbb001f;
   --gradient-color-contact-dark: #3a83bb5b;
 }
 .tipos_de_programas {
@@ -44,24 +44,13 @@
   font-size: 35px;
 }
 
-@media (max-width: 768px) {
-  .tipos_de_aplicacion {
-    flex-direction: column;
-  }
-  .tipos_de_aplicacion h3 {
-    width: 90vw;
-  }
-  .tipos_de_aplicacion p {
-    width: 80vw;
-  }
-}
-
 /* seccion contacto */
 .seccion_contacto {
   background: url(../../../img/attachment-1.jpg);
   background-position: center;
   background-attachment: fixed;
-  height: 280px;
+  height: 350px;
+  margin-block: 50px;
 }
 .seccion_contacto .contenedor-texto {
   height: 100%;
@@ -74,9 +63,25 @@
 .contenedor-texto button {
   color: white;
   border-style: none;
-  background-color: rgb(255, 187, 0);
+  background-color: #ffbb00;
   padding: 10px 30px 10px 30px;
   border-radius: 10px;
   margin-top: 30px;
   font-weight: 500;
+  transition: all ease 0.5s;
+}
+.contenedor-texto button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px #343333;
+}
+@media (max-width: 768px) {
+  .tipos_de_aplicacion {
+    flex-direction: column;
+  }
+  .tipos_de_aplicacion h3 {
+    width: 90vw;
+  }
+  .tipos_de_aplicacion p {
+    width: 80vw;
+  }
 }

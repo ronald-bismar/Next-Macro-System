@@ -25,25 +25,34 @@
   font-family: OpenSans-SemiBold;
   src: url("../fonts/OpenSans-SemiBold.ttf");
 }
+body {
+  background-color: var(--bgcolor);
+}
 /* Boton para volver arriba */
 #btn-arriba button {
   width: 2.5rem;
   height: 2.5rem;
   padding: 5px;
   border-style: none;
-  background-color: tomato;
+  background-color: #3b4856;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+#btn-arriba button:hover {
+  transition: all ease 0.2s;
+  transform: scale(1.1);
+}
 .icono_arriba {
   width: 50px;
   height: 50px;
   color: aliceblue;
   margin-top: 10px;
   transform: rotate(-45deg) translate(1px, -2px);
+}
+#contenedor-botones a {
+  text-decoration: none; /* Quita el subrayado por defecto */
 }
 #btn-whatsapp button {
   width: 2.5rem;
@@ -77,6 +86,7 @@
   color: white;
   font-size: 1.8rem;
 }
+
 .contenedor-botones-flotantes {
   position: fixed;
   bottom: 30px;
@@ -106,7 +116,4 @@
   .row .col .item-2 {
     height: 500px;
   }
-}
-body {
-  background-color: var(--bgcolor);
 }

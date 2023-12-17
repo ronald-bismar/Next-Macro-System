@@ -1,0 +1,176 @@
+:root {
+  --color-light: #fdfdfd;
+  --color-dark: #e3e3e3;
+  --color-face1: #40355e;
+  --color-face2: #241e36;
+  --color-eyes: aquamarine;
+  --color-mouth: white;
+}
+.robotito {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  width: 100px;
+  z-index: 1;
+}
+.cabeza {
+  height: 65px;
+  width: 100px;
+  border-radius: 105px;
+  background: linear-gradient(
+    to right,
+    var(--color-light) 50%,
+    var(--color-dark) 50%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 0.5s;
+  animation: flotar 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+.cabeza::before {
+  content: "";
+  background-color: var(--color-eyes);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 105px;
+  background: linear-gradient(
+    to right,
+    var(--color-light) 50%,
+    var(--color-dark) 50%
+  );
+  z-index: -2;
+}
+.carita {
+  background: linear-gradient(to right, var(--color-face1), var(--color-face2));
+  width: 75%;
+  height: 68%;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.ojitos {
+  height: 34%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35%;
+  margin-top: 14%;
+}
+.ojito {
+  background-color: var(--color-eyes);
+  width: 20%;
+  height: 90%;
+  border-radius: 50%;
+}
+.boquita {
+  background-color: var(--color-mouth);
+  width: 16%;
+  height: 16%;
+  border-radius: 0px 0px 150px 150px;
+}
+.orejitas {
+  clip-path: polygon(
+    60.48% 100%,
+    100% 70.71%,
+    100% 29.29%,
+    60.48% 0%,
+    38.52% 0%,
+    0% 29.29%,
+    0% 70.71%,
+    38.52% 100%
+  );
+  background-color: var(--color-light);
+  position: absolute;
+  width: 115%;
+  height: 60%;
+  z-index: -10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 100px;
+}
+.cuerpo {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-top: 8%;
+  animation: flotar 2s ease-in-out infinite;
+  transition: all ease 0.5s;
+}
+.torso {
+  background: linear-gradient(
+    to right,
+    var(--color-light) 50%,
+    var(--color-dark) 50%
+  );
+  height: 50px;
+  width: 50px;
+  border-radius: 50px 50px 150px 150px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.cuellito {
+  background-color: var(--color-dark);
+  width: 84%;
+  height: 12%;
+  border-radius: 50%;
+  transform: translateY(-21%);
+}
+.brazo {
+  height: 40px;
+  width: 16px;
+  z-index: 1;
+  border-radius: 150%;
+}
+.brazo-izquierdo {
+  background-color: var(--color-light);
+  transform: rotateZ(30deg) translate(10%, -5%);
+}
+.brazo-derecho {
+  background-color: var(--color-dark);
+  transform: rotateZ(-30deg) translate(-10%, -5%);
+  transition: all ease 0.6s;
+}
+/* Animaciones */
+.robotito:hover::before .cabeza {
+  transform: rotateZ(-30deg);
+}
+.robotito:hover .brazo-derecho {
+  animation: hand 0.5s linear infinite;
+  animation-delay: 0.5s;
+  transform: translate(10%, -80%) rotateZ(-140deg);
+}
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3%);
+  }
+}
+/* Saludar */
+@keyframes hand {
+  0% {
+    transform: translate(10%, -80%) rotateZ(-140deg);
+  }
+  50% {
+    transform: translate(10%, -30%) rotateZ(-100deg);
+  }
+  100% {
+    transform: translate(10%, -80%) rotateZ(-140deg);
+  }
+}

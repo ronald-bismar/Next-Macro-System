@@ -75,6 +75,7 @@ ul li a.dropdown-item:hover {
   gap: 20px;
   padding-top: 20px;
 }
+
 .imagen {
   display: flex;
   justify-content: center;
@@ -82,10 +83,4 @@ ul li a.dropdown-item:hover {
 }
 .imagen img {
   height: 300px;
-}
-.imagen-mision {
-}
-.imagen-compromiso {
-}
-.imagen-valores {
 }

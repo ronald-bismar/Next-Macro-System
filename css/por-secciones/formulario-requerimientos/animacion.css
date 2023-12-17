@@ -1,5 +1,5 @@
 :root {
-  --color-hover-boton: #006979;
+  --color-hover-boton: #fa5661;
 }
 .cotizaciones1 .formulario_imagen form:hover {
   transform: scale(1.01);
@@ -14,10 +14,10 @@
 .cotizaciones1 .formulario_imagen form .enviar::before {
   content: "";
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  height: 100%;
-  width: 0;
+  height: 0%;
+  width: 0%;
   border-radius: 5px;
   background-color: var(--color-hover-boton);
   z-index: -1;
@@ -26,7 +26,9 @@
 
 .cotizaciones1 .formulario_imagen form .enviar:hover {
   color: aliceblue;
+  box-shadow: 0px 0px 10px #fa5661;
 }
 .cotizaciones1 .formulario_imagen form .enviar:hover::before {
   width: 100%;
+  height: 100%;
 }
