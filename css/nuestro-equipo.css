@@ -1,0 +1,77 @@
+section {
+  margin-block: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+h2 {
+  margin-top: 120px;
+  margin-bottom: 150px;
+}
+article.persona {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background-color: aliceblue;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  height: 400px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.card.centro {
+  transform: translateY(-40px);
+}
+.foto-perfil {
+  background: linear-gradient(90deg, #4f65bc, #566bbc, #3b55bb);
+  width: 100%;
+  height: 180px;
+  border-radius: 5px 5px 0px 0px;
+  position: relative;
+}
+
+.card:hover::after {
+  height: 100%;
+}
+.card h5 {
+  margin-top: 30px;
+}
+button.portfolio {
+  border-style: none;
+  color: white;
+  background: linear-gradient(43deg, #4158d0 0%, #c850c0 46%);
+  border-radius: 5px;
+  padding: 5px 30px;
+  margin-top: 20px;
+}
+.redes-sociales {
+  display: flex;
+  column-gap: 20px;
+}
+.redes-sociales .icon {
+  font-size: 1rem;
+  transition: all ease 0.5s;
+  opacity: 0;
+  color: rgb(40, 40, 40);
+}
+.card:hover .redes-sociales .icon {
+  font-size: 2.2rem;
+  opacity: 1;
+}
+.imagen {
+  background-color: #cccccc;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .card.centro {
+    transform: translateY(0px);
+  }
+}

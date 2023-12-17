@@ -5,6 +5,7 @@
   width: 0%;
   color: white;
   opacity: 0;
+  display: none;
   font-size: 1rem;
   font-weight: 400;
   transition: all ease 0.4ms;
@@ -19,6 +20,7 @@
   transition-duration: 0.3s;
 }
 #btn-cotizacion button:hover .texto {
+  display: block;
   opacity: 1;
   width: 70%;
   padding-right: 10px;
@@ -36,6 +38,7 @@
   transition-duration: 0.3s;
 }
 #btn-whatsapp button:hover .texto {
+  display: block;
   opacity: 1;
   width: 70%;
   right: 0;

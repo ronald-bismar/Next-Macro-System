@@ -59,16 +59,9 @@
                                 <li><a href="#" class="dropdown-item">Panel de Administracion</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item ms-4 dropdown">
-                            <a href="#productos" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">Nuestro
+                        <li class="nav-item ms-4">
+                            <a href="#productos" class="nav-link px-0" data-bs-toggle="dropdown">Nuestro
                                 equipo</a>
-                            <ul class="dropdown-menu menu-desplegado">
-                                <li><a href="#" class="dropdown-item">Desarrollador 1</a></li>
-                                <li><a href="#" class="dropdown-item">Desarrollador 2</a></li>
-                                <li><a href="#" class="dropdown-item">Desarrollador 3</a></li>
-                                <li><a href="#" class="dropdown-item">Desarrollador 4</a></li>
-                                <li><a href="#" class="dropdown-item">Desarrollador 5</a></li>
-                            </ul>
                         </li>
                         <li class="nav-item ms-4 dropdown btnbuscar">
                             <a href="#productos" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">
@@ -85,7 +78,7 @@
                 </div>
             </nav>
         </div>
-        <section class="row">
+        <section class="row" id="carrusel-presentacion">
             <!-- Carrusel de portada -->
             <article class="col-12 mx-0 px-0">
                 <div class="carousel carousel-dark slide" id="portada-carrusel" data-bs-ride="carousel">
@@ -147,7 +140,7 @@
                     align-items-center justify-content-center mt-5 mt-lg-0">
                 <h4>DESARROLLO MOVIL</h4>
                 <p class="d-flex flex-column justify-content-center mt-3 text-sm-center">
-                    Diseño de aplicaciones moviles para una facil interacción
+                    Diseño de aplicaciones moviles con una interaccion intuitiva
                 </p>
             </div>
         </section>
@@ -196,7 +189,7 @@
         </section>
 
         <!-- Formulario de requerimientos -->
-        <section class="cotizaciones1 row pb-0 mb-0">
+        <section class="cotizaciones1 row pb-0 mb-0" id="contactos">
             <h3 class="text-white">EMPIEZA TU PROYECTO HOY</h3>
             <div class="formulario_imagen col-12 m-0 p-0">
                 <form action="" class="col col-auto">
@@ -300,15 +293,15 @@
                 <div class="tipos_de_aplicacion">
                     <div class="aplicacion_android app web1">
                         <img src="iconos tipos de programas/redes.png" alt="">
-                        <h3>Pagina web de Servicios</h3>
-                        <p>Tu página web de servicios es la puerta digital de tu empresa, donde presentamos de manera
+                        <h3>Pagina web de Informacion</h3>
+                        <p>Tu página web de Informacion es la puerta digital de tu empresa, donde presentamos de manera
                             impactante tus productos o servicios. A través de un diseño atractivo y llamativas llamadas
                             a la acción, creamos una experiencia única que no solo informa, sino que cautiva,
                             convirtiendo a los visitantes en clientes potenciales desde el primer clic.</p>
                     </div>
                     <div class="aplicacion_multiplatform app web2">
                         <img src="iconos tipos de programas/vigilancia.png" alt="">
-                        <h3>Pagina web de administración</h3>
+                        <h3>Pagina web de comercio digital</h3>
                         <p>La página de administración es el cerebro estratégico de tu presencia en línea, ofreciendo
                             acceso restringido para una gestión eficiente de contenido, usuarios y datos cruciales.
                             Garantizamos un control total, brindándote las herramientas necesarias para operar tu sitio
@@ -417,26 +410,32 @@
             </div>
             <!-- Boton volver arriba -->
             <section id="contenedor-botones">
-                <div id="btn-cotizacion" class="contenedor-boton-flotante">
-                    <button>
-                        <i class="fa-solid fa-calculator icono-flotante"></i>
-                        <div class="texto">Cotizar</div>
-                    </button>
-                </div>
+                <a href="estimar-proyecto.html">
+                    <div id="btn-cotizacion" class="contenedor-boton-flotante">
+                        <button>
+                            <i class="fa-solid fa-calculator icono-flotante"></i>
+                            <div class="texto">Cotizar</div>
+                        </button>
+                    </div>
+                </a>
                 <div id="btn-whatsapp" class="contenedor-boton-flotante"><button>
                         <i class="icon-redes fa-brands fa-whatsapp icono-flotante"></i>
                         <div class="texto">Whatsapp</div>
-                    </button></div>
-                <div id="btn-arriba">
-                    <button>
-                        <svg id="icono_arriba" class="icono_arriba" viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="none" d="M0 0h24v24H0z"></path>
-                            <path fill="currentColor"
-                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
-                            </path>
-                        </svg>
                     </button>
                 </div>
+                <a href="#carrusel-presentacion">
+                    <div id="btn-arriba">
+                        <button>
+                            <svg id="icono_arriba" class="icono_arriba" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor"
+                                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </a>
+
 
             </section>
             <script src="js/bootstrap.bundle.js"></script>
