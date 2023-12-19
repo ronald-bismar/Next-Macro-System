@@ -142,7 +142,7 @@
 .brazo-derecho {
   background-color: var(--color-dark);
   transform: rotateZ(-30deg) translate(-10%, -5%);
-  transition: all ease 0.6s;
+  transition: all ease 0.4s;
 }
 /* Animaciones */
 .robotito:hover::before .cabeza {
@@ -150,7 +150,7 @@
 }
 .robotito:hover .brazo-derecho {
   animation: hand 0.5s linear infinite;
-  animation-delay: 0.5s;
+  animation-delay: 0.3s;
   transform: translate(10%, -80%) rotateZ(-140deg);
 }
 @keyframes flotar {

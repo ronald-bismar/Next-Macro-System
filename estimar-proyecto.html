@@ -3,34 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/estilos.css" />
-    <link rel="stylesheet" href="css/estilos-sobre-nosotros.css" />
-    <link rel="stylesheet" href="css/animaciones.css" />
     <link rel="stylesheet" href="robotito/estilos-robot.css" />
-    <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
-
-    <link
-      rel="stylesheet"
-      href="css/por-secciones/pie-de-pagina/pie-de-pagina.css"
-    />
-    <link
-      rel="stylesheet"
-      href="css/por-secciones/pie-de-pagina/animacion.css"
-    />
-    <link rel="stylesheet" href="CSS/font-awesome.min.css" />
     <link rel="stylesheet" href="css/estimar-proyecto.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="icon" href="img/logo.png" type="image/png" />
-    <script src="js/fontawesome.min.js"></script>
     <title>Next Macro System</title>
   </head>
-
   <body>
     <div class="container-fluid">
+      <!-- Titulo -->
       <section class="row text-center pt-5">
         <h2 id="tituloPrincipal">TIPO DE APLICACION QUE NECESITAS</h2>
       </section>
+      <!-- Carrusel de opciones de desarrollo -->
       <section
         class="row d-flex flex-row justify-content-center align-items-center"
       >
@@ -40,7 +26,7 @@
               <div
                 class="col col-12 imagenes-referencia d-flex justify-content-evenly text-center"
               >
-                <div class="col-12 col-md-3 check">
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -86,9 +72,14 @@
                     />
                   </svg>
                   <h5>PAGINA WEB</h5>
-                  <input type="checkbox" name="" id="web" />
-                </div>
-                <div class="col-12 col-md-3 check">
+                  <input
+                    class="opcion"
+                    type="checkbox"
+                    name=""
+                    id="pagina-web"
+                  />
+                </label>
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -141,9 +132,14 @@
                     />
                   </svg>
                   <h5>APLICACION MOVIL</h5>
-                  <input type="checkbox" name="" id="movil" />
-                </div>
-                <div class="col-12 col-md-3 check">
+                  <input
+                    class="opcion"
+                    type="checkbox"
+                    name=""
+                    id="aplicacion-movil"
+                  />
+                </label>
+                <label class="col-12 col-md-3 check">
                   <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                   <svg
                     width="800px"
@@ -210,15 +206,20 @@
                     />
                   </svg>
                   <h5>PROGRAMA DE ESCRITORIO</h5>
-                  <input type="checkbox" name="" id="desktop" />
-                </div>
+                  <input
+                    class="opcion"
+                    type="checkbox"
+                    name=""
+                    id="programa-de-escritorio"
+                  />
+                </label>
               </div>
             </article>
             <article class="mt-5 col col-12 slider-divs d-flex flex-row p-0">
               <div
                 class="col col-12 imagenes-referencia d-flex justify-content-evenly text-center"
               >
-                <div class="col-12 col-md-3 check">
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -263,9 +264,14 @@
                     />
                   </svg>
                   <h5>DESARROLLO FRONTEND</h5>
-                  <input type="checkbox" name="" id="frontend" />
-                </div>
-                <div class="col-12 col-md-3 check">
+                  <input
+                    class="opcion"
+                    type="checkbox"
+                    name=""
+                    id="desarrollo-frontend"
+                  />
+                </label>
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -322,9 +328,14 @@
                     />
                   </svg>
                   <h5>DESARROLLO BACKEND</h5>
-                  <input type="checkbox" name="" id="backend" />
-                </div>
-                <div class="col-12 col-md-3 check">
+                  <input
+                    class="opcion"
+                    type="checkbox"
+                    name=""
+                    id="desarrollo-backend"
+                  />
+                </label>
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -357,15 +368,20 @@
                     />
                   </svg>
                   <h5>DESARROLLO FULLSTACK</h5>
-                  <input type="checkbox" name="" id="fullstack" />
-                </div>
+                  <input
+                    class="opcion"
+                    type="checkbox"
+                    name=""
+                    id="desarrollo-fullstack"
+                  />
+                </label>
               </div>
             </article>
             <article class="mt-5 col col-12 slider-divs d-flex flex-row p-0">
               <div
                 class="col col-12 imagenes-referencia d-flex justify-content-evenly text-center"
               >
-                <div class="col-12 col-md-3 check">
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -414,9 +430,14 @@
                     />
                   </svg>
                   <h5>AHORA</h5>
-                  <input type="checkbox" name="" id="now" />
-                </div>
-                <div class="col-12 col-md-3 check">
+                  <input
+                    class="opcion"
+                    type="radio"
+                    name="opciones-fecha"
+                    id="empezar-ahora"
+                  />
+                </label>
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -465,9 +486,14 @@
                     />
                   </svg>
                   <h5>EN UNA SEMANA</h5>
-                  <input type="checkbox" name="" id="una-semana" />
-                </div>
-                <div class="col-12 col-md-3 check">
+                  <input
+                    class="opcion"
+                    type="radio"
+                    name="opciones-fecha"
+                    id="empezar-en-una-semana"
+                  />
+                </label>
+                <label class="col-12 col-md-3 check">
                   <svg
                     width="800px"
                     height="800px"
@@ -516,13 +542,19 @@
                     />
                   </svg>
                   <h5>EN UN MES</h5>
-                  <input type="checkbox" name="" id="un-mes" />
-                </div>
+                  <input
+                    class="opcion"
+                    type="radio"
+                    name="opciones-fecha"
+                    id="empezar-en-un-mes"
+                  />
+                </label>
               </div>
             </article>
           </div>
         </div>
       </section>
+      <!-- Barra de progreso de circulos de los pasos-->
       <section
         class="controles row d-flex justify-content-center align-items-center mt-5"
       >
@@ -540,7 +572,7 @@
             <button id="next">Siguiente</button>
           </div>
         </article>
-        <a id="btn-cambiar" href="formulario.html">
+        <a id="btn-cambiar ir-formulario" href="formulario.html">
           <button class="btn-cambiar enviar-detalles" id="enviar-detalles">
             Hecho
           </button>
@@ -549,6 +581,7 @@
       <a href="index.html">
         <button class="btn-cambiar" id="volver-atras">Inicio</button>
       </a>
+      <!-- Robotito -->
       <div class="robotito">
         <div class="cabeza">
           <div class="orejitas"></div>
@@ -570,8 +603,18 @@
         </div>
       </div>
     </div>
+    <!-- Modal de advertencia al no seleccionar una opcion -->
+    <section id="modal-warning" class="modal">
+      <div class="modal__container">
+        <figure class="modale__picture">
+          <i class="icon-modal fa-solid fa-triangle-exclamation"></i>
+        </figure>
+        <h4 class="modal__title">Selecciona una opcion</h4>
+        <a href="#header" class="modal__close">Aceptar</a>
+      </div>
+    </section>
     <script src="js/estimar-proyecto.js"></script>
+    <script src="js/fontawesome.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/por-secciones/botones-flotates.js"></script>
   </body>
 </html>

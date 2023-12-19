@@ -115,7 +115,7 @@ body {
   width: 100%;
 }
 
-.slider-divs div div {
+.slider-divs div .check {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,21 +123,15 @@ body {
   gap: 20px;
   border-radius: 5px;
 }
-.slider-divs div div img {
-  height: 200px;
-}
-.slider-divs div div img:nth-child(3) {
-  width: 150px;
-}
 /* ------------------- */
-.imagenes-referencia div {
+.imagenes-referencia .check {
   display: flex;
   position: relative;
   background: lightgrey;
   background: linear-gradient(145deg, #ffffff, #e3e3e3);
   box-shadow: 2px 3px 10px #858585;
 }
-.imagenes-referencia div input[type="checkbox"] {
+.imagenes-referencia .check .opcion {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -187,6 +181,64 @@ body {
   left: 30px;
 }
 
+/* Estilos modal de aviso */
+.modal {
+  position: fixed;
+  background-color: #33333340;
+  inset: 0 0 0 0;
+  display: flex;
+  /* Custom properties */
+  --opacity: 0;
+  --pointer: none;
+  opacity: var(--opacity);
+  pointer-events: var(--pointer);
+  transition: all ease 0.2s;
+}
+.modal:target {
+  --opacity: 1;
+  --pointer: unset;
+}
+.modal:target .modal__container {
+  transform: scale(1);
+}
+
+.modal__container {
+  margin: auto;
+  background-color: #fff;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: center;
+  padding: 2.5em 1.5em;
+  border-radius: 0.5em;
+  transition: all ease 0.2s;
+  transform: scale(0.9);
+}
+.modal__picture {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 400px;
+  margin-bottom: 2em;
+}
+.modal__img {
+  width: 100%;
+  display: block;
+}
+.modal__close {
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  color: white;
+  margin-top: 20px;
+  background-color: #3cb5a9;
+}
+.icon-modal {
+  font-size: 50px;
+  color: rgb(255, 189, 23);
+}
 @media (max-width: 1220px) {
   #volver-atras {
     top: 5px;
@@ -200,12 +252,12 @@ body {
     width: 30rem;
   }
 
-  .imagenes-referencia div input[type="checkbox"] {
+  .imagenes-referencia .opcion {
     top: 25%;
     right: 4%;
   }
 
-  .imagenes-referencia div {
+  .imagenes-referencia .check {
     width: 100%;
   }
 
@@ -218,15 +270,11 @@ body {
     flex-direction: column;
   }
 
-  .slider-divs div div {
+  .slider-divs div .check {
     height: 70px;
   }
 
-  .slider-divs div div img {
-    display: none;
-  }
-
-  .slider-divs div div svg {
+  .slider-divs div .check svg {
     display: none;
   }
 }

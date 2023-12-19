@@ -38,7 +38,7 @@
           Tu navegador no soporta HTML5
         </video>
         <div>
-          <form
+          <form id="form"
             action="https://formsubmit.co/ronaldlimachimamani72@gmail.com"
             method="POST"
           >
@@ -48,7 +48,12 @@
               posible
             </p>
             <label for="">Tu nombre:</label>
-            <input type="text" placeholder="Nombre completo.." required="" />
+            <input
+              type="text"
+              id="nombre"
+              placeholder="Nombre completo.."
+              required=""
+            />
 
             <div class="telefono-correo">
               <div class="telefono">
@@ -64,6 +69,7 @@
                 <label for="">Tu correo:</label>
                 <input
                   type="email"
+                  id="email"
                   placeholder="Correo electronico.."
                   required=""
                 />
@@ -71,13 +77,13 @@
             </div>
             <label for="">Cuentanos más:</label>
             <textarea
-              name=""
-              id=""
+              name="mensaje"
+              id="message"
               rows="4"
               placeholder="Mensaje"
               required=""
             ></textarea>
-            <input type="submit" value="Enviar mensaje" />
+            <input id="enviar" type="submit" value="Enviar mensaje" />
           </form>
         </div>
         <div class="seccion-derecha">
@@ -90,7 +96,7 @@
         </div>
       </article>
     </section>
-    <script src="js/estimar-proyecto.js"></script>
+    <script src="js/formulario.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
   </body>
 </html>

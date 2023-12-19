@@ -4,28 +4,32 @@ let circles,
   buttons,
   indicator,
   sliderInner,
-  divs,
   btnIrFormulario,
   tituloPrincipal;
 
 // Checkbox
-// Padres de los checkbox para que cuando se haga click sobre todo el contenedor de la imagen igual se marque el checkbox
-let contCheckbox,
+let checkboxs,
   requerimientosCheckBox = "",
   contadorChecks = 0;
 
 let currentStep = 1;
 
+let modal;
+
+let enlace_formulario;
+
 initElements();
+
 buttons[0].disabled = true;
+
 clicContenedorCheckBox();
 
 // Funcion para actualizar los pasos en el dom
 const updateSteps = (e) => {
-  if (contadorChecks < currentStep && e.target.id === "next") {
-    alert("Selecciona una opcion");
+  if (contadorChecks < 1 && e.target.id === "next") {
+    window.location.href = "#modal-warning";
   } else {
-    // actualizar los botones basados en el boton clickado
+    // actualizar el estado de los botones basados en el boton clickado
     currentStep = e.target.id === "next" ? ++currentStep : --currentStep;
     circles.forEach((circle, index) => {
       circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
@@ -35,56 +39,77 @@ const updateSteps = (e) => {
       ((currentStep - 1) / (circles.length - 1)) * 100
     }%`;
 
-    //  Desabilitar los botones si se quiere salir de los limites de los pasos
+    //  Desabilitar los botones si se quiere salir de los limites de los pasos del formulario
     if (currentStep == circles.length) {
-      tituloPrincipal.textContent = "CUANDO DESEAS INICIAR";
-      buttons[1].disabled = true;
-      btnIrFormulario.style.display = "inline-block";
+      terceraVista();
     } else if (currentStep == 1) {
-      buttons[0].disabled = true;
-      tituloPrincipal.textContent = "TIPO DE APLICACION QUE NECESITAS";
+      primeraVista();
     } else {
-      buttons.forEach((button) => (button.disabled = false));
-      btnIrFormulario.style.display = "none";
-      tituloPrincipal.textContent = "TIPO DE TRABAJO";
+      segundaVista();
     }
-    // Cambiar el slider div
-    let percentage = (currentStep - 1) * -100;
-    sliderInner.style.transform = `translateX(${percentage}%)`;
+    moverSlider();
+    reiniciarContadorDeCheckeds(); // Se reinicia el contador de checkeds al mover el slider
+    borrarCheckeds();
   }
 };
 buttons.forEach((button) => {
   button.addEventListener("click", updateSteps);
 });
+function borrarCheckeds() {
+  checkboxs.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+}
+function reiniciarContadorDeCheckeds() {
+  contadorChecks = 0;
+}
 
+function primeraVista() {
+  buttons[0].disabled = true;
+  tituloPrincipal.textContent = "TIPO DE APLICACION QUE NECESITAS";
+}
+function segundaVista() {
+  buttons.forEach((button) => (button.disabled = false));
+  btnIrFormulario.style.display = "none";
+  tituloPrincipal.textContent = "TIPO DE TRABAJO";
+}
+function terceraVista() {
+  tituloPrincipal.textContent = "CUANDO DESEAS INICIAR";
+  buttons[1].disabled = true;
+  btnIrFormulario.style.display = "inline-block";
+}
+function moverSlider() {
+  let percentage = (currentStep - 1) * -100;
+  sliderInner.style.transform = `translateX(${percentage}%)`;
+}
 function initElements() {
   circles = document.querySelectorAll(".circle");
   progressBar = document.querySelector(".indicator");
   buttons = document.querySelectorAll("button");
   indicator = document.querySelector(".indicator");
   sliderInner = document.querySelector(".slider--inner");
-  divs = sliderInner.querySelectorAll(".slider-divs");
   btnIrFormulario = document.querySelector("#enviar-detalles");
-  contCheckbox = document.querySelectorAll(".check");
+  checkboxs = document.querySelectorAll(".opcion");
   tituloPrincipal = document.querySelector("#tituloPrincipal");
+  modal = document.querySelector(".modal");
+  enlace_formulario = document.querySelector("#btn-cambiar");
 }
 
 function clicContenedorCheckBox() {
-  contCheckbox.forEach((elemento) => {
-    elemento.addEventListener("click", () => {
-      let checkbox = elemento.querySelector('input[type = "checkbox"]');
-      checkbox.checked = !checkbox.checked;
+  checkboxs.forEach((checkbox) => {
+    checkbox.addEventListener("click", () => {
       if (checkbox.checked) {
-        requerimientosCheckBox += ` ${
-          elemento.querySelector("h5").textContent
-        }`;
-        contadorChecks++;
+        console.info(checkbox.type === "radio" && contadorChecks >= 1);
+        if (checkbox.type === "radio" && contadorChecks >= 1)
+          borrarPalabraAnterior();
+        requerimientosCheckBox += ` ${checkbox.id}`;
+        ++contadorChecks;
       } else {
         requerimientosCheckBox = requerimientosCheckBox.replace(
-          elemento.querySelector("h5").textContent,
+          checkbox.id,
           ""
         );
-        contadorChecks--;
+        --contadorChecks;
       }
 
       requerimientosCheckBox = requerimientosCheckBox.trim();
@@ -92,3 +117,18 @@ function clicContenedorCheckBox() {
     });
   });
 }
+function borrarPalabraAnterior() {
+  requerimientosCheckBox = requerimientosCheckBox.substring(
+    0,
+    requerimientosCheckBox.lastIndexOf(" ")
+  );
+}
+function actualizarRequerimientos() {
+  console.log(enlace_formulario.getAttribute("href"));
+}
+
+//Pasar al formulario
+btnIrFormulario.addEventListener("click", () => {
+  localStorage.setItem("dato", requerimientosCheckBox);
+  window.location.href = "formulario.html";
+});
