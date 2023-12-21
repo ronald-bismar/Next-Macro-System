@@ -45,3 +45,8 @@
   opacity: 0;
   color: aliceblue;
 }
+@media (max-width: 564px) {
+  .pie-de-pagina .redes {
+    gap: 5%;
+  }
+}

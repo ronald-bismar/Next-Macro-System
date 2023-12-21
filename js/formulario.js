@@ -1,5 +1,5 @@
 let datos;
-let nombre, telefono, correo, mensaje, btnEnviar;
+let nombre, telefono, correo, mensaje, btnEnviar, requerimientos;
 
 class Usuario {
   nombre;
@@ -15,6 +15,7 @@ class Usuario {
 }
 initElements();
 getRequerementsFromLocalStorage();
+obtenerPais();
 
 btnEnviar.addEventListener("click", () => {
   let usuario = new Usuario(
@@ -23,18 +24,14 @@ btnEnviar.addEventListener("click", () => {
     correo.value,
     mensaje.value
   );
-  let datos = `${usuario.mensaje},
-  Nombre: ${usuario.nombre},
-  Telefono: ${usuario.telefono},
-  Correo: ${usuario.correo}`;
-  mensaje.value = datos;
-  setTimeout(clearInputs, 1000);
+  requerimientos.value = datos;
+  getCountry();
 });
 function clearInputs() {
-  nombre.value = "";
+  nombre.value.clear();
   telefono.value.clear();
-  correo.value = "";
-  mensaje.value = "";
+  correo.value.clear();
+  mensaje.value.clear();
 }
 function initElements() {
   nombre = document.getElementById("nombre");
@@ -42,9 +39,30 @@ function initElements() {
   correo = document.getElementById("email");
   mensaje = document.getElementById("message");
   btnEnviar = document.getElementById("enviar");
-  console.log(btnEnviar);
+  requerimientos = document.getElementById("infoAdicional");
 }
 function getRequerementsFromLocalStorage() {
   datos = localStorage.getItem("dato");
   localStorage.clear();
+}
+function obtenerPais() {
+  // Obtener la dirección IP del usuario
+  fetch("https://api64.ipify.org?format=json")
+    .then((response) => response.json())
+    .then((data) => {
+      const ipAddress = data.ip;
+
+      // Obtener información de geolocalización basada en la dirección IP
+      fetch(
+        `http://api.ipstack.com/${ipAddress}?access_key=15939652620cb0813f7d78f354068a40`
+      )
+        .then((response) => response.json())
+        .then((info) => {
+          const direction = `Pais: ${info.country_name} Ciudad: ${info.city}`;
+          console.log(direction);
+          document.getElementById("country").value = direction;
+        })
+        .catch((error) => console.error(error));
+    })
+    .catch((error) => console.error(error));
 }

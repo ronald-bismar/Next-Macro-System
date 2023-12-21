@@ -126,6 +126,20 @@ figure button {
   color: white;
   box-shadow: 5px 5px 10px rgb(0, 65, 130);
 }
+@media (max-width: 564px) {
+  .cotizaciones2 .contenedor-texto {
+    width: 90%;
+  }
+  .cotizaciones2 img.imagen-mac-book {
+    display: none;
+  }
+  .cotizaciones2 {
+    height: auto;
+  }
+  .cotizaciones2 .contenedor-texto {
+    margin-block: 100px;
+  }
+}
 @media (max-width: 768px) {
   .cotizaciones2 {
     height: 120vh;
@@ -139,9 +153,13 @@ figure button {
     justify-content: center;
   }
   .cotizaciones2 {
-    height: 210vh;
+    height: auto;
   }
-  .cotizaciones2 img {
-    height: 90vh;
+  .contenedor-texto {
+    margin-top: 10%;
+  }
+  .cotizaciones2 img.imagen-mac-book {
+    width: 90vh;
+    margin-bottom: 20%;
   }
 }

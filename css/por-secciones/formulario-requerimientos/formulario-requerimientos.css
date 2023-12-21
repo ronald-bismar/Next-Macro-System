@@ -22,7 +22,7 @@
 }
 
 .cotizaciones1 .formulario_imagen form {
-  width: 35%;
+  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +96,20 @@
 
 /* Pantallas menores a tablets */
 @media (max-width: 768px) {
+  .cotizaciones1 {
+    gap: 40px;
+    height: auto;
+    padding-block: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .cotizaciones1 {
+    gap: 40px;
+    height: auto;
+    padding-block: 20px;
+  }
   .cotizaciones1 .formulario_imagen form {
-    width: 80vw;
+    width: 90%;
+    margin-bottom: 20px;
   }
 }

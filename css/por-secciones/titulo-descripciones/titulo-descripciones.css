@@ -53,8 +53,4 @@ section .descripcion p {
     font-weight: 600;
     color: var(--gradient-color-dark);
   }
-  section .descripcion p {
-    font-size: 1.2rem;
-    text-align: center;
-  }
 }

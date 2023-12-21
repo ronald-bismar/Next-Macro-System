@@ -19,7 +19,7 @@
   text-align: center;
 }
 .tipos_de_aplicacion p {
-  height: 100px;
+  height: auto;
 }
 .tipos_de_aplicacion img {
   margin-top: 40px;
@@ -77,11 +77,17 @@
 @media (max-width: 768px) {
   .tipos_de_aplicacion {
     flex-direction: column;
+    height: auto;
   }
   .tipos_de_aplicacion h3 {
     width: 90vw;
   }
   .tipos_de_aplicacion p {
     width: 80vw;
+  }
+}
+@media (max-width: 574) {
+  .app img {
+    margin-top: 500px;
   }
 }

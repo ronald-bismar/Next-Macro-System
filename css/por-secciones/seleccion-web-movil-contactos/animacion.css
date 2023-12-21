@@ -1,5 +1,5 @@
 .img-celulares {
-  transition: all ease 2s;
+  transition: all ease 0.5s;
 }
 .cajaP:hover + .img-celulares .imagen-principal {
   transform: translateX(-20px);

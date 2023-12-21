@@ -16,7 +16,13 @@
   bottom: 40px;
   width: 100px;
   z-index: 1;
+  /* transform-style: preserve-3d;
+  transition: all 3s ease; */
 }
+/* .robotito:hover {
+  transform: rotate3d(1, 1, 1, 180deg);
+} */
+
 .cabeza {
   height: 65px;
   width: 100px;

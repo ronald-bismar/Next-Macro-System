@@ -38,7 +38,8 @@
           Tu navegador no soporta HTML5
         </video>
         <div>
-          <form id="form"
+          <form
+            id="form"
             action="https://formsubmit.co/ronaldlimachimamani72@gmail.com"
             method="POST"
           >
@@ -47,42 +48,60 @@
               Envianos tu mensaje y nos comunicaremos contigo a la brevedad
               posible
             </p>
-            <label for="">Tu nombre:</label>
+            <label>Tu nombre:</label>
             <input
               type="text"
               id="nombre"
               placeholder="Nombre completo.."
               required=""
+              name="Nombre"
             />
 
             <div class="telefono-correo">
               <div class="telefono">
-                <label for="">Tu telefono:</label>
+                <label>Tu telefono:</label>
                 <input
                   type="tel"
                   id="phone"
                   placeholder="Telefono.."
                   required=""
+                  name="Telefono"
                 />
               </div>
               <div class="correo">
-                <label for="">Tu correo:</label>
+                <label>Tu correo:</label>
                 <input
                   type="email"
                   id="email"
                   placeholder="Correo electronico.."
                   required=""
+                  name="Correo"
                 />
               </div>
             </div>
-            <label for="">Cuentanos más:</label>
+            <label>Cuentanos más:</label>
             <textarea
-              name="mensaje"
+              name="Mensaje"
               id="message"
               rows="4"
               placeholder="Mensaje"
               required=""
             ></textarea>
+            <input
+              type="hidden"
+              id="infoAdicional"
+              name="Requerimientos seleccionados"
+              value=""
+            />
+            <input type="hidden" id="country" name="Pais" value="" />
+
+            <!-- Pagina a la cual se redirigirá al enviar el formulario -->
+            <input
+              type="hidden"
+              name="_next"
+              value="http://127.0.0.1:5501/formulario-terminado.html"
+            />
+            <input type="hidden" name="_captcha" value="false" />
             <input id="enviar" type="submit" value="Enviar mensaje" />
           </form>
         </div>
