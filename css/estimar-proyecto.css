@@ -295,3 +295,11 @@ body {
     display: none;
   }
 }
+@media (max-width: 576px) {
+  .slider-divs .imagenes-referencia {
+    width: 90%;
+  }
+  .check h5 {
+    transform: translateX(-5%);
+  }
+}

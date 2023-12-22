@@ -1,7 +1,7 @@
 section {
   display: flex;
 }
-article {
+.contenedor-mensaje {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,18 +14,23 @@ article:nth-child(2) {
 }
 .confirmacion {
   width: 80%;
-  height: 60%;
+  height: auto;
   border-radius: 8px;
   padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20%;
+  gap: 2rem;
   box-shadow: 0px 0px 20px gray;
 }
 img.robotito {
-  height: 25rem;
+  height: auto;
+  width: 100%;
+  background: url(../img/bg-11.svg) no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+  padding-inline: 100px;
 }
 #inicio {
   text-decoration: none;
@@ -39,4 +44,21 @@ img.robotito {
   cursor: pointer;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
   transition: all 200ms linear;
+}
+@media (max-width: 574px) {
+  .confirmacion {
+    margin-top: 30px;
+  }
+  img.robotito {
+    height: 250px;
+    width: auto;
+    padding-inline: 0px;
+    margin-top: 10px;
+  }
+  article:nth-child(1) {
+    justify-content: center;
+  }
+  article:nth-child(2) {
+    justify-content: center;
+  }
 }

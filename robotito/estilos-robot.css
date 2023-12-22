@@ -180,3 +180,8 @@
     transform: translate(10%, -80%) rotateZ(-140deg);
   }
 }
+@media (max-width: 576px) {
+  .robotito {
+    display: none;
+  }
+}
