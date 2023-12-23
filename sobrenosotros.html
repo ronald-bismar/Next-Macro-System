@@ -1,185 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/estilos-sobre-nosotros.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilos-sobre-nosotros.css">
-    <link rel="stylesheet" href="css/animaciones.css">
-    <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css">
-
-    <link rel="stylesheet" href="css/por-secciones/pie-de-pagina/pie-de-pagina.css">
-    <link rel="stylesheet" href="css/por-secciones/pie-de-pagina/animacion.css">
+    <link
+      rel="stylesheet"
+      href="css/por-secciones/pie-de-pagina/pie-de-pagina.css"
+    />
+    <link
+      rel="stylesheet"
+      href="css/por-secciones/pie-de-pagina/animacion.css"
+    />
     <link rel="stylesheet" href="CSS/font-awesome.min.css" />
-    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="icon" href="img/logo.png" type="image/png" />
     <script src="js/fontawesome.min.js"></script>
     <title>Next Macro System</title>
-</head>
+  </head>
 
-<body>
-    <div class="container-fluid h-auto">
-        <div class="row">
-            <nav class="navbar navbar-expand-xl navbar-dark mb-5">
-                <!-- Logotipo -->
-                <a href="index.html" class="navbar-brand ms-5">
-                    <img src="img/logo_cabecera.png" alt="logotipo" class="img-fluid">
-                    <img class="img-fluid" src="img/letras-logo.png" alt="next macro system">
-                </a>
-                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#menu-principal">
-                    <span class="navbar-toggler-icon"></span><!-- boton hamburguesa -->
-                </button>
-                <!-- Menu de navegacion -->
-                <div class="enlaces collapse navbar-collapse" id="menu-principal">
-                    <ul class="navbar-nav m-auto">
-                        <li class="nav-item ms-4"><a href="index.html" class="nav-link px-0">Inicio</a></li>
-                        <li class="nav-item ms-4"><a href="sobrenosotros.html" class="nav-link px-0">Sobre nosotros</a>
-                        </li>
-                        <li class="nav-item ms-4"><a href="index.html#contactos" class="nav-link px-0">Contactos</a></li>
-                        <li class="nav-item ms-4 dropdown">
-                            <a href="#productos" class="nav-link dropdown-toggle px-0"
-                                data-bs-toggle="dropdown">Soluciones</a>
-                            <ul class="dropdown-menu menu-desplegado">
-                                <li><a href="#" class="dropdown-item">Pagina Web de Servicios</a></li>
-                                <li><a href="#" class="dropdown-item">Pagina Web de Administracion</a></li>
-                                <li><a href="#" class="dropdown-item">Aplicaciones Moviles Nativas</a></li>
-                                <li><a href="#" class="dropdown-item">Aplicaciones Moviles Hibridas</a></li>
-                                <li><a href="#" class="dropdown-item">Programas de Escritorio</a></li>
-                                <li><a href="#" class="dropdown-item">Panel de Administracion</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item ms-4">
-                            <a href="#productos" class="nav-link px-0" data-bs-toggle="dropdown">Nuestro
-                                equipo</a>
-                            
-                        </li>
-                        <li class="nav-item ms-4 dropdown btnbuscar">
-                            <a href="#productos" class="nav-link dropdown-toggle px-0" data-bs-toggle="dropdown">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
-                            <ul class="dropdown-menu search">
-                                <form action="get" class="d-flex">
-                                    <input type="search" class="form-control ms-3" placeholder="Buscar">
-                                    <button class="btn btn-light ms-1 me-3">Buscar</button>
-                                </form>
-                            </ul>
-                        </li>
-                    </ul>
+  <body class="container-fluid h-auto">
+    <header class="row">
+      <nav class="navbar navbar-expand-xl fixed-top navbar-dark mb-5">
+        <!-- Logotipo -->
+        <a href="index.html" class="navbar-brand ms-5">
+          <img
+            src="img/logo_cabecera.png"
+            alt="logotipo"
+            class="img-fluid icon-computer"
+          />
+          <img
+            class="icon-letter img-fluid"
+            src="img/letras-logo.png"
+            alt="next macro system"
+          />
+        </a>
+        <button
+          class="navbar-toggler me-3"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu-principal"
+        >
+          <span class="navbar-toggler-icon"></span
+          ><!-- boton hamburguesa -->
+        </button>
+        <!-- Menu de navegacion -->
+        <div class="enlaces collapse navbar-collapse" id="menu-principal">
+          <ul class="navbar-nav m-auto">
+            <li class="nav-item ms-4">
+              <a href="index.html" class="nav-link px-0">Inicio</a>
+            </li>
+            <li class="nav-item ms-4">
+              <a href="sobrenosotros.html" class="nav-link px-0"
+                >Sobre nosotros</a
+              >
+            </li>
+            <li class="nav-item ms-4">
+              <a href="formulario.html" class="nav-link px-0">Contactos</a>
+            </li>
+            <li class="nav-item ms-4 dropdown">
+              <a
+                href="#productos"
+                class="nav-link dropdown-toggle px-0"
+                data-bs-toggle="dropdown"
+                >Soluciones</a
+              >
+              <ul class="dropdown-menu menu-desplegado">
+                <li>
+                  <a href="estimar-proyecto.html" class="dropdown-item"
+                    >Pagina Web de Servicios</a
+                  >
+                </li>
+                <li>
+                  <a href="estimar-proyecto.html" class="dropdown-item"
+                    >Pagina Web de Administracion</a
+                  >
+                </li>
+                <li>
+                  <a href="estimar-proyecto.html" class="dropdown-item"
+                    >Aplicaciones Moviles Nativas</a
+                  >
+                </li>
+                <li>
+                  <a href="estimar-proyecto.html" class="dropdown-item"
+                    >Aplicaciones Moviles Hibridas</a
+                  >
+                </li>
+                <li>
+                  <a href="estimar-proyecto.html" class="dropdown-item"
+                    >Programas de Escritorio</a
+                  >
+                </li>
+                <li>
+                  <a href="estimar-proyecto.html" class="dropdown-item"
+                    >Panel de Administracion</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item ms-4">
+              <a href="nuestro-equipo.html" class="nav-link px-0"
+                >Nuestro equipo</a
+              >
+            </li>
+            <li class="nav-item ms-4 dropdown btnbuscar">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle px-0"
+                data-bs-toggle="dropdown"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </a>
+              <div class="dropdown-menu search">
+                <!-- Realizar una busqueda en la pagina segun la cadena que se ingrese -->
+                <div action="get" class="d-flex">
+                  <input
+                    type="search"
+                    class="form-control ms-3"
+                    placeholder="Buscar"
+                  />
+                  <a href="busqueda-sin-resultados.html"
+                    ><button class="btn btn-light ms-1 me-3">Buscar</button></a
+                  >
                 </div>
-            </nav>
+              </div>
+            </li>
+          </ul>
         </div>
-        <section class="sobre-nosotros row mt-3 text-dark text-center px-5">
-            <h1>SOBRE NOSOTROS</h1>
-        </section>
-        <section class="parrafo primer-parrafo row mt-5 mb-5 text-dark text-center px-md-5 d-flex justify-content-center">
-            <article class="col col-12 col-md-8 bg-body-secondary d-flex flex-row mb-5">
-                <div class="col col-12 nuestra-historia p-5">
-                    <h4>NUESTRA HISTORIA</h4>
-                    <p>Next Macro System es una empresa que trabaja desde la ciudad de El Alto, departamento de La Paz, Bolivia. En la que dia a dia trabajamos de forma incansable para brindar soluciones digitales a nuestros socios comerciales que faciliten su trabajo y ayuden al crecimiento de sus micro, mediano, y grandes empresas, siempre procurando brindar un servicio de calidad y buen resultado.</p>
-                    
-                </div>
-            </article>  
-        </section>
-        <section class="contenedor">
-            <section class="parrafo row mt-3 text-dark text-center px-0 px-md-5">
-                <article class="col col-12 d-flex flex-column flex-md-row-reverse">
-                    <div class="col col-12 col-md-6 nuestra-historia px-md-5">
-                        <h4>NUESTRA MISION</h4>
-                        <p>"En Next Macro System, nuestra misión va más allá de la tecnología. Nos esforzamos por ser el socio digital preferido de nuestros usuarios. Al centrarnos en la calidad, la creatividad y la eficiencia, trabajamos para proporcionar soluciones que no solo resuelven problemas, sino que también inspiran el crecimiento. Estamos comprometidos con la excelencia en cada proyecto, con la visión de ser líderes en la transformación digital y el desarrollo tecnológico."</p>
-                        
-                    </div>
-                    <div class="col-12 col-md-6 imagen imagen-mision bg-secondary align-content-center">
-                        <img src="img/imagen-sobre-nosotros/vecteezy_icono-de-cohete-3d-concepto-de-inicio-concepto-de_12377862.png" alt="">
-                    </div>
-                </article>  
-            </section>
-            <section class="parrafo row mt-3 text-dark text-center px-0 px-md-5">
-                <article class="col col-12 d-flex flex-column flex-md-row">
-                    <div class="col col-12 col-md-6 nuestra-historia px-md-5">
-                        <h4>NUESTRO COMPROMISO</h4>
-                        <p>El compromiso es de vital importancia para nosotros. Desde nuestras oficinas día tras día nos esforzamos por superar las expectativas de nuestros clientes. Nos enorgullece ser una fuerza impulsora en el crecimiento empresarial en nuestra region. Nuestro compromiso no solo se refleja en el código que escribimos o en las soluciones que ofrecemos, sino también en la relación a largo plazo que construimos con cada uno de nuestros socios comerciales.</p>
-                        
-                    </div>
-                    <div class="col-12 col-md-6 imagen imagen-compromiso bg-secondary"><img class="img-fluid" src="img/imagen-sobre-nosotros/vecteezy_verificado-con-insignia-ilustracion-3d-para-icono-de_9847890.png" alt=""></div>
-                </article>  
-            </section>
-            <section class="parrafo row mt-3 text-dark text-center px-0 px-md-5">
-                <article class="col-12 d-flex flex-column-reverse flex-md-row">
-                    <div class="col col-12 col-md-6 imagen imagen-valores bg-secondary"><img class="img-fluid" src="img/imagen-sobre-nosotros/vecteezy_3d-illustration-website-ui-kit-light-bulb_22180974.png" alt=""></div>
-                    <div class="col col-12 col-md-6 nuestra-historia px-md-5">
-                        <h4>NUESTRA VISION</h4>
-                        <p>Nuestra visión es ser un motor impulsor para el crecimiento empresarial de nuestros usuarios. Nos dedicamos a proporcionar soluciones digitales que no solo resuelvan problemas, sino que también impulsen el éxito y la expansión de los negocios de nuestros clientes. Trabajamos dia a dia para ser reconocidos como socios estratégicos, contribuyendo activamente al crecimiento sostenible y la prosperidad de las empresas que confían en nosotros. Nuestra visión es ser la fuerza que permite a cada usuario alcanzar y superar sus metas comerciales a través de la innovación tecnológica.</p>
-                    </div>
-                </article>  
-            </section>
-        </section>
-        
-        <section id="direccion" class="row mt-5 px-0 px-md-5">
-            <article class="col-12 my-5">
-              <h3 class="text-center mb-4">PUEDES UBICARNOS EN</h3>
-              <iframe
-                class="w-100 p-0 m-0"
-                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.99298705505!2d-68.19737168437804!3d-16.576860687079567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915ed92675b25069%3A0x279a7dd30982d9f6!2sC.%20Calahumana%20Sta.%20Cruz%203116%2C%20El%20Alto!5e0!3m2!1ses-419!2sbo!4v1701920293551!5m2!1ses-419!2sbo" 
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </article>
-          </section>
-        <!-- PIE DE PAGINA -->
-        <div class="row pie-de-pagina d-flex justify-content-center">
-            <article class="col-12 col-md-4">
-                <h4 class="mt-3 text-center">Más de nuestros servicios</h4>
-                <ul class="list-group list-group-flush">
-                    <a href="#" class="list-group-item text-light">Despliegue</a>
-                    <a href="#" class="list-group-item text-light">Mantenimiento</a>
-                    <a href="#" class="list-group-item text-light">Consultas y
-                        cotizaciones</a>
-                </ul>
-            </article>
+      </nav>
+    </header>
+    <section class="sobre-nosotros row mt-3 text-dark text-center px-5">
+      <h1>SOBRE NOSOTROS</h1>
+    </section>
+    <section
+      class="parrafo primer-parrafo row mt-5 mb-5 text-dark text-center px-md-5 d-flex justify-content-center"
+    >
+      <article
+        class="col col-12 col-md-8 bg-body-secondary d-flex flex-row mb-5"
+      >
+        <div class="col col-12 nuestra-historia p-5">
+          <h4>NUESTRA HISTORIA</h4>
+          <p>
+            Next Macro System es una empresa que trabaja desde la ciudad de El
+            Alto, departamento de La Paz, Bolivia. En la que dia a dia
+            trabajamos de forma incansable para brindar soluciones digitales a
+            nuestros socios comerciales que faciliten su trabajo y ayuden al
+            crecimiento de sus micro, mediano, y grandes empresas, siempre
+            procurando brindar un servicio de calidad y buen resultado.
+          </p>
+        </div>
+      </article>
+    </section>
+    <section class="contenedor">
+      <section class="parrafo row mt-3 text-dark text-center px-0 px-md-5">
+        <article class="col col-12 d-flex flex-column flex-md-row-reverse">
+          <div class="col col-12 col-md-6 nuestra-historia px-md-5">
+            <h4>NUESTRA MISION</h4>
+            <p>
+              "En Next Macro System, nuestra misión va más allá de la
+              tecnología. Nos esforzamos por ser el socio digital preferido de
+              nuestros usuarios. Al centrarnos en la calidad, la creatividad y
+              la eficiencia, trabajamos para proporcionar soluciones que no solo
+              resuelven problemas, sino que también inspiran el crecimiento.
+              Estamos comprometidos con la excelencia en cada proyecto, con la
+              visión de ser líderes en la transformación digital y el desarrollo
+              tecnológico."
+            </p>
+          </div>
+          <div
+            class="col-12 col-md-6 imagen imagen-mision bg-secondary align-content-center"
+          >
+            <img
+              src="img/imagen-sobre-nosotros/vecteezy_icono-de-cohete-3d-concepto-de-inicio-concepto-de_12377862.png"
+              alt=""
+            />
+          </div>
+        </article>
+      </section>
+      <section class="parrafo row mt-3 text-dark text-center px-0 px-md-5">
+        <article class="col col-12 d-flex flex-column flex-md-row">
+          <div class="col col-12 col-md-6 nuestra-historia px-md-5">
+            <h4>NUESTRO COMPROMISO</h4>
+            <p>
+              El compromiso es de vital importancia para nosotros. Desde
+              nuestras oficinas día tras día nos esforzamos por superar las
+              expectativas de nuestros clientes. Nos enorgullece ser una fuerza
+              impulsora en el crecimiento empresarial en nuestra region. Nuestro
+              compromiso no solo se refleja en el código que escribimos o en las
+              soluciones que ofrecemos, sino también en la relación a largo
+              plazo que construimos con cada uno de nuestros socios comerciales.
+            </p>
+          </div>
+          <div class="col-12 col-md-6 imagen imagen-compromiso bg-secondary">
+            <img
+              class="img-fluid"
+              src="img/imagen-sobre-nosotros/vecteezy_verificado-con-insignia-ilustracion-3d-para-icono-de_9847890.png"
+              alt=""
+            />
+          </div>
+        </article>
+      </section>
+      <section class="parrafo row mt-3 text-dark text-center px-0 px-md-5">
+        <article class="col-12 d-flex flex-column-reverse flex-md-row">
+          <div class="col col-12 col-md-6 imagen imagen-valores bg-secondary">
+            <img
+              class="img-fluid"
+              src="img/imagen-sobre-nosotros/vecteezy_3d-illustration-website-ui-kit-light-bulb_22180974.png"
+              alt=""
+            />
+          </div>
+          <div class="col col-12 col-md-6 nuestra-historia px-md-5">
+            <h4>NUESTRA VISION</h4>
+            <p>
+              Nuestra visión es ser un motor impulsor para el crecimiento
+              empresarial de nuestros usuarios. Nos dedicamos a proporcionar
+              soluciones digitales que no solo resuelvan problemas, sino que
+              también impulsen el éxito y la expansión de los negocios de
+              nuestros clientes. Trabajamos dia a dia para ser reconocidos como
+              socios estratégicos, contribuyendo activamente al crecimiento
+              sostenible y la prosperidad de las empresas que confían en
+              nosotros. Nuestra visión es ser la fuerza que permite a cada
+              usuario alcanzar y superar sus metas comerciales a través de la
+              innovación tecnológica.
+            </p>
+          </div>
+        </article>
+      </section>
+    </section>
 
-            <div class="row justify-content-center mt-3">
-                <h4 class="text-center">Buscanos en</h4>
-                <article class="redes col-12 col-md-4 px-5 d-flex justify-content-center align-items-center">
-
-                    <a href="#" id="link-facebook">
-                        <span id="icon-facebook">Facebook</span>
-                        <i class="icon-redes fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#" id="link-youtube">
-                        <span id="icon-youtube">Youtube</span>
-                        <i class="icon-redes fa-brands fa-youtube"></i>
-                    </a>
-                    <a href="#" id="link-instagram">
-                        <span id="icon-instagram">Instagram</span>
-                        <i class="icon-redes fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#" id="link-whatsapp">
-                        <span id="icon-whatsapp">Whatsapp</span>
-                        <i class="icon-redes fa-brands fa-whatsapp"></i>
-                    </a>
-                    <a href="#" id="link-gmail">
-                        <span id="icon-gmail">Gmail</span>
-                        <i class="icon-redes fa-regular fa-envelope"></i>
-                    </a>
-                </article>
-                <article class="col-12 text-center text-white mt-3">
-                    <p>Copyright - &copy; 2023 - Desarrollado por Next Macro System</p>
-                </article>
-            </div>
-            <!-- Boton volver arriba -->
-
-            <script src="js/bootstrap.bundle.js"></script>
-            <script src="js/por-secciones/botones-flotates.js"></script>
-            <script src="js/wow.min.js"></script>
-            <script type="text/javascript">
-                new WOW().init();
-            </script>
-</body>
+    <section id="direccion" class="row mt-5 px-0 px-md-5">
+      <article class="col-12 my-5">
+        <h3 class="text-center mb-4">PUEDES UBICARNOS EN</h3>
+        <iframe
+          class="w-100 p-0 m-0"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.99298705505!2d-68.19737168437804!3d-16.576860687079567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915ed92675b25069%3A0x279a7dd30982d9f6!2sC.%20Calahumana%20Sta.%20Cruz%203116%2C%20El%20Alto!5e0!3m2!1ses-419!2sbo!4v1701920293551!5m2!1ses-419!2sbo"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </article>
+    </section>
+    <footer class="row pie-de-pagina d-flex justify-content-center">
+      <article class="col-12 col-md-4">
+        <h4 class="mt-3 text-center">Más de nuestros servicios</h4>
+        <ul class="list-group list-group-flush">
+          <a href="formulario.html" class="list-group-item text-light"
+            >Despliegue</a
+          >
+          <a href="formulario.html" class="list-group-item text-light"
+            >Mantenimiento</a
+          >
+          <a href="formulario.html" class="list-group-item text-light"
+            >Consultas y cotizaciones</a
+          >
+        </ul>
+      </article>
+      <div class="row justify-content-center mt-3">
+        <h5 class="text-center">Buscanos en</h5>
+        <article
+          class="redes col-12 col-md-4 px-5 d-flex justify-content-center align-items-center"
+        >
+          <a href="#" id="link-facebook">
+            <span id="icon-facebook">Facebook</span>
+            <i class="icon-redes fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" id="link-youtube">
+            <span id="icon-youtube">Youtube</span>
+            <i class="icon-redes fa-brands fa-youtube"></i>
+          </a>
+          <a href="#" id="link-instagram">
+            <span id="icon-instagram">Instagram</span>
+            <i class="icon-redes fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href="https://wa.me/59168107914?text=Quiero saber más sobre el desarrollo de aplicaciones"
+            id="link-whatsapp"
+          >
+            <span id="icon-whatsapp">Whatsapp</span>
+            <i class="icon-redes fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="formulario.html" id="link-gmail">
+            <span id="icon-gmail">Gmail</span>
+            <i class="icon-redes fa-regular fa-envelope"></i>
+          </a>
+        </article>
+        <article class="col-12 text-center text-white mt-3">
+          <p>Copyright - &copy; 2023 - Desarrollado por Next Macro System</p>
+        </article>
+      </div>
+    </footer>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/por-secciones/botones-flotates.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script type="text/javascript">
+      new WOW().init();
+    </script>
+  </body>
 </html>

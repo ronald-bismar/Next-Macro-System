@@ -14,8 +14,8 @@ window.addEventListener("scroll", function () {
     dropdown[i].style.backgroundColor =
       "rgba(0, 67, 109," + scrollY / 500 + ")";
   }
-
-  nav.style.backgroundColor = "rgba(0, 67, 109," + scrollY / 500 + ")";
+  if (scrollY <= 490)
+    nav.style.backgroundColor = "rgba(0, 67, 109," + scrollY / 500 + ")";
 });
 function obtenerPais() {
   // Obtener la dirección IP del usuario
