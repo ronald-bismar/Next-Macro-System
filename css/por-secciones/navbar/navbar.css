@@ -50,7 +50,7 @@ ul li a.dropdown-item:hover {
   }
 }
 
-/* Pantallas de tablet */
+/* Pantallas de celular */
 @media (max-width: 564px) {
   .icon-computer {
     display: none;

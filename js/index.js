@@ -1,4 +1,4 @@
-// JavaScript para agregar la clase "fade-in" a la imagen después de un retraso
+// JavaScript para agregar la clase "fade-in" a la imagen después de un retraso de 1 segundo (1000)
 const fadeImage = document.getElementById("fade-image");
 obtenerPais();
 setTimeout(() => {
