@@ -69,8 +69,6 @@ Contáctanos y cuéntanos sobre tu proyecto. Estamos listos para convertir tus i
 
 ### Desarrollo Frontend y Backend
 
-![Desarrollo](img/imagen/imagen1.png)
-
 - **Desarrollo Frontend**: Interfaces atractivas y funcionales.
 - **Pruebas de Distintos Niveles**: Garantía de calidad con pruebas unitarias, de integración y de sistema.
 
