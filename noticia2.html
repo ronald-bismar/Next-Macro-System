@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/estilos-sobre-nosotros.css" />
     <link rel="stylesheet" href="css/animaciones.css" />
     <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
+
     <link
       rel="stylesheet"
       href="css/por-secciones/pie-de-pagina/pie-de-pagina.css"
@@ -21,19 +22,7 @@
     <link rel="stylesheet" href="CSS/font-awesome.min.css" />
     <link rel="icon" href="img/logo.png" type="image/png" />
     <script src="js/fontawesome.min.js"></script>
-    <style>
-      .card {
-        height: 100%;
-      }
-      .card-body {
-        display: flex;
-        flex-direction: column;
-      }
-      .card-text {
-        flex-grow: 1;
-      }
-    </style>
-    <title>Noticias</title>
+    <title>Meta ha lanzado Code Llama, un nuevo competidor para GitHub Copilot en el ámbito de la programación</title>
   </head>
   <body>
     <header class="row">
@@ -57,7 +46,8 @@
           data-bs-toggle="collapse"
           data-bs-target="#menu-principal"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span
+          ><!-- boton hamburguesa -->
         </button>
         <!-- Menu de navegacion -->
         <div class="enlaces collapse navbar-collapse" id="menu-principal">
@@ -125,15 +115,16 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
               </a>
               <div class="dropdown-menu search">
+                <!-- Realizar una busqueda en la pagina segun la cadena que se ingrese -->
                 <div action="get" class="d-flex">
                   <input
                     type="search"
                     class="form-control ms-3"
                     placeholder="Buscar"
                   />
-                  <a href="busqueda-sin-resultados.html">
-                    <button class="btn btn-light ms-1 me-3">Buscar</button>
-                  </a>
+                  <a href="busqueda-sin-resultados.html"
+                    ><button class="btn btn-light ms-1 me-3">Buscar</button></a
+                  >
                 </div>
               </div>
             </li>
@@ -141,52 +132,39 @@
         </div>
       </nav>
     </header>
-    <main class="noticias row px-5">
-      <div class="noticia col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card h-100">
+    <section class="sobre-nosotros row mt-3 text-dark text-center px-5">
+      <main class="noticias mx-5 px-5">
+        <div class="noticia my-4">
+            <h2>¿Qué son las bases de datos NoSQL y por qué incluso el creador de SQL las apoya?</h2>
           <img
             src="images-post/database-sql-with-logo.png"
-            class="card-img-top img-fluid"
             alt="Noticia 1"
+            class="img-fluid px-5 px-md-5"
           />
-          <div class="card-body">
-            <h5 class="card-title">
-              ¿Qué son las bases de datos NoSQL y por qué incluso el creador de
-              SQL las apoya?
-            </h5>
-            <p class="card-text">
-              El creador de SQL, Donald Chamberlin, ha dado su respaldo a las
-              bases de datos NoSQL, una categoría diversa de bases de datos que
-              ha surgido en los últimos años y que se separa de su propia
-              creación exitosa.
-            </p>
-            <a href="noticia2.html" class="btn btn-primary mt-auto">Leer más</a>
-          </div>
-        </div>
-      </div>
-      <div class="noticia col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card h-100">
-          <img
-            src="images-post/code-llama.png"
-            class="card-img-top img-fluid"
-            alt="Noticia 2"
-          />
-          <div class="card-body">
-            <h5 class="card-title">
-              Meta ha lanzado Code Llama, un nuevo competidor para GitHub
-              Copilot en el ámbito de la programación.
-            </h5>
-            <p class="card-text">
-              La inteligencia artificial (IA) está transformando la manera en
-              que los programadores trabajan. De acuerdo con una encuesta de
-              GitHub realizada en EE. UU., el 92% de los desarrolladores en ese
-              país utilizan herramientas de codificación basadas en IA, y es
-              probable que esta tendencia se extienda globalmente.
-            </p>
-            <a href="noticia.html" class="btn btn-primary mt-auto">Leer más</a>
-          </div>
-        </div>
-      </div>
-    </main>
+          <h5 class="my-5" style="font-weight: 400;">
+            El creador de SQL, Donald Chamberlin, ha dado su respaldo a las bases de datos NoSQL, una categoría diversa de bases de datos que ha surgido en los últimos años y que se separa de su propia creación exitosa. <br><br>
+
+            En la celebración del 50 aniversario del lenguaje SQL (Structured Query Language), Chamberlin, quien junto a Raymond Boyce desarrolló SQL en 1974, ha reconocido la importancia de las bases de datos NoSQL para aplicaciones modernas que requieren mayor escalabilidad y rendimiento. Aunque sigue valorando el papel fundamental de SQL, Chamberlin entiende que las nuevas aplicaciones, especialmente las web, necesitan bases de datos que soporten gran escalabilidad y alto rendimiento, algo que las bases de datos relacionales tradicionales no pueden proporcionar. <br><br>
+
+            <h3>SQL vs NoSQL</h3><br><br>
+
+            SQL fue desarrollado como un lenguaje estandarizado para consultas en bases de datos relacionales, organizando los datos en tablas interconectadas con filas y columnas. Esta estructura facilitaba la gestión y el análisis de grandes volúmenes de datos, pero presentaba limitaciones en cuanto a flexibilidad y escalabilidad. <br><br>
+
+            En 2009, Johan Oskarsson de Last.fm resucitó el término 'NoSQL' para describir alternativas a las bases de datos SQL tradicionales, las cuales no podían satisfacer las necesidades de muchas aplicaciones modernas, especialmente aquellas que manejan grandes volúmenes de datos y requieren alta escalabilidad. <br><br>
+            
+            A diferencia de SQL, las bases de datos NoSQL (Not Only SQL) ofrecen una solución más flexible, adoptando formatos como bases de datos de documentos, de valores clave y de grafos, lo que permite un manejo de datos más dinámico y adaptable a diferentes tipos de consultas y estructuras de datos. Por ejemplo, MongoDB y Couchbase utilizan JSON para almacenar datos de manera esquemática y flexible, facilitando la integración con aplicaciones web. Por otro lado, Redis y Neo4j proporcionan soluciones rápidas para el almacenamiento en caché y la representación de redes complejas de relaciones. <br><br>
+
+            <h3>SQL vs NoSQL</h3><br><br>
+
+            Además de apoyar NoSQL, Chamberlin también promueve SQL++, un lenguaje de consulta desarrollado por el profesor Yannis Papakonstantinou de UC San Diego. SQL++ está diseñado para trabajar con datos semiestructurados o no estructurados, como los documentos JSON. Este nuevo lenguaje, adoptado por Couchbase y AWS bajo el nombre PartiQL, busca combinar las ventajas de NoSQL con la familiaridad y robustez de SQL. <br><br>  
+
+Requisitos para utilizar Code Llama
+Aunque Meta permite descargar y utilizar el modelo de forma gratuita para diversos propósitos, hacerlo funcionar localmente en tu computadora requiere pasos avanzados, como elegir el tamaño del modelo (7B, 13B y 34B), disponer de suficiente potencia informática, herramientas de compilación y una interfaz de usuario adecuada. <br><br>
+
+Aunque Chamberlin está semiretirado, sigue trabajando como asesor técnico en Couchbase y enfatiza que, a pesar de los avances de NoSQL y SQL++, el SQL tradicional continuará siendo crucial en el manejo de datos empresariales debido a su eficacia, amplia adopción y múltiples implementaciones de código abierto altamente confiables. <br><br>
+"No creo que SQL vaya a desaparecer. Una gran parte de los datos empresariales del mundo están codificados en SQL, y los datos son muy persistentes. Una vez que tienes tu base de datos, te quedarás con ella".
+          </h5>
+      </main>
+    </section>
   </body>
 </html>
