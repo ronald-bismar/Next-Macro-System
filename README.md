@@ -94,17 +94,18 @@ Contáctanos y cuéntanos sobre tu proyecto. Estamos listos para convertir tus i
 
 ---
 
+![Facilidad de requerimiento de proyectos](https://github.com/user-attachments/assets/2fc42db9-c958-437c-84a0-ff2cf9da545e)
+
+---
+
 ¡Gracias por visitar Next Macro System! Si tienes alguna pregunta o deseas comenzar un proyecto, no dudes en contactarnos.
 
 ---
 
-![Facilidad de requerimiento de proyectos](https://github.com/user-attachments/assets/2fc42db9-c958-437c-84a0-ff2cf9da545e)
-
-
 ### Redes Sociales
 
 - [Puedes visitarnos en nuestra pagina Next Macro System: ](https://vercel.com/bismar-s-projects/next-macro-system)
-
+- [Puedes visitarnos en Facebook: ](https://www.facebook.com/profile.php?id=61561161188291)
 
 ---
 
