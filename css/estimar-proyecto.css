@@ -1,7 +1,7 @@
 :root {
   --bg-color-estimar: #00b5bc;
   --color-1: #4ea4e5;
-  --color-2: #3cb5a9;
+  --color-2: linear-gradient(45deg, #026780, #5971a7);
   --color-3: #0643a0;
 }
 * {
@@ -16,7 +16,7 @@ body {
 .container-fluid {
   min-height: 100vh;
   height: auto;
-  background-color: var(--color-2);
+  background: var(--color-2);
   z-index: -1;
 }
 .container {
@@ -84,7 +84,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.09);
   transition: all 200ms linear;
 }
 .buttons button:active {
@@ -98,6 +98,7 @@ body {
 /* ------------------------- */
 #tituloPrincipal {
   transition: all ease 0.5s;
+  color: whitesmoke;
 }
 .slider {
   overflow: hidden;
@@ -129,7 +130,7 @@ body {
   position: relative;
   background: lightgrey;
   background: linear-gradient(145deg, #ffffff, #e3e3e3);
-  box-shadow: 2px 3px 10px #858585;
+  box-shadow: 2px 3px 10px #272727;
 }
 .imagenes-referencia .check .opcion {
   position: absolute;
@@ -174,6 +175,7 @@ body {
   right: 30px;
   bottom: 0px;
   display: none;
+  background-color: rgb(0, 114, 190);
 }
 
 #volver-atras {
