@@ -1,6 +1,7 @@
-# Next Macro System
+![image](https://github.com/user-attachments/assets/e2aa40a2-e290-4461-b2bb-c7d7acc8e09d)# Next Macro System
 
-![Next Macro System Logo](img/logo.png)
+![Next Macro System Logo](https://github.com/user-attachments/assets/c875046d-f511-4437-9423-56371bde619a)
+
 
 ## Descripción
 
@@ -88,7 +89,7 @@ Contáctanos y cuéntanos sobre tu proyecto. Estamos listos para convertir tus i
 
 ### Redes Sociales
 
-- [Link](https://vercel.com/bismar-s-projects/next-macro-system)
+- [Puedes visitarnos en nuestra pagina Next Macro System: ](https://vercel.com/bismar-s-projects/next-macro-system)
 
 
 ---
