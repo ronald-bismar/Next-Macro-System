@@ -1,0 +1,208 @@
+/* Hybrid Design: Medium + Index Styles */
+:root {
+  --bg-color: #ffffff;
+  --text-primary: #292929;
+  --text-secondary: #757575;
+  --accent-color: #4ea4e5;
+  /* From index.css */
+  --accent-hover: #0071ad;
+  /* From index.css */
+  --border-color: #e6e6e6;
+  --font-family-serif: 'Charter', 'Georgia', serif;
+  --font-family-sans: 'OpenSans-Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-family-sans);
+  line-height: 1.5;
+}
+
+.panel-wrapper {
+  padding-bottom: 100px;
+}
+
+/* Editor Container */
+.editor-container {
+  max-width: 100%;
+}
+
+/* Inputs */
+.form-control-plaintext {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}
+
+.form-control-plaintext:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Title & Subtitle */
+.editor-title {
+  font-family: var(--font-family-serif);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.editor-subtitle {
+  font-family: var(--font-family-sans);
+  font-size: 24px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Cover Image */
+.group-hover:hover .cover-preview button {
+  opacity: 1;
+}
+
+.cover-preview {
+  position: relative;
+}
+
+.cover-preview img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Composite Sections */
+.section-composite {
+  margin-bottom: 3rem;
+  position: relative;
+  padding-left: 1rem;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.section-composite:focus-within {
+  border-left-color: var(--accent-color);
+}
+
+.section-composite:hover .section-actions-floating {
+  opacity: 1;
+}
+
+.section-actions-floating {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: white;
+  padding: 5px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.section-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-tool {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.btn-tool:hover,
+.btn-tool.active {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+/* Section Content Elements */
+.section-subtitle {
+  font-family: var(--font-family-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.section-paragraph {
+  font-family: var(--font-family-serif);
+  font-size: 20px;
+  line-height: 1.58;
+  color: var(--text-primary);
+  border: none;
+  resize: none;
+  overflow: hidden;
+  min-height: 1.5em;
+}
+
+.section-image-container {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-image-container img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.section-image-input {
+  border: 1px dashed var(--border-color);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+/* Add Section Button */
+#btnAddSection {
+  background-color: var(--accent-color);
+  border: none;
+  transition: transform 0.2s;
+}
+
+#btnAddSection:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Utilities */
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.btn-success {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.btn-success:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Author Section */
+.author-section .author-avatar {
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.author-section h6 {
+  font-family: var(--font-family-sans);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.author-section small {
+  font-size: 13px;
+}
