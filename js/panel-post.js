@@ -1,7 +1,6 @@
 // Configuración del API
 const API_BASE_URL = 'https://blog-nmsystem.vercel.app';
 const API_POSTS_ENDPOINT = '/blogs';
-const API_TOKEN = '';
 
 // Estado
 const state = {
