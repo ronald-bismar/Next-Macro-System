@@ -1,6 +1,6 @@
 // Configuración del API
-const API_BASE_URL = 'https://tu-api-blog.example.com';
-const API_POSTS_ENDPOINT = '/posts';
+const API_BASE_URL = 'https://blog-nmsystem.vercel.app';
+const API_POSTS_ENDPOINT = '/blogs';
 const API_TOKEN = '';
 
 // Estado
@@ -23,7 +23,7 @@ const qsa = (sel) => Array.from(document.querySelectorAll(sel));
 function initDate() {
   const dateSpan = qs('#currentDate');
   if (dateSpan) {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     dateSpan.textContent = new Date().toLocaleDateString('es-ES', options);
   }
 }
@@ -210,15 +210,18 @@ function collectPost() {
     }
   });
 
+  // Formato de fecha legible: "20 de enero de 2024"
+  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const readableDate = new Date().toLocaleDateString('es-ES', dateOptions);
+
   return {
     title,
     subtitle,
-    coverImage,
-    datePost: new Date().toISOString(),
-    timeRead: '5 min',
+    datePost: readableDate, // "20 de enero de 2024"
+    timeRead: '6 min',
     imagePost: coverImage,
-    author: 'Admin',
-    section: sections
+    section: sections,
+    author: 'Ronald Bismar Limachi Mamani'
   };
 }
 
@@ -241,12 +244,11 @@ function loadDraft() {
 
     qs('#title').value = draft.title || '';
     qs('#subtitle').value = draft.subtitle || '';
-    if (draft.coverImage) {
-      qs('#coverImage').value = draft.coverImage;
-      // Trigger change event manually if needed or update preview
+    if (draft.imagePost) {
+      qs('#coverImage').value = draft.imagePost;
       const preview = qs('#coverPreview');
       const img = preview.querySelector('img');
-      img.src = draft.coverImage;
+      img.src = draft.imagePost;
       preview.classList.remove('d-none');
       qs('#coverImage').classList.add('d-none');
     }
@@ -291,18 +293,54 @@ function bindEvents() {
   qs('#btnPublicar').addEventListener('click', async () => {
     const post = collectPost();
     console.log('Publishing:', post);
+
+    // Validaciones básicas
+    if (!post.title) {
+      showStatus('El título es obligatorio', 'danger');
+      return;
+    }
     if (post.section.length === 0) {
       showStatus('Agrega al menos una sección con contenido', 'danger');
       return;
     }
 
-    // Simulate success
-    const modal = new bootstrap.Modal(document.getElementById('shareModal'));
-    modal.show();
+    const btn = qs('#btnPublicar');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Publicando...';
+
+    try {
+      const response = await fetch(`${API_BASE_URL}${API_POSTS_ENDPOINT}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post)
+      });
+
+      if (response.status === 204) {
+        // Success
+        const modal = new bootstrap.Modal(document.getElementById('shareModal'));
+        modal.show();
+
+        // Limpiar storage local si se desea
+        localStorage.removeItem('compositeDraft');
+      } else {
+        showStatus('Error al publicar. Intenta nuevamente.', 'danger');
+        console.error('Error status:', response.status);
+      }
+    } catch (error) {
+      console.error('Error publishing:', error);
+      showStatus('Error de conexión.', 'danger');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initDate();
   bindEvents();
   loadDraft();
 });
