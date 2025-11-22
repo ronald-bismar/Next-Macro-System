@@ -96,6 +96,69 @@
     </div>
   </main>
 
+  <!-- Share Modal -->
+  <div class="modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-body p-5 text-center">
+          <div class="mb-4 text-success">
+            <i class="fa-regular fa-circle-check fa-4x"></i>
+          </div>
+          <h3 class="fw-bold mb-2">¡Post Publicado!</h3>
+          <p class="text-muted mb-4">Tu contenido está listo. ¿Dónde te gustaría compartirlo?</p>
+
+          <div class="d-grid gap-3">
+            <button class="btn btn-outline-dark p-3 text-start d-flex align-items-center gap-3 hover-scale">
+              <i class="fa-regular fa-envelope fa-xl"></i>
+              <div>
+                <div class="fw-bold">Newsletter</div>
+                <small class="text-muted">Enviar a suscriptores</small>
+              </div>
+            </button>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale">
+                  <i class="fa-brands fa-linkedin fa-2x"></i>
+                  <span class="small fw-bold">Empresa</span>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale">
+                  <i class="fa-brands fa-linkedin-in fa-2x"></i>
+                  <span class="small fw-bold">Personal</span>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                  style="--bs-btn-color: #1877F2; --bs-btn-border-color: #1877F2; --bs-btn-hover-bg: #1877F2; --bs-btn-hover-border-color: #1877F2;">
+                  <i class="fa-brands fa-facebook fa-2x"></i>
+                  <span class="small fw-bold">Empresa</span>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                  style="--bs-btn-color: #1877F2; --bs-btn-border-color: #1877F2; --bs-btn-hover-bg: #1877F2; --bs-btn-hover-border-color: #1877F2;">
+                  <i class="fa-brands fa-facebook-f fa-2x"></i>
+                  <span class="small fw-bold">Personal</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <button type="button" class="btn btn-link text-muted text-decoration-none" data-bs-dismiss="modal">Cerrar y
+              volver</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/bootstrap.bundle.js"></script>
   <script src="js/panel-post.js"></script>
 </body>

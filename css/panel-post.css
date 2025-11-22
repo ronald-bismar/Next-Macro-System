@@ -206,3 +206,20 @@ body {
 .author-section small {
   font-size: 13px;
 }
+
+/* Share Modal */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: translateY(-3px);
+}
+
+.modal-content {
+  border: none;
+}
+
+.modal-body i {
+  margin-bottom: 0.5rem;
+}

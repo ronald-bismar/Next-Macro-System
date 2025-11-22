@@ -295,7 +295,10 @@ function bindEvents() {
       showStatus('Agrega al menos una sección con contenido', 'danger');
       return;
     }
-    showStatus('Funcionalidad de publicación pendiente de integración backend', 'success');
+
+    // Simulate success
+    const modal = new bootstrap.Modal(document.getElementById('shareModal'));
+    modal.show();
   });
 }
 
