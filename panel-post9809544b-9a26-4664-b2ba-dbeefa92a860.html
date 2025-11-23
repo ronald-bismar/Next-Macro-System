@@ -1,166 +1,248 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
+    <link rel="stylesheet" href="css/panel-post.css" />
+    <link rel="stylesheet" href="CSS/font-awesome.min.css" />
+    <link rel="icon" href="img/logo.png" type="image/png" />
+    <script src="js/fontawesome.min.js"></script>
+    <title>Panel de Posts | Next Macro System</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/animate.css" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/estilos.css" />
-  <link rel="stylesheet" href="css/animaciones.css" />
-  <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
-  <link rel="stylesheet" href="css/panel-post.css" />
-  <link rel="stylesheet" href="CSS/font-awesome.min.css" />
-  <link rel="icon" href="img/logo.png" type="image/png" />
-  <script src="js/fontawesome.min.js"></script>
-  <title>Panel de Posts | Next Macro System</title>
-</head>
-
-<body class="container-fluid bg-white">
-
-  <main class="row d-flex justify-content-center">
-    <div class="col-12 col-lg-8 col-xl-7 panel-wrapper">
-      <!-- Header Actions -->
-      <div class="d-flex align-items-center justify-content-between mb-5 mt-4">
-        <div class="d-flex align-items-center gap-2">
-          <a href="index.html" class="btn btn-link text-muted p-0 text-decoration-none"><i
-              class="fa-solid fa-arrow-left"></i> Volver</a>
-          <span class="text-muted">|</span>
-          <span class="text-muted small">Borrador</span>
-        </div>
-        <div class="d-flex gap-2">
-          <button id="btnGuardarDraft" class="btn btn-outline-secondary btn-sm">Guardar borrador</button>
-          <button id="btnPublicar" class="btn btn-success btn-sm rounded-pill px-3">Publicar</button>
-        </div>
-      </div>
-
-      <form id="postForm" class="editor-container">
-        <!-- Author Section -->
-        <div class="author-section d-flex align-items-center mb-4">
-          <img src="https://ui-avatars.com/api/?name=Ronald+Bismar&background=random&size=128" alt="Ronald Bismar"
-            class="author-avatar rounded-circle me-3" width="48" height="48">
-          <div class="author-info">
-            <h6 class="m-0 fw-bold text-dark">Ronald Bismar Limachi Mamani</h6>
-            <small class="text-muted">Software Developer &bull; <span id="currentDate"></span></small>
+  <body class="container-fluid bg-white">
+    <main class="row d-flex justify-content-center">
+      <div class="col-12 col-lg-8 col-xl-7 panel-wrapper">
+        <!-- Header Actions -->
+        <div
+          class="d-flex align-items-center justify-content-between mb-5 mt-4"
+        >
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="btn btn-link text-muted p-0 text-decoration-none"
+              ><i class="fa-solid fa-arrow-left"></i> Volver</a
+            >
+            <span class="text-muted">|</span>
+            <span class="text-muted small">Borrador</span>
           </div>
-        </div>
-
-        <!-- Cover Image -->
-        <div class="mb-4 position-relative group-hover">
-          <input type="url" id="coverImage" class="form-control-plaintext text-muted"
-            placeholder="Pegar URL de imagen de portada..." />
-          <div id="coverPreview" class="cover-preview mt-2 d-none">
-            <img src="" alt="Portada" class="img-fluid w-100 rounded" />
-            <button type="button" id="btnRemoveCover"
-              class="btn btn-sm btn-light position-absolute top-0 end-0 m-2 shadow-sm"><i
-                class="fa-solid fa-times"></i></button>
-          </div>
-        </div>
-
-        <!-- Title & Subtitle -->
-        <div class="mb-3">
-          <input type="text" id="title" class="form-control-plaintext editor-title" placeholder="Título" required />
-        </div>
-        <div class="mb-5">
-          <input type="text" id="subtitle" class="form-control-plaintext editor-subtitle"
-            placeholder="Subtítulo (opcional)" />
-        </div>
-
-        <!-- Author & Meta (Hidden or Minimal) -->
-        <div class="row g-3 mb-4 d-none"> <!-- Hidden for now, maybe show in a settings modal or bottom -->
-          <div class="col-md-6">
-            <input type="text" id="author" class="form-control" placeholder="Autor" />
-          </div>
-          <div class="col-md-6">
-            <input type="text" id="tags" class="form-control" placeholder="Tags" />
-          </div>
-          <div class="col-12">
-            <textarea id="summary" class="form-control" rows="2" placeholder="Resumen para SEO/Cards"></textarea>
-          </div>
-        </div>
-
-        <!-- Dynamic Sections -->
-        <div id="sectionsContainer" class="sections-container">
-          <!-- Blocks will be injected here -->
-        </div>
-
-        <!-- Add Section Trigger -->
-        <div class="add-section-trigger mt-5 text-center">
-          <button type="button" id="btnAddSection" class="btn btn-primary rounded-pill shadow-sm px-4 py-2">
-            <i class="fa-solid fa-plus me-2"></i> Agregar nueva sección
-          </button>
-        </div>
-
-        <div id="statusArea" class="alert mt-5 d-none" role="alert"></div>
-      </form>
-    </div>
-  </main>
-
-  <!-- Share Modal -->
-  <div class="modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0 shadow-lg rounded-4">
-        <div class="modal-body p-5 text-center">
-          <div class="mb-4 text-success">
-            <i class="fa-regular fa-circle-check fa-4x"></i>
-          </div>
-          <h3 class="fw-bold mb-2">¡Post Publicado!</h3>
-          <p class="text-muted mb-4">Tu contenido está listo. ¿Dónde te gustaría compartirlo?</p>
-
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-dark p-3 text-start d-flex align-items-center gap-3 hover-scale">
-              <i class="fa-regular fa-envelope fa-xl"></i>
-              <div>
-                <div class="fw-bold">Newsletter</div>
-                <small class="text-muted">Enviar a suscriptores</small>
-              </div>
+          <div class="d-flex gap-2">
+            <button
+              id="btnGuardarDraft"
+              class="btn btn-outline-secondary btn-sm"
+            >
+              Guardar borrador
             </button>
+            <button
+              id="btnPublicar"
+              class="btn btn-success btn-sm rounded-pill px-3"
+            >
+              Publicar
+            </button>
+          </div>
+        </div>
 
-            <div class="row g-3">
-              <div class="col-6">
-                <button
-                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale">
-                  <i class="fa-brands fa-linkedin fa-2x"></i>
-                  <span class="small fw-bold">Empresa</span>
-                </button>
-              </div>
-              <div class="col-6">
-                <button
-                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale">
-                  <i class="fa-brands fa-linkedin-in fa-2x"></i>
-                  <span class="small fw-bold">Personal</span>
-                </button>
-              </div>
-              <div class="col-6">
-                <button
-                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
-                  style="--bs-btn-color: #1877F2; --bs-btn-border-color: #1877F2; --bs-btn-hover-bg: #1877F2; --bs-btn-hover-border-color: #1877F2;">
-                  <i class="fa-brands fa-facebook fa-2x"></i>
-                  <span class="small fw-bold">Empresa</span>
-                </button>
-              </div>
-              <div class="col-6">
-                <button
-                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
-                  style="--bs-btn-color: #1877F2; --bs-btn-border-color: #1877F2; --bs-btn-hover-bg: #1877F2; --bs-btn-hover-border-color: #1877F2;">
-                  <i class="fa-brands fa-facebook-f fa-2x"></i>
-                  <span class="small fw-bold">Personal</span>
-                </button>
-              </div>
+        <form id="postForm" class="editor-container">
+          <!-- Author Section -->
+          <div class="author-section d-flex align-items-center mb-4">
+            <img
+              src="https://ui-avatars.com/api/?name=Ronald+Bismar&background=random&size=128"
+              alt="Ronald Bismar"
+              class="author-avatar rounded-circle me-3"
+              width="48"
+              height="48"
+            />
+            <div class="author-info">
+              <h6 class="m-0 fw-bold text-dark">
+                Ronald Bismar Limachi Mamani
+              </h6>
+              <small class="text-muted"
+                >Software Developer &bull; <span id="currentDate"></span
+              ></small>
             </div>
           </div>
 
-          <div class="mt-4">
-            <button type="button" class="btn btn-link text-muted text-decoration-none" data-bs-dismiss="modal">Cerrar y
-              volver</button>
+          <!-- Cover Image -->
+          <div class="mb-4 position-relative group-hover">
+            <input
+              type="url"
+              id="coverImage"
+              class="form-control-plaintext text-muted"
+              placeholder="Pegar URL de imagen de portada..."
+            />
+            <div id="coverPreview" class="cover-preview mt-2 d-none">
+              <img src="" alt="Portada" class="img-fluid w-100 rounded" />
+              <button
+                type="button"
+                id="btnRemoveCover"
+                class="btn btn-sm btn-light position-absolute top-0 end-0 m-2 shadow-sm"
+              >
+                <i class="fa-solid fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Title & Subtitle -->
+          <div class="mb-3">
+            <textarea
+              id="title"
+              class="form-control-plaintext editor-title"
+              placeholder="Título"
+              rows="2"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-5">
+            <input
+              type="text"
+              id="subtitle"
+              class="form-control-plaintext editor-subtitle"
+              placeholder="Subtítulo (opcional)"
+            />
+          </div>
+
+          <!-- Author & Meta (Hidden or Minimal) -->
+          <div class="row g-3 mb-4 d-none">
+            <!-- Hidden for now, maybe show in a settings modal or bottom -->
+            <div class="col-md-6">
+              <input
+                type="text"
+                id="author"
+                class="form-control"
+                placeholder="Autor"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                id="tags"
+                class="form-control"
+                placeholder="Tags"
+              />
+            </div>
+            <div class="col-12">
+              <textarea
+                id="summary"
+                class="form-control"
+                rows="2"
+                placeholder="Resumen para SEO/Cards"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Dynamic Sections -->
+          <div id="sectionsContainer" class="sections-container">
+            <!-- Blocks will be injected here -->
+          </div>
+
+          <!-- Add Section Trigger -->
+          <div class="add-section-trigger mt-5 text-center">
+            <button
+              type="button"
+              id="btnAddSection"
+              class="btn btn-primary rounded-pill shadow-sm px-4 py-2"
+            >
+              <i class="fa-solid fa-plus me-2"></i> Agregar nueva sección
+            </button>
+          </div>
+
+          <div id="statusArea" class="alert mt-5 d-none" role="alert"></div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Share Modal -->
+    <div class="modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <div class="modal-body p-5 text-center">
+            <div class="mb-4 text-success">
+              <i class="fa-regular fa-circle-check fa-4x"></i>
+            </div>
+            <h3 class="fw-bold mb-2">¡Post Publicado!</h3>
+            <p class="text-muted mb-4">
+              Tu contenido está listo. ¿Dónde te gustaría compartirlo?
+            </p>
+
+            <div class="d-grid gap-3">
+              <button
+                class="btn btn-outline-dark p-3 text-start d-flex align-items-center gap-3 hover-scale"
+              >
+                <i class="fa-regular fa-envelope fa-xl"></i>
+                <div>
+                  <div class="fw-bold">Newsletter</div>
+                  <small class="text-muted">Enviar a suscriptores</small>
+                </div>
+              </button>
+
+              <div class="row g-3">
+                <div class="col-6">
+                  <button
+                    class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                  >
+                    <i class="fa-brands fa-linkedin fa-2x"></i>
+                    <span class="small fw-bold">Empresa</span>
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                  >
+                    <i class="fa-brands fa-linkedin-in fa-2x"></i>
+                    <span class="small fw-bold">Personal</span>
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                    style="
+                      --bs-btn-color: #1877f2;
+                      --bs-btn-border-color: #1877f2;
+                      --bs-btn-hover-bg: #1877f2;
+                      --bs-btn-hover-border-color: #1877f2;
+                    "
+                  >
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                    <span class="small fw-bold">Empresa</span>
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                    style="
+                      --bs-btn-color: #1877f2;
+                      --bs-btn-border-color: #1877f2;
+                      --bs-btn-hover-bg: #1877f2;
+                      --bs-btn-hover-border-color: #1877f2;
+                    "
+                  >
+                    <i class="fa-brands fa-facebook-f fa-2x"></i>
+                    <span class="small fw-bold">Personal</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button
+                type="button"
+                class="btn btn-link text-muted text-decoration-none"
+                data-bs-dismiss="modal"
+              >
+                Cerrar y volver
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="js/bootstrap.bundle.js"></script>
-  <script src="js/panel-post.js"></script>
-</body>
-
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/panel-post.js"></script>
+  </body>
 </html>

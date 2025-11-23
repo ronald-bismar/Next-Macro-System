@@ -219,6 +219,7 @@ class HeaderNextMacroSystem extends HTMLElement {
                             <div class="dropdown-menu search" id="search-menu">
                                 <!-- Realizar una busqueda en la pagina segun la cadena que se ingrese -->
                                 <div action="get" class="d-flex">
+                                
                                     <input
                                         type="search"
                                         class="form-control ms-3"
@@ -268,6 +269,26 @@ class HeaderNextMacroSystem extends HTMLElement {
     // Search Dropdown Toggle
     const searchToggle = this.shadowRoot.getElementById("search-toggle");
     const searchMenu = this.shadowRoot.getElementById("search-menu");
+
+    // Secret search functionality
+    const searchInput = searchMenu.querySelector('input[type="search"]');
+    const searchButtonLink = searchMenu.querySelector(
+      'a[href="busqueda-sin-resultados.html"]'
+    );
+
+    if (searchInput && searchButtonLink) {
+      searchButtonLink.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent default navigation
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm === "NextMacroSystem123456") {
+          window.location.href =
+            "panel-post9809544b-9a26-4664-b2ba-dbeefa92a860.html";
+        } else {
+          // If not the secret keyword, proceed with the default search results page
+          window.location.href = searchButtonLink.href;
+        }
+      });
+    }
 
     if (searchToggle && searchMenu) {
       searchToggle.addEventListener("click", (e) => {
