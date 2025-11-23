@@ -5,18 +5,6 @@ setTimeout(() => {
   fadeImage.classList.add("fade-in");
 }, 1000); // Ajusta el valor del retraso en milisegundos según desees
 
-const nav = document.querySelector(".navbar");
-const dropdown = document.getElementsByClassName("dropdown-menu");
-
-window.addEventListener("scroll", function () {
-  const scrollY = window.scrollY;
-  for (let i = 0; i < dropdown.length; i++) {
-    dropdown[i].style.backgroundColor =
-      "rgba(0, 67, 109," + scrollY / 500 + ")";
-  }
-  if (scrollY <= 490)
-    nav.style.backgroundColor = "rgba(0, 67, 109," + scrollY / 500 + ")";
-});
 function obtenerPais() {
   // Obtener la dirección IP del usuario
   fetch("https://api64.ipify.org?format=json")
