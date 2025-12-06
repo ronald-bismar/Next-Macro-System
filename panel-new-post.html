@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/estilos.css" />
   <link rel="stylesheet" href="css/animaciones.css" />
-  <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
   <link rel="stylesheet" href="css/panel-post.css" />
   <link rel="stylesheet" href="CSS/font-awesome.min.css" />
   <link rel="icon" href="img/logo.png" type="image/png" />
@@ -112,7 +111,8 @@
       <!-- Header Actions -->
       <div class="d-flex align-items-center justify-content-between mb-5 mt-4">
         <div class="d-flex align-items-center gap-2">
-          <a href="admin-posts.html" class="btn btn-link text-muted p-0 text-decoration-none">
+          <a href="panel-post-admin-9809544b-9a26-4664-b2ba-dbeefa92a860.html"
+            class="btn btn-link text-muted p-0 text-decoration-none">
             <i class="fa-solid fa-arrow-left"></i> Volver al panel
           </a>
           <span class="text-muted">|</span>
@@ -283,8 +283,8 @@
     // ============================================================================
     // CONFIGURATION
     // ============================================================================
-    const API_URL = "https://blog-nmsystem.vercel.app/blogs";
-    const ADMIN_PANEL_URL = "admin-posts.html";
+    const API_URL = "http://localhost:3000/blogs";
+    const ADMIN_PANEL_URL = "panel-post-admin-9809544b-9a26-4664-b2ba-dbeefa92a860.html";
 
     // ============================================================================
     // STATE MANAGEMENT
@@ -461,6 +461,9 @@
     // ============================================================================
     // SAVE DRAFT
     // ============================================================================
+    // ============================================================================
+    // SAVE DRAFT
+    // ============================================================================
     async function handleSaveDraft(e) {
       e.preventDefault();
 
@@ -469,7 +472,7 @@
       }
 
       const formData = captureFormData();
-      formData.isDraft = true;
+      formData.isDraft = true; // Borrador explícitamente
 
       try {
         disableButtons();
@@ -495,18 +498,22 @@
           });
         }
 
+        console.log('Response status:', response.status);
+
         if (!response.ok) {
-          throw new Error("Error al guardar el borrador");
+          const errorText = await response.text();
+          console.error('Error response:', errorText);
+          throw new Error(`Error ${response.status}: ${errorText}`);
         }
 
         const savedPost = await response.json();
+        console.log('Post saved:', savedPost);
 
         // Update state
         if (!isEditMode) {
           currentPostId = savedPost.id;
           isEditMode = true;
           updateModeIndicator();
-          // Update URL without reload
           window.history.replaceState({}, "", `?id=${currentPostId}`);
         }
 
@@ -518,7 +525,7 @@
 
       } catch (error) {
         console.error("Error saving draft:", error);
-        showStatusMessage("Error al guardar el borrador", "danger");
+        showStatusMessage(`Error al guardar: ${error.message}`, "danger");
       } finally {
         enableButtons();
       }
@@ -535,14 +542,17 @@
       }
 
       const formData = captureFormData();
-      formData.isDraft = false;
+      formData.isDraft = false; // Publicar = no es borrador
+
+      console.log('Publicando datos:', formData);
+      console.log('JSON:', JSON.stringify(formData));
 
       try {
         disableButtons();
 
         let response;
         if (isEditMode && currentPostId) {
-          // Update existing post
+          console.log(`Actualizando post ${currentPostId}`);
           response = await fetch(`${API_URL}/${currentPostId}`, {
             method: "PUT",
             headers: {
@@ -551,7 +561,7 @@
             body: JSON.stringify(formData),
           });
         } else {
-          // Create new post
+          console.log(`Creando nuevo post`);
           response = await fetch(API_URL, {
             method: "POST",
             headers: {
@@ -561,29 +571,30 @@
           });
         }
 
+        console.log('Response status:', response.status);
+
+        // Obtener más información sobre el error si falla
         if (!response.ok) {
-          throw new Error("Error al publicar el post");
+          const errorText = await response.text();
+          console.error('Error details:', errorText);
+          throw new Error(`Error ${response.status}: ${errorText || 'Bad Request'}`);
         }
+
+        console.log('Post publicado:', response);
 
         originalData = captureFormData();
         hasUnsavedChanges = false;
 
         showStatusMessage("Post publicado correctamente", "success");
 
-        // Show share modal
-        const shareModal = new bootstrap.Modal(document.getElementById("shareModal"));
-        shareModal.show();
-
-        // Optional: redirect after modal closes
-        document.getElementById("shareModal").addEventListener("hidden.bs.modal", () => {
-          setTimeout(() => {
-            window.location.href = ADMIN_PANEL_URL;
-          }, 1000);
-        });
+        // Redirigir después de 2 segundos
+        setTimeout(() => {
+          window.location.href = ADMIN_PANEL_URL;
+        }, 2000);
 
       } catch (error) {
         console.error("Error publishing post:", error);
-        showStatusMessage("Error al publicar el post", "danger");
+        showStatusMessage(`Error: ${error.message}`, "danger");
       } finally {
         enableButtons();
       }
@@ -607,24 +618,92 @@
     // ============================================================================
     // CAPTURE FORM DATA
     // ============================================================================
+    // ============================================================================
+    // CAPTURE FORM DATA
+    // ============================================================================
     function captureFormData() {
+      // Obtener las secciones desde panel-post.js (si existe la función)
+      // Si no existe, usar array vacío
+      const sectionData = window.getSectionsData ? window.getSectionsData() : [];
+
+      // Formatear fecha exactamente como la necesitas
+      const today = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const datePost = today.toLocaleDateString('es-ES', options);
+
+      // Calcular tiempo de lectura (basado en contenido)
+      let totalWords = 0;
+      sectionData.forEach(section => {
+        if (section.paragraph) {
+          totalWords += section.paragraph.split(/\s+/).length;
+        }
+      });
+      const timeRead = Math.max(1, Math.ceil(totalWords / 200)) + ' min';
+
+      // ESTA ES LA ESTRUCTURA EXACTA que necesita tu backend
       return {
         title: elements.title.value.trim(),
-        subtitle: elements.subtitle.value.trim(),
-        author: elements.author.value.trim() || "Ronald Bismar Limachi Mamani",
+        subtitle: elements.subtitle.value.trim() || "", // Puede estar vacío
+        datePost: datePost,
+        timeRead: timeRead,
         imagePost: elements.coverImage.value.trim(),
-        tags: elements.tags.value.trim(),
-        summary: elements.summary.value.trim(),
-        datePost: new Date().toLocaleDateString("es-ES", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        }),
-        timeRead: "5 min", // You can calculate this based on content
-        // Add sections data here - depends on your panel-post.js implementation
-        sections: [] // Populate with actual sections data
+        author: "Ronald Bismar Limachi Mamani", // Siempre este autor
+        isDraft: true, // Por defecto es borrador
+        section: sectionData // ¡IMPORTANTE: "section" singular, no "sections"!
       };
     }
+
+    // En tu panel-post.js, agrega esta función para obtener las secciones
+    function getSectionsData() {
+      const sections = [];
+
+      // Esto depende de cómo manejas las secciones en panel-post.js
+      // Aquí un ejemplo genérico - AJÚSTALO según tu implementación
+
+      // Si usas elementos con clase 'section-block'
+      const sectionElements = document.querySelectorAll('.section-block') ||
+        document.querySelectorAll('.section-item');
+
+      sectionElements.forEach((sectionEl, index) => {
+        // Buscar contenido del párrafo
+        const contentEl = sectionEl.querySelector('.section-content') ||
+          sectionEl.querySelector('.paragraph-content') ||
+          sectionEl.querySelector('textarea');
+
+        // Buscar URL de imagen
+        const imageEl = sectionEl.querySelector('.section-image') ||
+          sectionEl.querySelector('.image-url') ||
+          sectionEl.querySelector('input[type="url"]');
+
+        // Buscar subtítulo de sección
+        const subtitleEl = sectionEl.querySelector('.section-subtitle') ||
+          sectionEl.querySelector('input[type="text"]');
+
+        const section = {
+          order: index + 1,
+          paragraph: contentEl ? contentEl.value.trim() : "",
+          image: imageEl ? imageEl.value.trim() : "",
+          subtitle: subtitleEl ? subtitleEl.value.trim() : ""
+        };
+
+        sections.push(section);
+      });
+
+      // Si no hay secciones, devolver al menos una vacía
+      if (sections.length === 0) {
+        sections.push({
+          order: 1,
+          paragraph: "",
+          image: "",
+          subtitle: ""
+        });
+      }
+
+      return sections;
+    }
+
+    // Exponer la función globalmente
+    window.getSectionsData = getSectionsData;
 
     // ============================================================================
     // TRACK CHANGES
