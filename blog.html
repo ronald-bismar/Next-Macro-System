@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/estilos-sobre-nosotros.css" />
     <link rel="stylesheet" href="css/animaciones.css" />
-    <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
     <link
       rel="stylesheet"
       href="css/por-secciones/pie-de-pagina/pie-de-pagina.css"
@@ -25,168 +24,104 @@
       .card {
         height: 100%;
       }
+
       .card-body {
         display: flex;
         flex-direction: column;
       }
+
       .card-text {
         flex-grow: 1;
       }
     </style>
     <title>Noticias</title>
   </head>
+
   <body>
-    <header class="row">
-      <nav class="navbar navbar-expand-xl navbar-dark mb-5">
-        <!-- Logotipo -->
-        <a href="index.html" class="navbar-brand ms-5">
-          <img
-            src="img/logo_cabecera.png"
-            alt="logotipo"
-            class="img-fluid icon-computer"
-          />
-          <img
-            class="icon-letter img-fluid"
-            src="img/letras-logo.png"
-            alt="next macro system"
-          />
-        </a>
-        <button
-          class="navbar-toggler me-3"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#menu-principal"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Menu de navegacion -->
-        <div class="enlaces collapse navbar-collapse" id="menu-principal">
-          <ul class="navbar-nav m-auto">
-            <li class="nav-item ms-4">
-              <a href="index.html" class="nav-link px-0">Inicio</a>
-            </li>
-            <li class="nav-item ms-4">
-              <a href="sobrenosotros.html" class="nav-link px-0"
-                >Sobre nosotros</a
-              >
-            </li>
-            <li class="nav-item ms-4">
-              <a href="formulario.html" class="nav-link px-0">Contactos</a>
-            </li>
-            <li class="nav-item ms-4 dropdown">
-              <a
-                href="#productos"
-                class="nav-link dropdown-toggle px-0"
-                data-bs-toggle="dropdown"
-                >Soluciones</a
-              >
-              <ul class="dropdown-menu menu-desplegado">
-                <li>
-                  <a href="estimar-proyecto.html" class="dropdown-item"
-                    >Pagina Web de Servicios</a
-                  >
-                </li>
-                <li>
-                  <a href="estimar-proyecto.html" class="dropdown-item"
-                    >Pagina Web de Administracion</a
-                  >
-                </li>
-                <li>
-                  <a href="estimar-proyecto.html" class="dropdown-item"
-                    >Aplicaciones Moviles Nativas</a
-                  >
-                </li>
-                <li>
-                  <a href="estimar-proyecto.html" class="dropdown-item"
-                    >Aplicaciones Moviles Hibridas</a
-                  >
-                </li>
-                <li>
-                  <a href="estimar-proyecto.html" class="dropdown-item"
-                    >Programas de Escritorio</a
-                  >
-                </li>
-                <li>
-                  <a href="estimar-proyecto.html" class="dropdown-item"
-                    >Panel de Administracion</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item ms-4">
-              <a href="blog.html" class="nav-link px-0">Blog</a>
-            </li>
-            <li class="nav-item ms-4 dropdown btnbuscar">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle px-0"
-                data-bs-toggle="dropdown"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </a>
-              <div class="dropdown-menu search">
-                <div action="get" class="d-flex">
-                  <input
-                    type="search"
-                    class="form-control ms-3"
-                    placeholder="Buscar"
-                  />
-                  <a href="busqueda-sin-resultados.html">
-                    <button class="btn btn-light ms-1 me-3">Buscar</button>
-                  </a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main class="noticias row px-5">
-      <div class="noticia col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card h-100">
-          <img
-            src="images-post/database-sql-with-logo.png"
-            class="card-img-top img-fluid"
-            alt="Noticia 1"
-          />
-          <div class="card-body">
-            <h5 class="card-title">
-              ¿Qué son las bases de datos NoSQL y por qué incluso el creador de
-              SQL las apoya?
-            </h5>
-            <p class="card-text">
-              El creador de SQL, Donald Chamberlin, ha dado su respaldo a las
-              bases de datos NoSQL, una categoría diversa de bases de datos que
-              ha surgido en los últimos años y que se separa de su propia
-              creación exitosa.
-            </p>
-            <a href="noticia2.html" class="btn btn-primary mt-auto">Leer más</a>
-          </div>
-        </div>
-      </div>
-      <div class="noticia col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card h-100">
-          <img
-            src="images-post/code-llama.png"
-            class="card-img-top img-fluid"
-            alt="Noticia 2"
-          />
-          <div class="card-body">
-            <h5 class="card-title">
-              Meta ha lanzado Code Llama, un nuevo competidor para GitHub
-              Copilot en el ámbito de la programación.
-            </h5>
-            <p class="card-text">
-              La inteligencia artificial (IA) está transformando la manera en
-              que los programadores trabajan. De acuerdo con una encuesta de
-              GitHub realizada en EE. UU., el 92% de los desarrolladores en ese
-              país utilizan herramientas de codificación basadas en IA, y es
-              probable que esta tendencia se extienda globalmente.
-            </p>
-            <a href="noticia.html" class="btn btn-primary mt-auto">Leer más</a>
-          </div>
+    <header-next-macro-system
+      scroll-effect="false"
+      fixed="false"
+    ></header-next-macro-system>
+
+    <main class="noticias row px-5" id="blog-posts-container">
+      <!-- Posts will be loaded here dynamically -->
+      <div class="text-center w-100 mt-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Cargando...</span>
         </div>
       </div>
     </main>
+
+    <script src="components/header.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("blog-posts-container");
+        const apiUrl = "https://blog-nmsystem.vercel.app/blogs";
+
+        fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((posts) => {
+            container.innerHTML = ""; // Clear loading spinner
+
+            if (posts.length === 0) {
+              container.innerHTML =
+                '<p class="text-center">No hay publicaciones disponibles.</p>';
+              return;
+            }
+
+            posts.forEach((post) => {
+              const postElement = document.createElement("div");
+              postElement.className = "noticia col-12 col-md-6 col-lg-4 mb-4";
+
+              // Handle potential missing image
+              const imageSrc = post.imagePost || "img/logo.png";
+
+              postElement.innerHTML = `
+                <div class="card h-100">
+                  <img
+                    src="${imageSrc}"
+                    class="card-img-top img-fluid"
+                    alt="${post.title}"
+                    style="object-fit: cover; height: 200px;"
+                    onerror="this.onerror=null;this.src='img/logo.png';"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      ${post.title}
+                    </h5>
+                    <p class="card-text">
+                      ${
+                        post.subtitle
+                          ? post.subtitle.substring(0, 150) +
+                            (post.subtitle.length > 150 ? "..." : "")
+                          : ""
+                      }
+                    </p>
+                    <div class="mt-auto">
+                        <small class="text-muted d-block mb-2">${
+                          post.datePost
+                        } - ${post.timeRead}</small>
+                        <a href="noticia.html?id=${
+                          post.id
+                        }" class="btn btn-primary">Leer más</a>
+                    </div>
+                  </div>
+                </div>
+              `;
+              container.appendChild(postElement);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching posts:", error);
+            container.innerHTML =
+              '<div class="alert alert-danger text-center w-100" role="alert">Error al cargar las publicaciones. Por favor, intente más tarde.</div>';
+          });
+      });
+    </script>
   </body>
 </html>
