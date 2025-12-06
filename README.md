@@ -8,7 +8,7 @@ Next Macro System es una plataforma dedicada al desarrollo de páginas web y apl
 ## Tecnologías Utilizadas
 
 - **Frontend**: HTML, CSS (Bootstrap, Animations), JavaScript
-- **Frameworks y Librerías**: React.js, Bootstrap 5
+- **Frameworks y Librerías**: Bootstrap 5
 - **Otras Herramientas**: Font Awesome, WOW.js
 
 ## Características
