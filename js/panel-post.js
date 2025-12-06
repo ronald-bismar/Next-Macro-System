@@ -184,7 +184,7 @@ function createSection(data = {}) {
 }
 
 // Recolectar datos
-function collectPost() {
+function collectPost(isDraft = false) {
   const title = qs('#title').value.trim();
   const subtitle = qs('#subtitle').value.trim();
   const coverImage = qs('#coverImage').value.trim();
@@ -220,15 +220,9 @@ function collectPost() {
     timeRead: '6 min',
     imagePost: coverImage,
     section: sections,
-    author: 'Ronald Bismar Limachi Mamani'
+    author: 'Ronald Bismar Limachi Mamani',
+    isDraft: isDraft,
   };
-}
-
-// Guardar Borrador
-function saveDraft() {
-  const post = collectPost();
-  localStorage.setItem('compositeDraft', JSON.stringify(post));
-  showStatus('Borrador guardado');
 }
 
 // Cargar Borrador
@@ -287,7 +281,44 @@ function bindEvents() {
   // Add Section
   qs('#btnAddSection').addEventListener('click', () => createSection());
 
-  qs('#btnGuardarDraft').addEventListener('click', saveDraft);
+  qs('#btnGuardarDraft').addEventListener('click', async () => {
+    const post = collectPost(true);
+    console.log('Saving draft:', post);
+
+    // Validaciones básicas
+    if (!post.title) {
+      showStatus('El título es obligatorio', 'danger');
+      return;
+    }
+
+    const btn = qs('#btnGuardarDraft');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Guardando borrador...';
+
+    try {
+      const response = await fetch(`${API_BASE_URL}${API_POSTS_ENDPOINT}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post)
+      });
+
+      if (response.status === 204) {
+        showStatus('Borrador guardado');
+      } else {
+        showStatus('Error al guardar borrador. Intenta nuevamente.', 'danger');
+        console.error('Error status:', response.status);
+      }
+    } catch (error) {
+      console.error('Error publishing draft:', error);
+      showStatus('Error de conexión.', 'danger');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  });
 
   qs('#btnPublicar').addEventListener('click', async () => {
     const post = collectPost();

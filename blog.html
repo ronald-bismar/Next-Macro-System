@@ -1,87 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/animate.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/estilos.css" />
-    <link rel="stylesheet" href="css/estilos-sobre-nosotros.css" />
-    <link rel="stylesheet" href="css/animaciones.css" />
-    <link
-      rel="stylesheet"
-      href="css/por-secciones/pie-de-pagina/pie-de-pagina.css"
-    />
-    <link
-      rel="stylesheet"
-      href="css/por-secciones/pie-de-pagina/animacion.css"
-    />
-    <link rel="stylesheet" href="robotito/robotito-feliz.css" />
-    <link rel="stylesheet" href="CSS/font-awesome.min.css" />
-    <link rel="icon" href="img/logo.png" type="image/png" />
-    <script src="js/fontawesome.min.js"></script>
-    <style>
-      .card {
-        height: 100%;
-      }
 
-      .card-body {
-        display: flex;
-        flex-direction: column;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/estilos-sobre-nosotros.css" />
+  <link rel="stylesheet" href="css/animaciones.css" />
+  <link rel="stylesheet" href="css/por-secciones/pie-de-pagina/pie-de-pagina.css" />
+  <link rel="stylesheet" href="css/por-secciones/pie-de-pagina/animacion.css" />
+  <link rel="stylesheet" href="robotito/robotito-feliz.css" />
+  <link rel="stylesheet" href="CSS/font-awesome.min.css" />
+  <link rel="icon" href="img/logo.png" type="image/png" />
+  <script src="js/fontawesome.min.js"></script>
+  <style>
+    .card {
+      height: 100%;
+    }
 
-      .card-text {
-        flex-grow: 1;
-      }
-    </style>
-    <title>Noticias</title>
-  </head>
+    .card-body {
+      display: flex;
+      flex-direction: column;
+    }
 
-  <body>
-    <header-next-macro-system
-      scroll-effect="false"
-      fixed="false"
-    ></header-next-macro-system>
+    .card-text {
+      flex-grow: 1;
+    }
+  </style>
+  <title>Noticias</title>
+</head>
 
-    <main class="noticias row px-5" id="blog-posts-container">
-      <!-- Posts will be loaded here dynamically -->
-      <div class="text-center w-100 mt-5">
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Cargando...</span>
-        </div>
+<body>
+  <header-next-macro-system scroll-effect="false" fixed="false"></header-next-macro-system>
+
+  <main class="noticias row px-5" id="blog-posts-container">
+    <!-- Posts will be loaded here dynamically -->
+    <div class="text-center w-100 mt-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <script src="components/header.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const container = document.getElementById("blog-posts-container");
-        const apiUrl = "https://blog-nmsystem.vercel.app/blogs";
+  <script src="components/header.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("blog-posts-container");
+      const apiUrl = "https://blog-nmsystem.vercel.app/blogs?isDraft=false";
 
-        fetch(apiUrl)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then((posts) => {
-            container.innerHTML = ""; // Clear loading spinner
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((posts) => {
+          container.innerHTML = ""; // Clear loading spinner
 
-            if (posts.length === 0) {
-              container.innerHTML =
-                '<p class="text-center">No hay publicaciones disponibles.</p>';
-              return;
-            }
+          if (posts.length === 0) {
+            container.innerHTML =
+              '<p class="text-center">No hay publicaciones disponibles.</p>';
+            return;
+          }
 
-            posts.forEach((post) => {
-              const postElement = document.createElement("div");
-              postElement.className = "noticia col-12 col-md-6 col-lg-4 mb-4";
+          posts.forEach((post) => {
+            const postElement = document.createElement("div");
+            postElement.className = "noticia col-12 col-md-6 col-lg-4 mb-4";
 
-              // Handle potential missing image
-              const imageSrc = post.imagePost || "img/logo.png";
+            // Handle potential missing image
+            const imageSrc = post.imagePost || "img/logo.png";
 
-              postElement.innerHTML = `
+            postElement.innerHTML = `
                 <div class="card h-100">
                   <img
                     src="${imageSrc}"
@@ -95,33 +87,31 @@
                       ${post.title}
                     </h5>
                     <p class="card-text">
-                      ${
-                        post.subtitle
-                          ? post.subtitle.substring(0, 150) +
-                            (post.subtitle.length > 150 ? "..." : "")
-                          : ""
-                      }
+                      ${post.subtitle
+                ? post.subtitle.substring(0, 150) +
+                (post.subtitle.length > 150 ? "..." : "")
+                : ""
+              }
                     </p>
                     <div class="mt-auto">
-                        <small class="text-muted d-block mb-2">${
-                          post.datePost
-                        } - ${post.timeRead}</small>
-                        <a href="noticia.html?id=${
-                          post.id
-                        }" class="btn btn-primary">Leer más</a>
+                        <small class="text-muted d-block mb-2">${post.datePost
+              } - ${post.timeRead}</small>
+                        <a href="noticia.html?id=${post.id
+              }" class="btn btn-primary">Leer más</a>
                     </div>
                   </div>
                 </div>
               `;
-              container.appendChild(postElement);
-            });
-          })
-          .catch((error) => {
-            console.error("Error fetching posts:", error);
-            container.innerHTML =
-              '<div class="alert alert-danger text-center w-100" role="alert">Error al cargar las publicaciones. Por favor, intente más tarde.</div>';
+            container.appendChild(postElement);
           });
-      });
-    </script>
-  </body>
+        })
+        .catch((error) => {
+          console.error("Error fetching posts:", error);
+          container.innerHTML =
+            '<div class="alert alert-danger text-center w-100" role="alert">Error al cargar las publicaciones. Por favor, intente más tarde.</div>';
+        });
+    });
+  </script>
+</body>
+
 </html>

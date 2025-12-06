@@ -282,7 +282,7 @@ class HeaderNextMacroSystem extends HTMLElement {
         const searchTerm = searchInput.value.trim();
         if (searchTerm === "NextMacroSystem123456") {
           window.location.href =
-            "panel-post9809544b-9a26-4664-b2ba-dbeefa92a860.html";
+            "panel-post-admin-9809544b-9a26-4664-b2ba-dbeefa92a860.html";
         } else {
           // If not the secret keyword, proceed with the default search results page
           window.location.href = searchButtonLink.href;

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/animaciones.css" />
+  <link rel="stylesheet" href="css/por-secciones/navbar/animaciones.css" />
+  <link rel="stylesheet" href="css/panel-post.css" />
+  <link rel="stylesheet" href="CSS/font-awesome.min.css" />
+  <link rel="icon" href="img/logo.png" type="image/png" />
+  <script src="js/fontawesome.min.js"></script>
+  <title>Editor de Posts | Next Macro System</title>
+  <style>
+    /* Additional styles for loading states */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .loading-spinner {
+      text-align: center;
+    }
+
+    .loading-spinner .spinner-border {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    /* Edit mode indicator */
+    .edit-mode-badge {
+      background: #fff3cd;
+      color: #856404;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .create-mode-badge {
+      background: #d1f4e0;
+      color: #0d7d3f;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Status messages */
+    .status-message {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9998;
+      min-width: 300px;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Unsaved changes warning */
+    .unsaved-warning {
+      border-left: 4px solid #ffc107;
+      background: #fff3cd;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.25rem;
+    }
+  </style>
+</head>
+
+<body class="container-fluid bg-white">
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay d-none">
+    <div class="loading-spinner">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <p class="mt-3 text-muted">Cargando post...</p>
+    </div>
+  </div>
+
+  <main class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-8 col-xl-7 panel-wrapper">
+      <!-- Header Actions -->
+      <div class="d-flex align-items-center justify-content-between mb-5 mt-4">
+        <div class="d-flex align-items-center gap-2">
+          <a href="admin-posts.html" class="btn btn-link text-muted p-0 text-decoration-none">
+            <i class="fa-solid fa-arrow-left"></i> Volver al panel
+          </a>
+          <span class="text-muted">|</span>
+          <span id="modeIndicator" class="text-muted small">Borrador</span>
+        </div>
+        <div class="d-flex gap-2">
+          <button id="btnGuardarDraft" class="btn btn-outline-secondary btn-sm" disabled>
+            <i class="fa-solid fa-save me-1"></i>
+            Guardar borrador
+          </button>
+          <button id="btnPublicar" class="btn btn-success btn-sm rounded-pill px-3" disabled>
+            <i class="fa-solid fa-paper-plane me-1"></i>
+            Publicar
+          </button>
+        </div>
+      </div>
+
+      <!-- Unsaved changes warning (hidden by default) -->
+      <div id="unsavedWarning" class="unsaved-warning d-none">
+        <i class="fa-solid fa-exclamation-triangle me-2"></i>
+        Tienes cambios sin guardar
+      </div>
+
+      <form id="postForm" class="editor-container">
+        <!-- Author Section -->
+        <div class="author-section d-flex align-items-center mb-4">
+          <img src="https://ui-avatars.com/api/?name=Ronald+Bismar&background=random&size=128" alt="Ronald Bismar"
+            class="author-avatar rounded-circle me-3" width="48" height="48" />
+          <div class="author-info">
+            <h6 class="m-0 fw-bold text-dark">
+              Ronald Bismar Limachi Mamani
+            </h6>
+            <small class="text-muted">Software Developer &bull; <span id="currentDate"></span></small>
+          </div>
+        </div>
+
+        <!-- Cover Image -->
+        <div class="mb-4 position-relative group-hover">
+          <input type="url" id="coverImage" class="form-control-plaintext text-muted"
+            placeholder="Pegar URL de imagen de portada..." />
+          <div id="coverPreview" class="cover-preview mt-2 d-none">
+            <img src="" alt="Portada" class="img-fluid w-100 rounded" />
+            <button type="button" id="btnRemoveCover"
+              class="btn btn-sm btn-light position-absolute top-0 end-0 m-2 shadow-sm">
+              <i class="fa-solid fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Title & Subtitle -->
+        <div class="mb-3">
+          <textarea id="title" class="form-control-plaintext editor-title" placeholder="Título" rows="2"
+            required></textarea>
+        </div>
+        <div class="mb-5">
+          <input type="text" id="subtitle" class="form-control-plaintext editor-subtitle"
+            placeholder="Subtítulo (opcional)" />
+        </div>
+
+        <!-- Author & Meta (Hidden or Minimal) -->
+        <div class="row g-3 mb-4 d-none">
+          <div class="col-md-6">
+            <input type="text" id="author" class="form-control" placeholder="Autor" />
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="tags" class="form-control" placeholder="Tags" />
+          </div>
+          <div class="col-12">
+            <textarea id="summary" class="form-control" rows="2" placeholder="Resumen para SEO/Cards"></textarea>
+          </div>
+        </div>
+
+        <!-- Dynamic Sections -->
+        <div id="sectionsContainer" class="sections-container">
+          <!-- Blocks will be injected here -->
+        </div>
+
+        <!-- Add Section Trigger -->
+        <div class="add-section-trigger mt-5 text-center">
+          <button type="button" id="btnAddSection" class="btn btn-primary rounded-pill shadow-sm px-4 py-2">
+            <i class="fa-solid fa-plus me-2"></i> Agregar nueva sección
+          </button>
+        </div>
+
+        <div id="statusArea" class="alert mt-5 d-none" role="alert"></div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Share Modal -->
+  <div class="modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-body p-5 text-center">
+          <div class="mb-4 text-success">
+            <i class="fa-regular fa-circle-check fa-4x"></i>
+          </div>
+          <h3 class="fw-bold mb-2">¡Post Publicado!</h3>
+          <p class="text-muted mb-4">
+            Tu contenido está listo. ¿Dónde te gustaría compartirlo?
+          </p>
+
+          <div class="d-grid gap-3">
+            <button class="btn btn-outline-dark p-3 text-start d-flex align-items-center gap-3 hover-scale">
+              <i class="fa-regular fa-envelope fa-xl"></i>
+              <div>
+                <div class="fw-bold">Newsletter</div>
+                <small class="text-muted">Enviar a suscriptores</small>
+              </div>
+            </button>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale">
+                  <i class="fa-brands fa-linkedin fa-2x"></i>
+                  <span class="small fw-bold">Empresa</span>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale">
+                  <i class="fa-brands fa-linkedin-in fa-2x"></i>
+                  <span class="small fw-bold">Personal</span>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                  style="
+                      --bs-btn-color: #1877f2;
+                      --bs-btn-border-color: #1877f2;
+                      --bs-btn-hover-bg: #1877f2;
+                      --bs-btn-hover-border-color: #1877f2;
+                    ">
+                  <i class="fa-brands fa-facebook fa-2x"></i>
+                  <span class="small fw-bold">Empresa</span>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary w-100 p-3 d-flex flex-column align-items-center gap-2 hover-scale"
+                  style="
+                      --bs-btn-color: #1877f2;
+                      --bs-btn-border-color: #1877f2;
+                      --bs-btn-hover-bg: #1877f2;
+                      --bs-btn-hover-border-color: #1877f2;
+                    ">
+                  <i class="fa-brands fa-facebook-f fa-2x"></i>
+                  <span class="small fw-bold">Personal</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <button type="button" class="btn btn-link text-muted text-decoration-none" data-bs-dismiss="modal">
+              Cerrar y volver
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.js"></script>
+  <script>
+    // ============================================================================
+    // CONFIGURATION
+    // ============================================================================
+    const API_URL = "https://blog-nmsystem.vercel.app/blogs";
+    const ADMIN_PANEL_URL = "admin-posts.html";
+
+    // ============================================================================
+    // STATE MANAGEMENT
+    // ============================================================================
+    let currentPostId = null;
+    let isEditMode = false;
+    let hasUnsavedChanges = false;
+    let originalData = null;
+
+    // ============================================================================
+    // DOM ELEMENTS
+    // ============================================================================
+    const elements = {
+      loadingOverlay: document.getElementById("loadingOverlay"),
+      modeIndicator: document.getElementById("modeIndicator"),
+      unsavedWarning: document.getElementById("unsavedWarning"),
+      btnGuardarDraft: document.getElementById("btnGuardarDraft"),
+      btnPublicar: document.getElementById("btnPublicar"),
+      currentDate: document.getElementById("currentDate"),
+      coverImage: document.getElementById("coverImage"),
+      coverPreview: document.getElementById("coverPreview"),
+      btnRemoveCover: document.getElementById("btnRemoveCover"),
+      title: document.getElementById("title"),
+      subtitle: document.getElementById("subtitle"),
+      author: document.getElementById("author"),
+      tags: document.getElementById("tags"),
+      summary: document.getElementById("summary"),
+      sectionsContainer: document.getElementById("sectionsContainer"),
+      btnAddSection: document.getElementById("btnAddSection"),
+      statusArea: document.getElementById("statusArea"),
+      postForm: document.getElementById("postForm")
+    };
+
+    // ============================================================================
+    // INITIALIZATION
+    // ============================================================================
+    document.addEventListener("DOMContentLoaded", async () => {
+      initializeEditor();
+      setupEventListeners();
+      await checkEditMode();
+      setCurrentDate();
+    });
+
+    // ============================================================================
+    // EDIT MODE DETECTION
+    // ============================================================================
+    async function checkEditMode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      currentPostId = urlParams.get("id");
+
+      if (currentPostId) {
+        isEditMode = true;
+        await loadPostData(currentPostId);
+      } else {
+        isEditMode = false;
+        updateModeIndicator();
+        enableButtons();
+      }
+    }
+
+    // ============================================================================
+    // LOAD POST DATA
+    // ============================================================================
+    async function loadPostData(postId) {
+      try {
+        showLoading(true);
+
+        const response = await fetch(`${API_URL}/${postId}`);
+
+        if (!response.ok) {
+          throw new Error("No se pudo cargar el post");
+        }
+
+        const post = await response.json();
+        populateForm(post);
+        originalData = captureFormData();
+        updateModeIndicator();
+        enableButtons();
+
+      } catch (error) {
+        console.error("Error loading post:", error);
+        showStatusMessage("Error al cargar el post. Redirigiendo...", "danger");
+
+        setTimeout(() => {
+          window.location.href = ADMIN_PANEL_URL;
+        }, 2000);
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    // ============================================================================
+    // POPULATE FORM WITH POST DATA
+    // ============================================================================
+    function populateForm(post) {
+      // Basic fields
+      elements.title.value = post.title || "";
+      elements.subtitle.value = post.subtitle || "";
+      elements.author.value = post.author || "";
+      elements.tags.value = post.tags || "";
+      elements.summary.value = post.summary || "";
+
+      // Cover image
+      if (post.imagePost) {
+        elements.coverImage.value = post.imagePost;
+        showCoverPreview(post.imagePost);
+      }
+
+      // Sections - This depends on your panel-post.js implementation
+      // You'll need to populate sections based on your data structure
+      if (post.sections && Array.isArray(post.sections)) {
+        post.sections.forEach(section => {
+          // Call your addSection function from panel-post.js
+          // This is placeholder - adjust based on your actual implementation
+          if (window.addSection) {
+            window.addSection(section);
+          }
+        });
+      }
+
+      // Trigger auto-resize for textareas
+      autoResizeTextarea(elements.title);
+    }
+
+    // ============================================================================
+    // UPDATE MODE INDICATOR
+    // ============================================================================
+    function updateModeIndicator() {
+      if (isEditMode) {
+        elements.modeIndicator.innerHTML = `
+          <span class="edit-mode-badge">
+            <i class="fa-solid fa-edit"></i>
+            Editando
+          </span>
+        `;
+      } else {
+        elements.modeIndicator.innerHTML = `
+          <span class="create-mode-badge">
+            <i class="fa-solid fa-plus"></i>
+            Nuevo post
+          </span>
+        `;
+      }
+    }
+
+    // ============================================================================
+    // EVENT LISTENERS
+    // ============================================================================
+    function setupEventListeners() {
+      // Save draft button
+      elements.btnGuardarDraft.addEventListener("click", handleSaveDraft);
+
+      // Publish button
+      elements.btnPublicar.addEventListener("click", handlePublish);
+
+      // Cover image input
+      elements.coverImage.addEventListener("input", handleCoverImageInput);
+      elements.coverImage.addEventListener("blur", handleCoverImageBlur);
+
+      // Remove cover button
+      elements.btnRemoveCover.addEventListener("click", removeCoverImage);
+
+      // Track changes
+      elements.postForm.addEventListener("input", trackChanges);
+      elements.postForm.addEventListener("change", trackChanges);
+
+      // Warn before leaving with unsaved changes
+      window.addEventListener("beforeunload", handleBeforeUnload);
+
+      // Auto-resize textareas
+      elements.title.addEventListener("input", (e) => autoResizeTextarea(e.target));
+    }
+
+    // ============================================================================
+    // SAVE DRAFT
+    // ============================================================================
+    async function handleSaveDraft(e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      const formData = captureFormData();
+      formData.isDraft = true;
+
+      try {
+        disableButtons();
+
+        let response;
+        if (isEditMode && currentPostId) {
+          // Update existing post
+          response = await fetch(`${API_URL}/${currentPostId}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+        } else {
+          // Create new post
+          response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+        }
+
+        if (!response.ok) {
+          throw new Error("Error al guardar el borrador");
+        }
+
+        const savedPost = await response.json();
+
+        // Update state
+        if (!isEditMode) {
+          currentPostId = savedPost.id;
+          isEditMode = true;
+          updateModeIndicator();
+          // Update URL without reload
+          window.history.replaceState({}, "", `?id=${currentPostId}`);
+        }
+
+        originalData = captureFormData();
+        hasUnsavedChanges = false;
+        updateUnsavedWarning();
+
+        showStatusMessage("Borrador guardado correctamente", "success");
+
+      } catch (error) {
+        console.error("Error saving draft:", error);
+        showStatusMessage("Error al guardar el borrador", "danger");
+      } finally {
+        enableButtons();
+      }
+    }
+
+    // ============================================================================
+    // PUBLISH POST
+    // ============================================================================
+    async function handlePublish(e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      const formData = captureFormData();
+      formData.isDraft = false;
+
+      try {
+        disableButtons();
+
+        let response;
+        if (isEditMode && currentPostId) {
+          // Update existing post
+          response = await fetch(`${API_URL}/${currentPostId}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+        } else {
+          // Create new post
+          response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+        }
+
+        if (!response.ok) {
+          throw new Error("Error al publicar el post");
+        }
+
+        originalData = captureFormData();
+        hasUnsavedChanges = false;
+
+        showStatusMessage("Post publicado correctamente", "success");
+
+        // Show share modal
+        const shareModal = new bootstrap.Modal(document.getElementById("shareModal"));
+        shareModal.show();
+
+        // Optional: redirect after modal closes
+        document.getElementById("shareModal").addEventListener("hidden.bs.modal", () => {
+          setTimeout(() => {
+            window.location.href = ADMIN_PANEL_URL;
+          }, 1000);
+        });
+
+      } catch (error) {
+        console.error("Error publishing post:", error);
+        showStatusMessage("Error al publicar el post", "danger");
+      } finally {
+        enableButtons();
+      }
+    }
+
+    // ============================================================================
+    // FORM VALIDATION
+    // ============================================================================
+    function validateForm() {
+      const title = elements.title.value.trim();
+
+      if (!title) {
+        showStatusMessage("El título es obligatorio", "warning");
+        elements.title.focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    // ============================================================================
+    // CAPTURE FORM DATA
+    // ============================================================================
+    function captureFormData() {
+      return {
+        title: elements.title.value.trim(),
+        subtitle: elements.subtitle.value.trim(),
+        author: elements.author.value.trim() || "Ronald Bismar Limachi Mamani",
+        imagePost: elements.coverImage.value.trim(),
+        tags: elements.tags.value.trim(),
+        summary: elements.summary.value.trim(),
+        datePost: new Date().toLocaleDateString("es-ES", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }),
+        timeRead: "5 min", // You can calculate this based on content
+        // Add sections data here - depends on your panel-post.js implementation
+        sections: [] // Populate with actual sections data
+      };
+    }
+
+    // ============================================================================
+    // TRACK CHANGES
+    // ============================================================================
+    function trackChanges() {
+      if (!originalData) {
+        hasUnsavedChanges = false;
+        return;
+      }
+
+      const currentData = captureFormData();
+      hasUnsavedChanges = JSON.stringify(currentData) !== JSON.stringify(originalData);
+      updateUnsavedWarning();
+    }
+
+    function updateUnsavedWarning() {
+      if (hasUnsavedChanges) {
+        elements.unsavedWarning.classList.remove("d-none");
+      } else {
+        elements.unsavedWarning.classList.add("d-none");
+      }
+    }
+
+    function handleBeforeUnload(e) {
+      if (hasUnsavedChanges) {
+        e.preventDefault();
+        e.returnValue = "";
+        return "";
+      }
+    }
+
+    // ============================================================================
+    // COVER IMAGE HANDLING
+    // ============================================================================
+    function handleCoverImageInput(e) {
+      const url = e.target.value.trim();
+      if (url && isValidUrl(url)) {
+        showCoverPreview(url);
+      }
+    }
+
+    function handleCoverImageBlur(e) {
+      const url = e.target.value.trim();
+      if (url && isValidUrl(url)) {
+        showCoverPreview(url);
+      } else if (url) {
+        showStatusMessage("URL de imagen inválida", "warning");
+        removeCoverImage();
+      }
+    }
+
+    function showCoverPreview(url) {
+      const img = elements.coverPreview.querySelector("img");
+      img.src = url;
+      img.onerror = () => {
+        showStatusMessage("No se pudo cargar la imagen", "warning");
+        removeCoverImage();
+      };
+      elements.coverPreview.classList.remove("d-none");
+    }
+
+    function removeCoverImage() {
+      elements.coverImage.value = "";
+      elements.coverPreview.classList.add("d-none");
+      elements.coverPreview.querySelector("img").src = "";
+    }
+
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    // ============================================================================
+    // UI UTILITIES
+    // ============================================================================
+    function showLoading(show) {
+      if (show) {
+        elements.loadingOverlay.classList.remove("d-none");
+      } else {
+        elements.loadingOverlay.classList.add("d-none");
+      }
+    }
+
+    function enableButtons() {
+      elements.btnGuardarDraft.disabled = false;
+      elements.btnPublicar.disabled = false;
+    }
+
+    function disableButtons() {
+      elements.btnGuardarDraft.disabled = true;
+      elements.btnPublicar.disabled = true;
+    }
+
+    function showStatusMessage(message, type = "info") {
+      const statusDiv = document.createElement("div");
+      statusDiv.className = `alert alert-${type} alert-dismissible fade show status-message`;
+      statusDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+
+      document.body.appendChild(statusDiv);
+
+      setTimeout(() => {
+        statusDiv.remove();
+      }, 5000);
+    }
+
+    function setCurrentDate() {
+      const now = new Date();
+      const formatted = now.toLocaleDateString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+      elements.currentDate.textContent = formatted;
+    }
+
+    function autoResizeTextarea(textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    }
+
+    function initializeEditor() {
+      // Initialize your editor here
+      // This depends on your panel-post.js implementation
+      // Load any necessary libraries or setup
+    }
+
+    // ============================================================================
+    // EXPOSE FUNCTIONS FOR panel-post.js
+    // ============================================================================
+    window.editorAPI = {
+      captureFormData,
+      showStatusMessage,
+      trackChanges
+    };
+  </script>
+
+  <!-- Include your existing panel-post.js for sections management -->
+  <script src="js/panel-post.js"></script>
+</body>
+
+</html>

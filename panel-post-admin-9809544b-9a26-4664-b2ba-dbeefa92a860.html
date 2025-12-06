@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="CSS/font-awesome.min.css" />
+  <link rel="icon" href="img/logo.png" type="image/png" />
+  <script src="js/fontawesome.min.js"></script>
+  <title>Panel Admin - Posts | Next Macro System</title>
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --success-color: #198754;
+      --danger-color: #dc3545;
+      --warning-color: #ffc107;
+      --light-bg: #f8f9fa;
+      --border-color: #dee2e6;
+      --text-muted: #6c757d;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Header Styles */
+    .admin-header {
+      background: white;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 0;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .admin-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #212529;
+      margin: 0;
+    }
+
+    /* Tabs Navigation */
+    .custom-tabs {
+      background: white;
+      border-radius: 12px;
+      padding: 0.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .custom-tabs .nav-link {
+      border: none;
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .custom-tabs .nav-link:hover {
+      background-color: var(--light-bg);
+      color: #212529;
+    }
+
+    .custom-tabs .nav-link.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .custom-tabs .badge {
+      margin-left: 0.5rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+    }
+
+    /* Post Card Styles */
+    .post-card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .post-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: var(--light-bg);
+    }
+
+    .post-card-body {
+      padding: 1.5rem;
+    }
+
+    .post-card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .post-card-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .post-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .post-card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .post-card-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .post-card-actions .btn {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .status-published {
+      background-color: #d1f4e0;
+      color: #0d7d3f;
+    }
+
+    .status-draft {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: white;
+      border-radius: 12px;
+      border: 2px dashed var(--border-color);
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      color: var(--text-muted);
+      opacity: 0.5;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state h3 {
+      color: #212529;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Loading Spinner */
+    .loading-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+    }
+
+    /* Create Button */
+    .btn-create-post {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .btn-create-post:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(13, 110, 253, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .post-card-image {
+        height: 150px;
+      }
+
+      .admin-title {
+        font-size: 1.5rem;
+      }
+
+      .btn-create-post {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    /* Search Bar */
+    .search-bar {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-bar input {
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .search-bar input:focus {
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+      border-color: var(--primary-color);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h1 class="admin-title">Panel de Administración</h1>
+          <p class="text-muted mb-0">Gestiona tus publicaciones</p>
+        </div>
+        <a href="index.html" class="btn btn-outline-secondary">
+          <i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container pb-5">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">
+              <i class="fa-solid fa-search text-muted"></i>
+            </span>
+            <input type="text" id="searchInput" class="form-control border-start-0"
+              placeholder="Buscar por título o subtítulo...">
+          </div>
+        </div>
+        <div class="col-md-6 text-end mt-3 mt-md-0">
+          <span class="text-muted small">
+            <span id="totalPosts">0</span> publicaciones en total
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <ul class="nav nav-pills custom-tabs" id="postTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="published-tab" data-bs-toggle="pill" data-bs-target="#published"
+          type="button" role="tab">
+          <i class="fa-solid fa-check-circle me-2"></i>Publicados
+          <span class="badge bg-success" id="publishedCount">0</span>
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="drafts-tab" data-bs-toggle="pill" data-bs-target="#drafts" type="button"
+          role="tab">
+          <i class="fa-solid fa-edit me-2"></i>Borradores
+          <span class="badge bg-warning text-dark" id="draftsCount">0</span>
+        </button>
+      </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="postTabsContent">
+      <!-- Published Posts -->
+      <div class="tab-pane fade show active" id="published" role="tabpanel">
+        <div id="publishedPostsContainer">
+          <div class="loading-container">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Cargando...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Draft Posts -->
+      <div class="tab-pane fade" id="drafts" role="tabpanel">
+        <div id="draftsPostsContainer">
+          <div class="loading-container">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Cargando...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Create Button -->
+  <button class="btn btn-primary btn-create-post" id="btnCreatePost" title="Crear nuevo post">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold">
+            <i class="fa-solid fa-exclamation-triangle text-danger me-2"></i>
+            Confirmar eliminación
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-0">¿Estás seguro de que deseas eliminar este post? Esta acción no se puede deshacer.</p>
+          <p class="text-muted small mt-2 mb-0" id="deletePostTitle"></p>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmDelete">
+            <i class="fa-solid fa-trash me-2"></i>Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.js"></script>
+  <script>
+    // Configuration
+    const API_URL = "https://blog-nmsystem.vercel.app/blogs";
+    const EDIT_PAGE = "panel-new-post.html";
+
+    // State management
+    let allPosts = [];
+    let currentDeleteId = null;
+
+    // DOM Elements
+    const publishedContainer = document.getElementById("publishedPostsContainer");
+    const draftsContainer = document.getElementById("draftsPostsContainer");
+    const publishedCount = document.getElementById("publishedCount");
+    const draftsCount = document.getElementById("draftsCount");
+    const totalPosts = document.getElementById("totalPosts");
+    const searchInput = document.getElementById("searchInput");
+    const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", () => {
+      loadPosts();
+      setupEventListeners();
+    });
+
+    // Setup event listeners
+    function setupEventListeners() {
+      document.getElementById("btnCreatePost").addEventListener("click", () => {
+        window.location.href = EDIT_PAGE;
+      });
+
+      document.getElementById("confirmDelete").addEventListener("click", handleDelete);
+
+      searchInput.addEventListener("input", debounce(handleSearch, 300));
+    }
+
+    // Load posts from API
+    async function loadPosts() {
+      try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+          throw new Error("Error al cargar los posts");
+        }
+
+        allPosts = await response.json();
+        renderPosts();
+        updateCounts();
+      } catch (error) {
+        console.error("Error loading posts:", error);
+        showError(publishedContainer, "Error al cargar las publicaciones");
+        showError(draftsContainer, "Error al cargar los borradores");
+      }
+    }
+
+    // Render posts in their respective containers
+    function renderPosts(filteredPosts = null) {
+      const postsToRender = filteredPosts || allPosts;
+
+      const published = postsToRender.filter(post => !post.isDraft);
+      const drafts = postsToRender.filter(post => post.isDraft);
+
+      renderPostList(published, publishedContainer, false);
+      renderPostList(drafts, draftsContainer, true);
+    }
+
+    // Render a list of posts
+    function renderPostList(posts, container, isDraft) {
+      if (posts.length === 0) {
+        container.innerHTML = createEmptyState(isDraft);
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="row">
+          ${posts.map(post => createPostCard(post, isDraft)).join("")}
+        </div>
+      `;
+
+      // Attach event listeners to cards
+      posts.forEach(post => {
+        attachCardEventListeners(post.id, isDraft);
+      });
+    }
+
+    // Create post card HTML
+    function createPostCard(post, isDraft) {
+      const imageSrc = post.imagePost || "img/logo.png";
+      const statusClass = isDraft ? "status-draft" : "status-published";
+      const statusText = isDraft ? "Borrador" : "Publicado";
+      const statusIcon = isDraft ? "fa-edit" : "fa-check-circle";
+
+      return `
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="post-card">
+            <img src="${imageSrc}" 
+              alt="${escapeHtml(post.title)}" 
+              class="post-card-image"
+              onerror="this.onerror=null;this.src='img/logo.png';">
+            
+            <div class="post-card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="status-badge ${statusClass}">
+                  <i class="fa-solid ${statusIcon}"></i>
+                  ${statusText}
+                </span>
+              </div>
+
+              <h3 class="post-card-title">${escapeHtml(post.title)}</h3>
+              
+              ${post.subtitle ? `
+                <p class="post-card-subtitle">${escapeHtml(post.subtitle)}</p>
+              ` : ''}
+
+              <div class="post-card-meta">
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  ${post.datePost || 'Sin fecha'}
+                </span>
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  ${post.timeRead || 'N/A'}
+                </span>
+              </div>
+
+              <div class="post-card-actions">
+                ${isDraft ? `
+                  <button class="btn btn-primary flex-fill btn-continue" data-id="${post.id}">
+                    <i class="fa-solid fa-edit me-1"></i>
+                    Continuar editando
+                  </button>
+                ` : `
+                  <button class="btn btn-outline-primary btn-edit" data-id="${post.id}">
+                    <i class="fa-solid fa-edit me-1"></i>
+                    Editar
+                  </button>
+                  <button class="btn btn-outline-secondary btn-view" data-id="${post.id}">
+                    <i class="fa-solid fa-eye me-1"></i>
+                    Ver
+                  </button>
+                `}
+                <button class="btn btn-outline-danger btn-delete" data-id="${post.id}" data-title="${escapeHtml(post.title)}">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Attach event listeners to card buttons
+    function attachCardEventListeners(postId, isDraft) {
+      const editBtn = document.querySelector(`.btn-edit[data-id="${postId}"]`);
+      const continueBtn = document.querySelector(`.btn-continue[data-id="${postId}"]`);
+      const viewBtn = document.querySelector(`.btn-view[data-id="${postId}"]`);
+      const deleteBtn = document.querySelector(`.btn-delete[data-id="${postId}"]`);
+
+      if (editBtn) {
+        editBtn.addEventListener("click", () => editPost(postId));
+      }
+
+      if (continueBtn) {
+        continueBtn.addEventListener("click", () => editPost(postId));
+      }
+
+      if (viewBtn) {
+        viewBtn.addEventListener("click", () => viewPost(postId));
+      }
+
+      if (deleteBtn) {
+        deleteBtn.addEventListener("click", (e) => {
+          const title = e.currentTarget.dataset.title;
+          showDeleteModal(postId, title);
+        });
+      }
+    }
+
+    // Edit post
+    function editPost(postId) {
+      window.location.href = `${EDIT_PAGE}?id=${postId}`;
+    }
+
+    // View post
+    function viewPost(postId) {
+      window.location.href = `noticia.html?id=${postId}`;
+    }
+
+    // Show delete modal
+    function showDeleteModal(postId, title) {
+      currentDeleteId = postId;
+      document.getElementById("deletePostTitle").textContent = `"${title}"`;
+      deleteModal.show();
+    }
+
+    // Handle delete
+    async function handleDelete() {
+      if (!currentDeleteId) return;
+
+      try {
+        const response = await fetch(`${API_URL}/${currentDeleteId}`, {
+          method: "DELETE",
+        });
+
+        if (!response.ok) {
+          throw new Error("Error al eliminar el post");
+        }
+
+        // Remove from local state
+        allPosts = allPosts.filter(post => post.id !== currentDeleteId);
+
+        // Re-render
+        renderPosts();
+        updateCounts();
+
+        // Close modal
+        deleteModal.hide();
+        currentDeleteId = null;
+
+        // Show success message (optional)
+        showToast("Post eliminado correctamente", "success");
+      } catch (error) {
+        console.error("Error deleting post:", error);
+        showToast("Error al eliminar el post", "danger");
+      }
+    }
+
+    // Handle search
+    function handleSearch(e) {
+      const searchTerm = e.target.value.toLowerCase().trim();
+
+      if (!searchTerm) {
+        renderPosts();
+        return;
+      }
+
+      const filtered = allPosts.filter(post => {
+        const title = post.title?.toLowerCase() || "";
+        const subtitle = post.subtitle?.toLowerCase() || "";
+        return title.includes(searchTerm) || subtitle.includes(searchTerm);
+      });
+
+      renderPosts(filtered);
+    }
+
+    // Update counts
+    function updateCounts() {
+      const published = allPosts.filter(post => !post.isDraft).length;
+      const drafts = allPosts.filter(post => post.isDraft).length;
+
+      publishedCount.textContent = published;
+      draftsCount.textContent = drafts;
+      totalPosts.textContent = allPosts.length;
+    }
+
+    // Create empty state HTML
+    function createEmptyState(isDraft) {
+      return `
+        <div class="empty-state">
+          <i class="fa-${isDraft ? 'regular' : 'solid'} fa-${isDraft ? 'file' : 'newspaper'}"></i>
+          <h3>${isDraft ? 'No hay borradores' : 'No hay publicaciones'}</h3>
+          <p>${isDraft
+          ? 'Crea un nuevo post para comenzar a escribir.'
+          : 'Publica tu primer post para que aparezca aquí.'}</p>
+          <button class="btn btn-primary" onclick="window.location.href='${EDIT_PAGE}'">
+            <i class="fa-solid fa-plus me-2"></i>
+            Crear nuevo post
+          </button>
+        </div>
+      `;
+    }
+
+    // Show error message
+    function showError(container, message) {
+      container.innerHTML = `
+        <div class="alert alert-danger text-center" role="alert">
+          <i class="fa-solid fa-exclamation-triangle me-2"></i>
+          ${message}
+        </div>
+      `;
+    }
+
+    // Show toast notification (simple version)
+    function showToast(message, type = "success") {
+      const toast = document.createElement("div");
+      toast.className = `alert alert-${type} position-fixed top-0 start-50 translate-middle-x mt-3`;
+      toast.style.zIndex = "9999";
+      toast.textContent = message;
+
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
+
+    // Utility: Escape HTML
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Utility: Debounce
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+  </script>
+</body>
+
+</html>
