@@ -333,6 +333,7 @@ async function guardarBorrador() {
   btnGuardarDraft.textContent = "Guardando borrador...";
 
   try {
+    const isEdit = isEditMode && currentPostId;
     if (isEdit) {
       response = await fetch(
         `${API_BASE_URL}${API_POSTS_ENDPOINT}/${currentPostId}`,
