@@ -34,13 +34,6 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     }
 
-    .admin-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #212529;
-      margin: 0;
-    }
-
     /* Tabs Navigation */
     .custom-tabs {
       background: white;
@@ -236,10 +229,6 @@
         height: 150px;
       }
 
-      .admin-title {
-        font-size: 1.5rem;
-      }
-
       .btn-create-post {
         bottom: 1rem;
         right: 1rem;
@@ -270,12 +259,11 @@
 </head>
 
 <body>
-  <!-- Header -->
+  <header-next-macro-system scroll-effect="false" fixed="false"></header-next-macro-system>
   <header class="admin-header">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
         <div>
-          <h1 class="admin-title">Panel de Administración</h1>
           <p class="text-muted mb-0">Gestiona tus publicaciones</p>
         </div>
         <a href="index.html" class="btn btn-outline-secondary">
@@ -581,6 +569,9 @@
       if (!currentDeleteId) return;
 
       try {
+
+        console.log(`Borrando ${API_URL}/${currentDeleteId}`)
+
         const response = await fetch(`${API_URL}/${currentDeleteId}`, {
           method: "DELETE",
         });
@@ -588,6 +579,7 @@
         if (!response.ok) {
           throw new Error("Error al eliminar el post");
         }
+
 
         // Remove from local state
         allPosts = allPosts.filter(post => post.id !== currentDeleteId);
@@ -697,6 +689,8 @@
       };
     }
   </script>
+
+  <script src="components/header.js"></script>
 </body>
 
 </html>
